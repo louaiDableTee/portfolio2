@@ -110,6 +110,16 @@ function seoFiles(): Plugin {
         fileName: 'robots.txt',
         source: `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`,
       });
+
+      // Printed into the Vercel build log so a deployment can be diagnosed from
+      // the log alone: which domain got baked in, and how many pages were built.
+      console.log(`\n[portfolio] SITE_URL = ${SITE_URL}`);
+      console.log(`[portfolio] ${urls.length} pages emitted: ${urls.join(' ')}`);
+      if (!process.env.SITE_URL) {
+        console.log('[portfolio] WARNING: SITE_URL is not set. Canonical tags, Open Graph URLs');
+        console.log('[portfolio]          and sitemap.xml are using the placeholder domain.');
+      }
+      console.log('');
     },
   };
 }
