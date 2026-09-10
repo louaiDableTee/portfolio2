@@ -6,10 +6,16 @@ import { fileURLToPath } from 'node:url';
 const root = dirname(fileURLToPath(import.meta.url));
 
 /**
- * TODO(Louai): replace with your real domain once the Vercel project is named,
- * or set SITE_URL in the Vercel dashboard. Used for canonicals, OG and sitemap.
+ * Canonical origin for canonical tags, Open Graph URLs and sitemap.xml.
+ *
+ * Defaults to the live Vercel domain. When you buy a custom domain, set
+ * SITE_URL in the Vercel dashboard (Settings, Environment Variables) rather
+ * than editing this line, and redeploy.
  */
-const SITE_URL = (process.env.SITE_URL ?? 'https://louaibouraoui.vercel.app').replace(/\/$/, '');
+const SITE_URL = (process.env.SITE_URL ?? 'https://portfolio2-med-louai-bouraoui.vercel.app').replace(
+  /\/$/,
+  '',
+);
 
 /** Every real URL on the site. Add a page here and in PAGES below. */
 export const PAGES = [
@@ -116,8 +122,7 @@ function seoFiles(): Plugin {
       console.log(`\n[portfolio] SITE_URL = ${SITE_URL}`);
       console.log(`[portfolio] ${urls.length} pages emitted: ${urls.join(' ')}`);
       if (!process.env.SITE_URL) {
-        console.log('[portfolio] WARNING: SITE_URL is not set. Canonical tags, Open Graph URLs');
-        console.log('[portfolio]          and sitemap.xml are using the placeholder domain.');
+        console.log('[portfolio] (SITE_URL env var not set, using the built-in default above)');
       }
       console.log('');
     },
