@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--@include partials/head.html-->
+  <title>Technical &amp; on-page SEO | Worku case study</title>
+  <meta name="description" content="Worku returned 403 to Googlebot with no robots.txt or sitemap. How I restored crawl access, redirected 13 routes and got a 14-page sitemap accepted." />
+  <meta property="og:title" content="Technical &amp; on-page SEO | Worku case study" />
+  <meta property="og:description" content="Crawl access, robots, sitemap, redirects and structured data on a B2B SaaS site." />
+</head>
+<body id="top">
+
+<!--@include partials/nav.html-->
+
+<main id="main">
+
+  <header class="page-hero grid-bg">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/worku/">Worku</a></li>
+          <li aria-current="page">SEO</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Found &middot; Technical and on-page SEO</p>
+      <h1>Google could not <span class="blue-italics">read the site.</span></h1>
+
+      <div class="beats">
+        <div class="beat">
+          <b>The skill</b>
+          <p>Make a site crawlable, then make each page answer one search intent.</p>
+        </div>
+        <div class="beat beat--problem">
+          <b>The problem</b>
+          <p>A manual Googlebot fetch returned 403 through Cloudflare. robots.txt and the sitemap both returned 404. No structured data. Old applicant-tracking routes were still known to Google.</p>
+        </div>
+        <div class="beat beat--proof">
+          <b>The proof</b>
+          <p>A sitemap accepted with 14 pages, 13 old routes redirected, and JSON-LD validating with zero errors.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="teaser" aria-labelledby="fixes-h">
+    <div class="wrap">
+      <p class="eyebrow">Order of operations</p>
+      <h2 id="fixes-h">Foundations first, <span class="blue-italics">words second.</span></h2>
+      <p class="teaser__line">There is no point optimising a title tag on a page Google cannot fetch.</p>
+
+      <ol class="method-list">
+        <li><b>Restored crawl access.</b> Diagnosed the 403 returned to Googlebot and got the block on crawling removed.</li>
+        <li><b>Corrected robots.txt.</b> It was returning 404. It now exists and is structured.</li>
+        <li><b>Submitted a sitemap.</b> Accepted by Search Console with 14 pages found.</li>
+        <li><b>Handled 13 old routes.</b> Legacy applicant-tracking URLs now redirect instead of dead-ending.</li>
+        <li><b>Rewrote titles and H1s.</b> One search intent per page, no page competing with another.</li>
+        <li><b>Strengthened internal linking.</b> Connected the homepage to the recruiter and sales pages deliberately.</li>
+      </ol>
+
+      <div class="figures">
+        <p class="figure"><b>16</b><span>public pages audited</span></p>
+        <p class="figure"><b>14</b><span>pages accepted in the sitemap</span></p>
+        <p class="figure"><b>13</b><span>legacy routes redirected</span></p>
+        <p class="figure"><b>0</b><span>JSON-LD errors on validation</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="teaser grid-bg" aria-labelledby="evidence-h">
+    <div class="wrap">
+      <p class="eyebrow">Evidence</p>
+      <h2 id="evidence-h">Before and after, <span class="blue-italics">captured.</span></h2>
+
+      <div class="proof-grid">
+        <proof-shot pending src="/assets/worku/seo-googlebot-403.png"
+          chrome="worku.tn"
+          alt="Manual Googlebot fetch test on worku.tn returning HTTP 403"
+          caption="Manual Googlebot user-agent fetch on worku.tn returning 403. This was a manual test showing a risk to crawl access, not a proven permanent block."></proof-shot>
+
+        <proof-shot pending src="/assets/worku/seo-robots-404.png"
+          chrome="worku.tn/robots.txt"
+          alt="worku.tn robots.txt returning a 404 not found page"
+          caption="worku.tn/robots.txt returning 404 before the fix. The sitemap URL returned 404 in the same state."></proof-shot>
+
+        <proof-shot
+          src="/images/gsc-sitemaps-success.png" width="1413" height="767"
+          chrome="search.google.com/search-console"
+          alt="Google Search Console sitemaps view for worku.tn showing sitemap.xml with status Success and 14 discovered pages"
+          caption="Google Search Console, Sitemaps. sitemap.xml submitted 14 June 2026, status Success, 14 pages discovered, last read 30 August 2026."></proof-shot>
+
+        <proof-shot pending src="/assets/worku/seo-titles-before-after.png"
+          alt="Comparison of Worku meta titles and H1 headings before and after the rewrite"
+          caption="Meta titles and H1s before and after. Each page rewritten to target a single search intent."></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <section class="teaser" aria-labelledby="keywords-h">
+    <div class="wrap">
+      <p class="eyebrow">Method</p>
+      <h2 id="keywords-h">How I chose <span class="blue-italics">the words.</span></h2>
+      <p class="teaser__line">
+        I start from what a page is for, who lands on it and what they need. Then I cross six sources.
+      </p>
+
+      <ol class="method-list">
+        <li><b>Real product features.</b> What the tool actually does, in the words the product uses.</li>
+        <li><b>Customer vocabulary.</b> How recruiters and sales teams describe the problem themselves.</li>
+        <li><b>Search Console queries.</b> What people already reach the site with.</li>
+        <li><b>Manual analysis of Google results.</b> Reading the actual page one for each target query.</li>
+        <li><b>Existing site content.</b> What the site already ranks for and already says.</li>
+        <li><b>Competitors.</b> How comparable sourcing tools frame the same need.</li>
+      </ol>
+
+      <div class="limits">
+        <p class="eyebrow">A deliberate choice</p>
+        <h3>Qualitative, not volume-driven</h3>
+        <ul>
+          <li>
+            <strong>I used no unverified search volumes.</strong> For a young B2B product in a small
+            market, volume estimates are thin and often wrong. Page intent and customer vocabulary
+            were the more honest inputs.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="structured-data" class="teaser grid-bg" aria-labelledby="sd-h">
+    <div class="wrap">
+      <p class="eyebrow">Structured data, AEO and GEO</p>
+      <h2 id="sd-h">Making the product <span class="blue-italics">machine readable.</span></h2>
+      <p class="teaser__line">
+        Answer engines and AI search need explicit structure, not inference. I added FAQ sections and
+        JSON-LD.
+      </p>
+
+      <div class="figures">
+        <p class="figure"><b>5</b><span>schema types: FAQPage, Organization, SoftwareApplication, Offer, BreadcrumbList</span></p>
+        <p class="figure"><b>0</b><span>errors on the Schema Markup Validator</span></p>
+        <p class="figure"><b>0</b><span>warnings on the Schema Markup Validator</span></p>
+      </div>
+
+      <div class="proof-grid">
+        <proof-shot pending src="/assets/worku/schema-validator-0errors.png"
+          chrome="validator.schema.org"
+          alt="Schema Markup Validator result for worku.tn showing zero errors and zero warnings"
+          caption="Schema Markup Validator on worku.tn. 0 errors, 0 warnings."></proof-shot>
+
+        <proof-shot pending src="/assets/worku/faq-page.png"
+          chrome="worku.tn"
+          alt="FAQ section on the Worku website"
+          caption="FAQ section added to worku.tn, marked up as FAQPage. The FAQ is live on the site today."></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <section class="teaser" aria-labelledby="seo-limits-h">
+    <div class="wrap">
+      <div class="limits">
+        <p class="eyebrow">Honest limits</p>
+        <h2 id="seo-limits-h">What this SEO work does not prove</h2>
+        <ul>
+          <li><strong>No traffic claim.</strong> The fixes went live in April 2026. That is not enough time to attribute traffic or ranking movement, so I claim neither.</li>
+          <li><strong>The 403 was a manual test.</strong> It showed a real risk to crawl access. It is not evidence of a sustained block.</li>
+          <li><strong>Conformity, not victory.</strong> A crawlable site with a clean sitemap and valid schema is the entry ticket. It is not the same as winning a search market.</li>
+        </ul>
+      </div>
+
+      <div class="pagenav">
+        <a class="seemore seemore--ghost" href="/worku/">Back to the case study</a>
+        <a class="seemore" href="/search-console/">Next: Search Console diagnostics</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!--@include partials/footer.html-->
+
+<script type="module" src="/main.ts"></script>
+</body>
+</html>

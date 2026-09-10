@@ -1,12 +1,13 @@
 {
-  "name": "louai-portfolio",
+  "name": "louai-bouraoui-portfolio",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite preview"
+    "preview": "vite preview",
+    "check": "npm run build && node scripts/check-build.mjs && node scripts/check-seo.mjs"
   },
   "devDependencies": {
     "typescript": "^5.0.0",

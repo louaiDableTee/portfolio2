@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--@include partials/head.html-->
+  <title>Google Search Console diagnostics | Worku case study</title>
+  <meta name="description" content="How I used Google Search Console on Worku: indexing and coverage monitoring, sitemap validation, URL inspection and legacy route diagnosis." />
+  <meta property="og:title" content="Google Search Console diagnostics | Worku case study" />
+  <meta property="og:description" content="Reading the indexing report, not a vanity dashboard." />
+</head>
+<body id="top">
+
+<!--@include partials/nav.html-->
+
+<main id="main">
+
+  <header class="page-hero grid-bg">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/worku/">Worku</a></li>
+          <li aria-current="page">Search Console</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Measured &middot; Google Search Console</p>
+      <h1>The report that says <span class="blue-italics">why pages never arrive.</span></h1>
+
+      <div class="beats">
+        <div class="beat">
+          <b>The skill</b>
+          <p>Use Search Console as a control panel, not a scoreboard. Find what blocks visibility before spending anything on content.</p>
+        </div>
+        <div class="beat beat--problem">
+          <b>The problem</b>
+          <p>Pages were being crawled and then not indexed. Legacy routes were throwing 404s. Nobody was reading the coverage data.</p>
+        </div>
+        <div class="beat beat--proof">
+          <b>The proof</b>
+          <p>Two Search Console captures below, straight from the property for worku.tn.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="teaser" aria-labelledby="did-h">
+    <div class="wrap">
+      <p class="eyebrow">What I did with it</p>
+      <h2 id="did-h">Daily, <span class="blue-italics">not occasionally.</span></h2>
+
+      <ol class="method-list">
+        <li><b>Monitored indexing and coverage.</b> Tracked which pages moved between states and why.</li>
+        <li><b>Submitted and validated sitemaps.</b> Confirmed acceptance rather than assuming it.</li>
+        <li><b>Inspected URLs.</b> Checked individual pages against Google&rsquo;s own view of them.</li>
+        <li><b>Ran live tests.</b> Verified the current state of a page rather than the cached one.</li>
+        <li><b>Diagnosed old-route errors.</b> Separated genuine technical faults from expected non-indexable URLs.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="teaser grid-bg" aria-labelledby="captures-h">
+    <div class="wrap">
+      <p class="eyebrow">Evidence</p>
+      <h2 id="captures-h">Straight from <span class="blue-italics">the property.</span></h2>
+
+      <div class="proof-grid">
+        <proof-shot
+          src="/images/gsc-page-indexing-reasons.png" width="1415" height="758"
+          chrome="search.google.com/search-console"
+          alt="Google Search Console page indexing report for worku.tn listing reasons pages are not indexed: not found 404, page with redirect, alternate page with proper canonical tag, server error 5xx, crawled currently not indexed, and discovered currently not indexed"
+          caption="Google Search Console, Page indexing, &ldquo;Why pages aren&rsquo;t indexed&rdquo;. Six reasons listed, sourced to either the website or Google systems. [TODO: capture date to confirm]"></proof-shot>
+
+        <proof-shot
+          src="/images/gsc-sitemaps-success.png" width="1413" height="767"
+          chrome="search.google.com/search-console"
+          alt="Google Search Console sitemaps view for worku.tn showing sitemap.xml with status Success and 14 discovered pages"
+          caption="Google Search Console, Sitemaps. sitemap.xml submitted 14 June 2026, status Success, 14 pages discovered, last read 30 August 2026."></proof-shot>
+      </div>
+
+      <div class="proof-grid proof-grid--single" style="margin-top:22px">
+        <proof-shot pending src="/assets/worku/gsc-url-inspection.png"
+          chrome="search.google.com/search-console"
+          alt="Google Search Console URL inspection result showing the page is on Google"
+          caption="URL Inspection, &ldquo;URL is on Google&rdquo;. Confirms a page reached the index after the crawl fixes."></proof-shot>
+      </div>
+
+      <div class="teaser__visual">
+        <proof-video pending src="/videos/gsc-walkthrough.mp4"
+          label="Search Console walkthrough"
+          caption="Screen recording: a walkthrough of the Worku property in Search Console. This is the single strongest piece of evidence on the site, because it shows the work being done rather than its result."></proof-video>
+      </div>
+    </div>
+  </section>
+
+  <section class="teaser" aria-labelledby="baseline-h">
+    <div class="wrap">
+      <p class="eyebrow">The starting point</p>
+      <h2 id="baseline-h">Where the property <span class="blue-italics">began.</span></h2>
+      <p class="teaser__line">This is the baseline I inherited. It is context, not an achievement.</p>
+
+      <div class="figures">
+        <p class="figure"><b>673</b><span>impressions</span></p>
+        <p class="figure"><b>32</b><span>clicks</span></p>
+        <p class="figure"><b>4.8%</b><span>click-through rate</span></p>
+        <p class="figure"><b>7.1</b><span>average position</span></p>
+      </div>
+
+      <div class="limits">
+        <p class="eyebrow">How to read those four numbers</p>
+        <h3>Position 7.1 is not a win</h3>
+        <ul>
+          <li>
+            <strong>The volume is tiny and the queries are mostly branded.</strong> An average position
+            of 7.1 across 673 impressions, largely from people already searching for Worku by name,
+            tells you almost nothing about competitive visibility. I include it as the starting state
+            of the property and nothing more.
+          </li>
+          <li>
+            <strong>These are initial-state figures.</strong> They are not a result of my work, and I
+            do not present them as one.
+          </li>
+        </ul>
+      </div>
+
+      <p class="proof-disclaimer">
+        [TODO: proof needed] Louai, the performance dashboard capture behind these four numbers is not
+        in the repo yet. Send <code>gsc-performance.png</code> and it appears here automatically.
+      </p>
+    </div>
+  </section>
+
+  <section class="teaser grid-bg">
+    <div class="wrap">
+      <div class="pagenav">
+        <a class="seemore seemore--ghost" href="/worku/">Back to the case study</a>
+        <a class="seemore" href="/ux-ui/">Next: the UX/UI redesign</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!--@include partials/footer.html-->
+
+<script type="module" src="/main.ts"></script>
+</body>
+</html>
