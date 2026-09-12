@@ -25,7 +25,6 @@ export const PAGES = [
   'ux-ui',
   'search-console',
   'linkedin',
-  'analytics',
   'about',
   'earlier-work',
 ] as const;
