@@ -4,6 +4,11 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/analytics/",
+      "destination": "/search-console/",
+      "permanent": true
+    },
+    {
       "source": "/analytics",
       "destination": "/search-console/",
       "permanent": true
