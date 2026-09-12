@@ -24,176 +24,262 @@
       </nav>
       <p class="eyebrow">Found &middot; Technical and on-page SEO</p>
       <h1>Google could not <span class="blue-italics">read the site.</span></h1>
-
-      <div class="beats">
-        <div class="beat">
-          <b>The skill</b>
-          <p>Make a site crawlable, then make each page answer one search intent.</p>
-        </div>
-        <div class="beat beat--problem">
-          <b>The problem</b>
-          <p>A manual Googlebot fetch returned 403 through Cloudflare. robots.txt and the sitemap both returned 404. No structured data. Old applicant-tracking routes were still known to Google.</p>
-        </div>
-        <div class="beat beat--proof">
-          <b>The proof</b>
-          <p>A sitemap accepted with 14 pages, 13 old routes redirected, and JSON-LD validating with zero errors.</p>
-        </div>
-      </div>
+      <p class="lead">
+        Make a site crawlable, then make each page answer one search intent.
+      </p>
     </div>
   </header>
 
-  <section class="teaser" aria-labelledby="fixes-h">
+  <!-- ACT 1 -->
+  <section class="teaser" aria-labelledby="diagnosis-h">
     <div class="wrap">
-      <p class="eyebrow">Order of operations</p>
-      <h2 id="fixes-h">Foundations first, <span class="blue-italics">words second.</span></h2>
-      <p class="teaser__line">There is no point optimising a title tag on a page Google cannot fetch.</p>
+      <p class="eyebrow">The diagnosis</p>
+      <h2 id="diagnosis-h">What I <span class="blue-italics">found.</span></h2>
+      <p class="teaser__line">A site that looked finished, and that Google could not read.</p>
 
-      <ol class="method-list">
-        <li><b>Restored crawl access.</b> Diagnosed the 403 returned to Googlebot and got the block on crawling removed.</li>
-        <li><b>Corrected robots.txt.</b> It was returning 404. It now exists and is structured.</li>
-        <li><b>Submitted a sitemap.</b> Accepted by Search Console with 14 pages found.</li>
-        <li><b>Handled 13 old routes.</b> Legacy applicant-tracking URLs now redirect instead of dead-ending.</li>
-        <li><b>Rewrote titles and H1s.</b> One search intent per page, no page competing with another.</li>
-        <li><b>Strengthened internal linking.</b> Connected the homepage to the recruiter and sales pages deliberately.</li>
-      </ol>
-
-      <div class="figures">
-        <p class="figure"><b>16</b><span>public pages audited</span></p>
-        <p class="figure"><b>14</b><span>pages accepted in the sitemap</span></p>
-        <p class="figure"><b>13</b><span>legacy routes redirected</span></p>
-        <p class="figure"><b>0</b><span>JSON-LD errors on validation</span></p>
+      <div class="flow flow--minus" style="margin-top:30px">
+        <ul class="flow__list flow__list--state">
+          <li><b>Crawl access &mdash; blocked.</b><span>A manual Googlebot fetch returned 403 through Cloudflare.</span></li>
+          <li><b>robots.txt &mdash; missing.</b><span>Returning 404.</span></li>
+          <li><b>Sitemap &mdash; missing.</b><span>Returning 404.</span></li>
+          <li><b>Structured data &mdash; none.</b><span>Nothing for answer engines to read.</span></li>
+          <li><b>Legacy routes &mdash; still live.</b><span>Old applicant-tracking URLs still known to Google.</span></li>
+        </ul>
       </div>
-    </div>
-  </section>
-
-  <section class="teaser grid-bg" aria-labelledby="evidence-h">
-    <div class="wrap">
-      <p class="eyebrow">Evidence</p>
-      <h2 id="evidence-h">Before and after, <span class="blue-italics">captured.</span></h2>
 
       <div class="proof-grid">
         <proof-shot src="/assets/worku/seo-googlebot-403.png" width="676" height="362"
           alt="A curl request to worku.tn sent with the Googlebot user agent, returning HTTP/2 403 with server cloudflare and cf-mitigated challenge"
-          caption="A curl request to worku.tn sent as Googlebot, 16 February 2026. It returns 403, and the headers name the cause: Cloudflare answered with a challenge. A manual test, so it shows a risk to crawl access rather than a proven permanent block."></proof-shot>
+          caption="Googlebot fetch on worku.tn, 16 February 2026. Returns 403; the headers name Cloudflare&rsquo;s challenge as the cause. A manual test, so it shows a risk rather than a proven permanent block."></proof-shot>
 
         <proof-shot src="/assets/worku/seo-robots-404.png" width="652" height="418"
           alt="A terminal reconstruction showing worku.tn/robots.txt and worku.tn/sitemap.xml both returning 404, and a check reporting no JSON-LD structured data on the homepage"
-          caption="robots.txt 404, sitemap.xml 404, and no JSON-LD on the homepage. Labelled in the image as a reconstruction of the February 2026 diagnostic, because all three were fixed and cannot be captured again."></proof-shot>
-
-        <proof-shot
-          src="/images/gsc-sitemaps-success.png" width="1413" height="767"
-          chrome="search.google.com/search-console"
-          alt="Google Search Console sitemaps view for worku.tn showing sitemap.xml with status Success and 14 discovered pages"
-          caption="Google Search Console, Sitemaps. sitemap.xml submitted 14 June 2026, status Success, 14 pages discovered, last read 30 August 2026."></proof-shot>
+          caption="robots.txt 404, sitemap.xml 404, no JSON-LD, February 2026. Labelled in the image as a reconstruction, because all three were fixed and cannot be captured again."></proof-shot>
       </div>
     </div>
   </section>
 
-  <section class="teaser" aria-labelledby="h1-h">
+  <!-- ACT 2 -->
+  <section class="teaser grid-bg" aria-labelledby="order-h">
     <div class="wrap">
-      <p class="eyebrow">One page, one intent</p>
-      <h2 id="h1-h">The homepage stopped describing itself, <span class="blue-italics">and started answering.</span></h2>
-      <p class="teaser__line">
-        The old headline named the category. The new one names the job the visitor came to do.
-      </p>
+      <p class="eyebrow">The order of work</p>
+      <h2 id="order-h">Access first. Structure second. <span class="blue-italics">Words last.</span></h2>
+      <p class="teaser__line">There is no point rewriting a title tag on a page Google cannot fetch.</p>
 
-      <div class="ba">
-        <figure class="ba__item ba__item--before">
-          <span class="ba__tag">Before</span>
-          <proof-shot src="/assets/worku/seo-h1-before.png" width="703" height="352"
-            chrome="worku.tn"
-            alt="The Worku homepage before the rewrite, with the headline La premiere plateforme d AI sourcing en Tunisie and the button Commencer maintenant"
-            caption="worku.tn homepage before the rewrite."></proof-shot>
-          <p class="ba__says">
-            <b>H1:</b> <q lang="fr">La premi&egrave;re plateforme d&rsquo;AI sourcing en Tunisie.</q>
-            It describes what the product is. Nobody searches for that.
-          </p>
-        </figure>
+      <div class="diagram">
+        <svg viewBox="0 0 640 320" role="img" aria-labelledby="seoLayersTitle seoLayersDesc" xmlns="http://www.w3.org/2000/svg">
+          <title id="seoLayersTitle">The three layers of the SEO work</title>
+          <desc id="seoLayersDesc">Access at the base, structure in the middle, search intent at the top. Work moves from bottom to top.</desc>
 
-        <p class="ba__turn"><span></span></p>
+          <rect x="40" y="228" width="480" height="64" rx="10" fill="#2864ff" opacity="0.16"/>
+          <rect x="40" y="228" width="6" height="64" rx="3" fill="#2864ff"/>
+          <text x="70" y="254" font-family="inherit" font-size="15" font-weight="700" fill="currentColor">Layer 1 &mdash; Access</text>
+          <text x="70" y="276" font-family="inherit" font-size="13" fill="currentColor" opacity="0.75">Can Google reach the page at all?</text>
 
-        <figure class="ba__item ba__item--after">
-          <span class="ba__tag">After</span>
-          <proof-shot src="/assets/worku/seo-h1-after.png" width="1077" height="477"
-            chrome="worku.tn"
-            alt="The Worku homepage after the rewrite, with the headline Decrivez le decideur, obtenez ses coordonnees verifiees and the button Lancer une recherche gratuite"
-            caption="worku.tn homepage after the rewrite. Live on the site today."></proof-shot>
-          <p class="ba__says">
-            <b>H1:</b> <q lang="fr">D&eacute;crivez le d&eacute;cideur. Obtenez ses coordonn&eacute;es v&eacute;rifi&eacute;es.</q>
-            It names the task and the result. The call to action moved with it, from
-            <q lang="fr">Commencer maintenant</q> to <q lang="fr">Lancer une recherche gratuite</q>.
-          </p>
-        </figure>
+          <rect x="80" y="148" width="400" height="64" rx="10" fill="#2864ff" opacity="0.26"/>
+          <rect x="80" y="148" width="6" height="64" rx="3" fill="#2864ff"/>
+          <text x="110" y="174" font-family="inherit" font-size="15" font-weight="700" fill="currentColor">Layer 2 &mdash; Structure</text>
+          <text x="110" y="196" font-family="inherit" font-size="13" fill="currentColor" opacity="0.75">Can it understand what the page is?</text>
+
+          <rect x="120" y="68" width="320" height="64" rx="10" fill="#2864ff" opacity="0.38"/>
+          <rect x="120" y="68" width="6" height="64" rx="3" fill="#2864ff"/>
+          <text x="150" y="94" font-family="inherit" font-size="15" font-weight="700" fill="currentColor">Layer 3 &mdash; Intent</text>
+          <text x="150" y="116" font-family="inherit" font-size="13" fill="currentColor" opacity="0.75">Does the page answer one search need?</text>
+
+          <line x1="570" y1="286" x2="570" y2="86" stroke="#2864ff" stroke-width="2" stroke-linecap="round"/>
+          <polygon points="570,68 564,86 576,86" fill="#2864ff"/>
+          <text x="586" y="200" font-family="inherit" font-size="12" font-weight="600" fill="currentColor" opacity="0.7" transform="rotate(-90 586 200)" text-anchor="middle">order of work</text>
+        </svg>
       </div>
 
-      <p class="proof-disclaimer" style="margin-top:26px">
-        [TODO: proof needed] These two captures show the H1 and the call to action. The meta title
-        rewrites across the other pages are not captured yet.
+      <p class="diagram__note">
+        Every fix below sits in one of these three layers, and I worked bottom to top.
       </p>
     </div>
   </section>
 
-  <section class="teaser grid-bg" aria-labelledby="keywords-h">
+  <!-- ACT 3 -->
+  <section class="teaser" aria-labelledby="work-h">
     <div class="wrap">
-      <p class="eyebrow">Method</p>
-      <h2 id="keywords-h">How I chose <span class="blue-italics">the words.</span></h2>
-      <p class="teaser__line">
-        I start from what a page is for, who lands on it and what they need. Then I cross six sources.
-      </p>
+      <p class="eyebrow">The work</p>
+      <h2 id="work-h">Three layers, <span class="blue-italics">bottom to top.</span></h2>
 
-      <ol class="method-list">
-        <li><b>Real product features.</b> What the tool actually does, in the words the product uses.</li>
-        <li><b>Customer vocabulary.</b> How recruiters and sales teams describe the problem themselves.</li>
-        <li><b>Search Console queries.</b> What people already reach the site with.</li>
-        <li><b>Manual analysis of Google results.</b> Reading the actual page one for each target query.</li>
-        <li><b>Existing site content.</b> What the site already ranks for and already says.</li>
-        <li><b>Competitors.</b> How comparable sourcing tools frame the same need.</li>
-      </ol>
-
-      <div class="limits">
-        <p class="eyebrow">A deliberate choice</p>
-        <h3>Qualitative, not volume-driven</h3>
-        <ul>
-          <li>
-            <strong>I used no unverified search volumes.</strong> For a young B2B product in a small
-            market, volume estimates are thin and often wrong. Page intent and customer vocabulary
-            were the more honest inputs.
-          </li>
+      <!-- Layer 1 -->
+      <div class="layer">
+        <h3 class="layer__h" id="layer-1">Layer 1 &mdash; Make the site reachable.</h3>
+        <ul class="flow__list flow__list--layer">
+          <li>Diagnosed the 403 returned to Googlebot and got the crawl block removed</li>
+          <li>Created and structured robots.txt</li>
+          <li>Submitted a sitemap, accepted with 14 pages found</li>
+          <li>Redirected 13 legacy applicant-tracking routes</li>
         </ul>
+
+        <div class="proof-grid">
+          <proof-shot
+            src="/images/gsc-sitemaps-success.png" width="1413" height="767"
+            chrome="search.google.com/search-console"
+            alt="Google Search Console sitemaps view for worku.tn showing sitemap.xml with status Success and 14 discovered pages"
+            caption="Search Console, sitemap accepted, 14 pages. Submitted 14 June 2026, last read 30 August 2026."></proof-shot>
+
+          <proof-shot src="/assets/worku/seo-redirect-report.png" width="977" height="632"
+            chrome="search.google.com/search-console"
+            alt="Google Search Console Page indexing report, Page with redirect, showing 13 affected pages on worku.tn with a weekly trend chart"
+            caption="Search Console, Page indexing, &ldquo;Page with redirect.&rdquo; 13 affected pages, matching the 13 legacy routes redirected."></proof-shot>
+
+          <proof-shot src="/assets/worku/seo-redirect-examples.png" width="1126" height="690"
+            chrome="search.google.com/search-console"
+            alt="Google Search Console examples list of the 13 redirected URLs on worku.tn, including sourcing, talent-data, creer-compte, company-data, a-propos, enrichissement-contacts and blog"
+            caption="The 13 URLs themselves, from the same report. Legacy routes including /sourcing, /talent-data and /creer-compte, last crawled June and July 2026."></proof-shot>
+        </div>
+      </div>
+
+      <!-- Layer 2 -->
+      <div class="layer">
+        <h3 class="layer__h" id="layer-2">Layer 2 &mdash; Make it machine readable.</h3>
+        <p class="teaser__line">
+          Answer engines and AI search need explicit structure, not inference.
+        </p>
+        <ul class="flow__list flow__list--layer">
+          <li>Added JSON-LD: FAQPage, Organization, SoftwareApplication, Offer, BreadcrumbList</li>
+          <li>Built FAQ sections so answer engines have something explicit to quote</li>
+          <li>Connected the homepage to the recruiter and sales pages deliberately</li>
+        </ul>
+
+        <div class="proof-grid">
+          <proof-shot src="/assets/worku/schema-validator-0errors.png" width="1181" height="597"
+            alt="Schema Markup Validator result for worku.tn/enrichissement-contacts showing the FAQPage schema with 0 errors and 0 warnings"
+            caption="Schema Markup Validator on worku.tn/enrichissement-contacts. FAQPage schema, 0 errors, 0 warnings."></proof-shot>
+
+          <proof-shot src="/assets/worku/faq-page.png" width="1181" height="597"
+            alt="The FAQ section on worku.tn/enrichissement-contacts, with questions in French about how Worku finds emails and phone numbers, whether they are verified, pricing per enrichment, GDPR compliance and coverage in Tunisia"
+            caption="The FAQ live on worku.tn/enrichissement-contacts, the same page validated above."></proof-shot>
+        </div>
+      </div>
+
+      <!-- Layer 3 -->
+      <div class="layer">
+        <h3 class="layer__h" id="layer-3">Layer 3 &mdash; Make each page answer one thing.</h3>
+
+        <div class="layer-step">
+          <p class="eyebrow">First, the method</p>
+          <p class="teaser__line">
+            I start from what a page is for, who lands on it and what they need. Then I cross six sources.
+          </p>
+
+          <ol class="method-list">
+            <li><b>Real product features.</b> What the tool actually does, in the words the product uses.</li>
+            <li><b>Customer vocabulary.</b> How recruiters and sales teams describe the problem themselves.</li>
+            <li><b>Search Console queries.</b> What people already reach the site with.</li>
+            <li><b>Manual analysis of Google results.</b> Reading the actual page one for each target query.</li>
+            <li><b>Existing site content.</b> What the site already ranks for and already says.</li>
+            <li><b>Competitors.</b> How comparable sourcing tools frame the same need.</li>
+          </ol>
+
+          <div class="limits">
+            <p class="eyebrow">A deliberate choice</p>
+            <h4>Qualitative, not volume-driven</h4>
+            <ul>
+              <li>
+                <strong>I used no unverified search volumes.</strong> For a young B2B product in a small
+                market, volume estimates are thin and often wrong. Page intent and customer vocabulary
+                were the more honest inputs.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="layer-step">
+          <p class="eyebrow">Then, the result</p>
+
+          <div class="ba">
+            <figure class="ba__item ba__item--before">
+              <span class="ba__tag">Before</span>
+              <proof-shot src="/assets/worku/seo-h1-before.png" width="703" height="352"
+                chrome="worku.tn"
+                alt="The Worku homepage before the rewrite, with the headline La premiere plateforme d AI sourcing en Tunisie and the button Commencer maintenant"
+                caption="worku.tn homepage before the rewrite, 2026."></proof-shot>
+              <p class="ba__says">
+                <b>H1:</b> <q lang="fr">La premi&egrave;re plateforme d&rsquo;AI sourcing en Tunisie.</q>
+                It describes the category. Nobody searches for that.
+              </p>
+            </figure>
+
+            <p class="ba__turn"><span></span></p>
+
+            <figure class="ba__item ba__item--after">
+              <span class="ba__tag">After</span>
+              <proof-shot src="/assets/worku/seo-h1-after.png" width="1077" height="477"
+                chrome="worku.tn"
+                alt="The Worku homepage after the rewrite, with the headline Decrivez le decideur, obtenez ses coordonnees verifiees and the button Lancer une recherche gratuite"
+                caption="worku.tn homepage after the rewrite, 2026. Live on the site today."></proof-shot>
+              <p class="ba__says">
+                <b>H1:</b> <q lang="fr">D&eacute;crivez le d&eacute;cideur. Obtenez ses coordonn&eacute;es v&eacute;rifi&eacute;es.</q>
+                It names the task and the result. The call to action moved with it, from
+                <q lang="fr">Commencer maintenant</q> to <q lang="fr">Lancer une recherche gratuite</q>.
+              </p>
+            </figure>
+          </div>
+
+          <p class="proof-disclaimer" style="margin-top:26px">
+            [TODO: proof needed] These two captures show the H1 and the call to action. The meta title
+            rewrites across the other pages are not captured yet.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="structured-data" class="teaser" aria-labelledby="sd-h">
+  <!-- ACT 4 -->
+  <section class="teaser grid-bg" aria-labelledby="after-h">
     <div class="wrap">
-      <p class="eyebrow">Structured data, AEO and GEO</p>
-      <h2 id="sd-h">Making the product <span class="blue-italics">machine readable.</span></h2>
-      <p class="teaser__line">
-        Answer engines and AI search need explicit structure, not inference. I added FAQ sections and
-        JSON-LD.
-      </p>
+      <p class="eyebrow">The result</p>
+      <h2 id="after-h">Where the site <span class="blue-italics">ended up.</span></h2>
 
-      <div class="figures">
-        <p class="figure"><b>5</b><span>schema types: FAQPage, Organization, SoftwareApplication, Offer, BreadcrumbList</span></p>
-        <p class="figure"><b>0</b><span>errors on the Schema Markup Validator</span></p>
-        <p class="figure"><b>0</b><span>warnings on the Schema Markup Validator</span></p>
-      </div>
-
-      <div class="proof-grid">
-        <proof-shot pending src="/assets/worku/schema-validator-0errors.png"
-          chrome="validator.schema.org"
-          alt="Schema Markup Validator result for worku.tn showing zero errors and zero warnings"
-          caption="Schema Markup Validator on worku.tn. 0 errors, 0 warnings."></proof-shot>
-
-        <proof-shot pending src="/assets/worku/faq-page.png"
-          chrome="worku.tn"
-          alt="FAQ section on the Worku website"
-          caption="FAQ section added to worku.tn, marked up as FAQPage. The FAQ is live on the site today."></proof-shot>
+      <div class="results">
+        <table>
+          <caption>Across 16 public pages audited, Worku, 2026.</caption>
+          <thead>
+            <tr><th scope="col">Element</th><th scope="col">Before</th><th scope="col">After</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Googlebot access</th>
+              <td class="was" data-label="Before">403</td>
+              <td class="now" data-label="After">Crawlable</td>
+            </tr>
+            <tr>
+              <th scope="row">robots.txt</th>
+              <td class="was" data-label="Before">404</td>
+              <td class="now" data-label="After">Live and structured</td>
+            </tr>
+            <tr>
+              <th scope="row">Sitemap</th>
+              <td class="was" data-label="Before">404</td>
+              <td class="now" data-label="After">Accepted, 14 pages</td>
+            </tr>
+            <tr>
+              <th scope="row">Legacy routes</th>
+              <td class="was" data-label="Before">Dead-ending</td>
+              <td class="now" data-label="After">13 redirected</td>
+            </tr>
+            <tr>
+              <th scope="row">Structured data</th>
+              <td class="was" data-label="Before">None</td>
+              <td class="now" data-label="After">5 types, 0 errors</td>
+            </tr>
+            <tr>
+              <th scope="row">Homepage H1</th>
+              <td class="was" data-label="Before">Describes the category</td>
+              <td class="now" data-label="After">Names the task</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <section class="teaser grid-bg" aria-labelledby="seo-limits-h">
+  <!-- ACT 5 -->
+  <section class="teaser" aria-labelledby="seo-limits-h">
     <div class="wrap">
       <div class="limits">
         <p class="eyebrow">Honest limits</p>
