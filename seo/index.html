@@ -72,30 +72,68 @@
       <h2 id="evidence-h">Before and after, <span class="blue-italics">captured.</span></h2>
 
       <div class="proof-grid">
-        <proof-shot pending src="/assets/worku/seo-googlebot-403.png"
-          chrome="worku.tn"
-          alt="Manual Googlebot fetch test on worku.tn returning HTTP 403"
-          caption="Manual Googlebot user-agent fetch on worku.tn returning 403. This was a manual test showing a risk to crawl access, not a proven permanent block."></proof-shot>
+        <proof-shot src="/assets/worku/seo-googlebot-403.png" width="676" height="362"
+          alt="A curl request to worku.tn sent with the Googlebot user agent, returning HTTP/2 403 with server cloudflare and cf-mitigated challenge"
+          caption="A curl request to worku.tn sent as Googlebot, 16 February 2026. It returns 403, and the headers name the cause: Cloudflare answered with a challenge. A manual test, so it shows a risk to crawl access rather than a proven permanent block."></proof-shot>
 
-        <proof-shot pending src="/assets/worku/seo-robots-404.png"
-          chrome="worku.tn/robots.txt"
-          alt="worku.tn robots.txt returning a 404 not found page"
-          caption="worku.tn/robots.txt returning 404 before the fix. The sitemap URL returned 404 in the same state."></proof-shot>
+        <proof-shot src="/assets/worku/seo-robots-404.png" width="652" height="418"
+          alt="A terminal reconstruction showing worku.tn/robots.txt and worku.tn/sitemap.xml both returning 404, and a check reporting no JSON-LD structured data on the homepage"
+          caption="robots.txt 404, sitemap.xml 404, and no JSON-LD on the homepage. Labelled in the image as a reconstruction of the February 2026 diagnostic, because all three were fixed and cannot be captured again."></proof-shot>
 
         <proof-shot
           src="/images/gsc-sitemaps-success.png" width="1413" height="767"
           chrome="search.google.com/search-console"
           alt="Google Search Console sitemaps view for worku.tn showing sitemap.xml with status Success and 14 discovered pages"
           caption="Google Search Console, Sitemaps. sitemap.xml submitted 14 June 2026, status Success, 14 pages discovered, last read 30 August 2026."></proof-shot>
-
-        <proof-shot pending src="/assets/worku/seo-titles-before-after.png"
-          alt="Comparison of Worku meta titles and H1 headings before and after the rewrite"
-          caption="Meta titles and H1s before and after. Each page rewritten to target a single search intent."></proof-shot>
       </div>
     </div>
   </section>
 
-  <section class="teaser" aria-labelledby="keywords-h">
+  <section class="teaser" aria-labelledby="h1-h">
+    <div class="wrap">
+      <p class="eyebrow">One page, one intent</p>
+      <h2 id="h1-h">The homepage stopped describing itself, <span class="blue-italics">and started answering.</span></h2>
+      <p class="teaser__line">
+        The old headline named the category. The new one names the job the visitor came to do.
+      </p>
+
+      <div class="ba">
+        <figure class="ba__item ba__item--before">
+          <span class="ba__tag">Before</span>
+          <proof-shot src="/assets/worku/seo-h1-before.png" width="703" height="352"
+            chrome="worku.tn"
+            alt="The Worku homepage before the rewrite, with the headline La premiere plateforme d AI sourcing en Tunisie and the button Commencer maintenant"
+            caption="worku.tn homepage before the rewrite."></proof-shot>
+          <p class="ba__says">
+            <b>H1:</b> <q lang="fr">La premi&egrave;re plateforme d&rsquo;AI sourcing en Tunisie.</q>
+            It describes what the product is. Nobody searches for that.
+          </p>
+        </figure>
+
+        <p class="ba__turn"><span></span></p>
+
+        <figure class="ba__item ba__item--after">
+          <span class="ba__tag">After</span>
+          <proof-shot src="/assets/worku/seo-h1-after.png" width="1077" height="477"
+            chrome="worku.tn"
+            alt="The Worku homepage after the rewrite, with the headline Decrivez le decideur, obtenez ses coordonnees verifiees and the button Lancer une recherche gratuite"
+            caption="worku.tn homepage after the rewrite. Live on the site today."></proof-shot>
+          <p class="ba__says">
+            <b>H1:</b> <q lang="fr">D&eacute;crivez le d&eacute;cideur. Obtenez ses coordonn&eacute;es v&eacute;rifi&eacute;es.</q>
+            It names the task and the result. The call to action moved with it, from
+            <q lang="fr">Commencer maintenant</q> to <q lang="fr">Lancer une recherche gratuite</q>.
+          </p>
+        </figure>
+      </div>
+
+      <p class="proof-disclaimer" style="margin-top:26px">
+        [TODO: proof needed] These two captures show the H1 and the call to action. The meta title
+        rewrites across the other pages are not captured yet.
+      </p>
+    </div>
+  </section>
+
+  <section class="teaser grid-bg" aria-labelledby="keywords-h">
     <div class="wrap">
       <p class="eyebrow">Method</p>
       <h2 id="keywords-h">How I chose <span class="blue-italics">the words.</span></h2>
@@ -126,7 +164,7 @@
     </div>
   </section>
 
-  <section id="structured-data" class="teaser grid-bg" aria-labelledby="sd-h">
+  <section id="structured-data" class="teaser" aria-labelledby="sd-h">
     <div class="wrap">
       <p class="eyebrow">Structured data, AEO and GEO</p>
       <h2 id="sd-h">Making the product <span class="blue-italics">machine readable.</span></h2>
@@ -155,7 +193,7 @@
     </div>
   </section>
 
-  <section class="teaser" aria-labelledby="seo-limits-h">
+  <section class="teaser grid-bg" aria-labelledby="seo-limits-h">
     <div class="wrap">
       <div class="limits">
         <p class="eyebrow">Honest limits</p>

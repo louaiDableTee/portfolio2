@@ -621,3 +621,62 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 .plan .career-when{font-size:13.5px}
 .plan .career-when b{font-size:17px;margin-bottom:2px}
 .plan .career-role{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
+
+/* ==================================================================
+   v7 - stacked before / after comparison
+   Two wide screenshots side by side would shrink the headline past
+   reading size, so they stack full width with a labelled rail.
+   ================================================================== */
+
+.ba{margin-top:34px;display:grid;gap:0}
+
+.ba__item{
+  position:relative;margin:0;
+  padding-left:clamp(0px,2.2vw,26px);
+}
+
+/* the rail and its label */
+.ba__tag{
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;
+  font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  border-radius:999px;padding:7px 13px;
+}
+.ba__item--before .ba__tag{background:#fbeae7;color:#8c463f}
+.ba__item--after .ba__tag{background:#dff0e7;color:#186547}
+.ba__tag:before{
+  content:"";width:8px;height:8px;border-radius:50%;background:currentColor;
+}
+
+/* what changed, stated under each shot */
+.ba__says{
+  margin:13px 0 0;font-size:14.5px;line-height:1.6;color:var(--ink-soft);
+  max-width:74ch;
+}
+.ba__says b{color:var(--ink)}
+.ba__says q{font-style:normal;color:var(--ink);font-weight:650}
+.ba__item--before .ba__says q{color:#8c463f}
+.ba__item--after .ba__says q{color:#186547}
+
+/* the turn between the two */
+.ba__turn{
+  display:flex;align-items:center;gap:14px;
+  margin:26px 0;padding-left:clamp(0px,2.2vw,26px);
+  font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);
+}
+.ba__turn:before{
+  content:"";flex:0 0 34px;height:34px;border-radius:50%;
+  border:1.5px solid var(--line);background:#fff;
+  background-image:
+    linear-gradient(currentColor,currentColor),
+    linear-gradient(currentColor,currentColor);
+  background-size:1.5px 13px,9px 1.5px;
+  background-position:center 9px,center 18px;
+  background-repeat:no-repeat;
+}
+.ba__turn span{flex:1;height:1px;background:var(--line)}
+
+@media(max-width:600px){
+  .ba__item,.ba__turn{padding-left:0}
+  .ba__turn{margin:20px 0}
+}
