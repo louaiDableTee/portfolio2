@@ -411,3 +411,135 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 /* The recording is wider than the 16/9 mockup screen, so covering it cropped
    the headline. Contain shows the whole frame. */
 .laptop-mockup--video .mockup-poster{object-fit:contain;object-position:center;background:#fff}
+
+/* ==================================================================
+   v5 - the product story: journey timeline, flow diagrams, reveals
+   ================================================================== */
+
+/* --- scroll reveal -------------------------------------------------
+   Only armed when JS is present (html.js), so the content is visible
+   by default and never hidden from a crawler or a failed script. */
+.js [data-reveal]{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.js [data-reveal].is-in{opacity:1;transform:none}
+.js [data-reveal][data-delay="1"]{transition-delay:.09s}
+.js [data-reveal][data-delay="2"]{transition-delay:.18s}
+.js [data-reveal][data-delay="3"]{transition-delay:.27s}
+@media(prefers-reduced-motion:reduce){
+  .js [data-reveal]{opacity:1;transform:none;transition:none}
+}
+
+/* --- the journey: four beats --------------------------------------- */
+.journey{
+  list-style:none;margin:38px 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.journey__item{
+  position:relative;background:#fff;border:1px solid var(--line);
+  border-radius:20px;padding:24px 22px 22px;
+}
+.journey__item:not(:last-child):after{
+  content:"";position:absolute;right:-13px;top:46px;
+  width:8px;height:8px;border-top:2px solid #c3d0e8;border-right:2px solid #c3d0e8;
+  transform:rotate(45deg);
+}
+.journey__step{
+  display:block;font-family:Georgia,"Times New Roman",serif;font-style:italic;
+  font-size:15px;letter-spacing:-.02em;color:#9fb0cd;margin-bottom:14px;
+}
+.journey__icon{
+  width:46px;height:46px;border-radius:14px;display:grid;place-items:center;
+  background:var(--blue-soft);color:var(--blue);margin-bottom:16px;
+}
+.journey__icon svg{width:23px;height:23px}
+.journey__item h3{font-size:19px;letter-spacing:-.03em;line-height:1.15;margin:0 0 8px}
+.journey__item p{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 14px}
+.journey__when{
+  display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:#6b7688;background:#f3f5f9;
+  border-radius:999px;padding:6px 11px;
+}
+/* the beat where it failed */
+.journey__item--fail{border-color:#f0d8d5;background:#fdf8f7}
+.journey__item--fail .journey__icon{background:#fbeae7;color:var(--red)}
+.journey__item--fail .journey__when{background:#f7e3e0;color:#8c463f}
+/* the beat where it turned */
+.journey__item--win{border-color:#cfe8dc;background:#f5faf7}
+.journey__item--win .journey__icon{background:#dff0e7;color:var(--green)}
+.journey__item--win .journey__when{background:#dff0e7;color:#186547}
+
+/* --- the two product flows ----------------------------------------- */
+.flows{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.flow{margin:0;border:1px solid var(--line);background:#fff;border-radius:22px;padding:27px 26px 24px}
+.flow--old{background:#fdf8f7;border-color:#f0dcd9;color:#8c463f}
+.flow--new{background:#f5faf7;border-color:#cfe8dc;color:#186547}
+.flow__tag{
+  display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:11px;
+}
+.flow__title{font-size:22px;letter-spacing:-.035em;line-height:1.1;margin:0 0 4px;color:var(--ink)}
+.flow__sub{font-size:13px;color:var(--muted);margin:0}
+.flow__steps{list-style:none;margin:22px 0 0;padding:0}
+.flow__steps li{
+  position:relative;display:grid;grid-template-columns:38px 1fr;gap:15px;
+  align-items:start;padding-bottom:20px;
+}
+.flow__steps li:last-child{padding-bottom:0}
+.flow__steps li:not(:last-child):before{
+  content:"";position:absolute;left:18.5px;top:40px;bottom:4px;
+  width:1.5px;background:currentColor;opacity:.25;
+}
+.flow__ico{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:#fff;border:1.5px solid currentColor;
+}
+.flow__ico svg{width:19px;height:19px}
+.flow__steps b{display:block;font-size:14.5px;color:var(--ink);letter-spacing:-.01em;padding-top:9px}
+.flow__steps span{display:block;font-size:13px;line-height:1.5;color:var(--muted);margin-top:3px}
+.flow__verdict{
+  margin:22px 0 0;padding-top:17px;border-top:1.5px dashed currentColor;
+  font-size:14px;line-height:1.55;font-weight:650;
+}
+
+/* --- where the internship sits -------------------------------------- */
+.fits{
+  display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;
+  margin-top:36px;border:1px solid #dbe4ff;background:var(--blue-soft);
+  border-radius:22px;padding:28px 30px;
+}
+.fits__mark{
+  width:52px;height:52px;border-radius:15px;background:#fff;border:1px solid #cbd9ff;
+  display:grid;place-items:center;color:var(--blue);
+}
+.fits__mark svg{width:25px;height:25px}
+.fits h3{font-size:21px;letter-spacing:-.035em;margin:2px 0 9px}
+.fits p{font-size:14.5px;line-height:1.6;color:#41527a;margin:0}
+.fits p + p{margin-top:10px}
+.fits__meta{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:15px;
+}
+.fits__meta span{
+  font-size:12px;font-weight:700;color:#3154a6;background:#fff;
+  border:1px solid #cbd9ff;border-radius:999px;padding:7px 12px;
+}
+
+/* --- responsive ------------------------------------------------------ */
+@media(max-width:1000px){
+  .journey{grid-template-columns:1fr 1fr}
+  .journey__item:nth-child(2):after{display:none}
+}
+@media(max-width:760px){
+  .journey{grid-template-columns:1fr;gap:14px}
+  .journey__item:after{display:none}
+  .flows{grid-template-columns:1fr}
+  .fits{grid-template-columns:1fr;gap:16px;padding:24px 22px}
+}
+
+/* The two flows have a different number of steps, which left the shorter card
+   with a large gap under its list. Pin each verdict to the bottom instead. */
+.flow{display:flex;flex-direction:column}
+.flow__steps{margin-bottom:22px}
+.flow__verdict{margin:auto 0 0;padding-top:17px}

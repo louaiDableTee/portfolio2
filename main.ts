@@ -344,5 +344,38 @@ function initNav() {
   });
 }
 
+/* ------------------------------------------------------------------ *
+ * Reveal on scroll
+ *
+ * The CSS only hides [data-reveal] under html.js, so without JavaScript
+ * everything renders normally. Elements already in view on load are
+ * revealed immediately rather than waiting for a scroll that never comes.
+ * ------------------------------------------------------------------ */
+
+function initReveal() {
+  const items = document.querySelectorAll<HTMLElement>('[data-reveal]');
+  if (!items.length) return;
+
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach((el) => el.classList.add('is-in'));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    },
+    { rootMargin: '0px 0px -12% 0px', threshold: 0.08 },
+  );
+
+  items.forEach((el) => io.observe(el));
+}
+
 initLightbox();
 initNav();
+initReveal();
