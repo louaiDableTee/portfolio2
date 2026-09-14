@@ -258,27 +258,81 @@
             <span>A restrained palette. Blue reserved for actions, never decoration.</span>
           </div>
           <div class="ds__demo">
-            <div class="swatches">
-              <figure class="swatch">
-                <i style="background:#2465EC"></i>
-                <b>Primary</b><code>#2465EC</code>
-              </figure>
-              <figure class="swatch">
-                <i style="background:#5C6EF8"></i>
-                <b>Accent</b><code>#5C6EF8</code>
-              </figure>
-              <figure class="swatch">
-                <i style="background:#1A1D3A"></i>
-                <b>Text</b><code>#1A1D3A</code>
-              </figure>
-              <figure class="swatch">
-                <i style="background:#5A6080"></i>
-                <b>Muted</b><code>#5A6080</code>
-              </figure>
-              <figure class="swatch">
-                <i style="background:#16A34A"></i>
-                <b>Success</b><code>#16A34A</code>
-              </figure>
+            <div class="swatch-group">
+              <span class="swatch-group__label">Brand</span>
+              <div class="swatches">
+                <figure class="swatch">
+                  <i style="background:#2563ff"></i>
+                  <b>Primary</b><code>#2563ff</code>
+                </figure>
+                <figure class="swatch">
+                  <i style="background:#1e54e8"></i>
+                  <b>Primary hover</b><code>#1e54e8</code>
+                </figure>
+                <figure class="swatch">
+                  <i style="background:#2465EC"></i>
+                  <b>CTA surface</b><code>#2465EC</code>
+                </figure>
+              </div>
+            </div>
+
+            <div class="swatch-group">
+              <span class="swatch-group__label">Text</span>
+              <div class="swatches">
+                <figure class="swatch">
+                  <i style="background:#0b0f1c"></i>
+                  <b>Heading</b><code>#0b0f1c</code>
+                </figure>
+                <figure class="swatch">
+                  <i style="background:#2a3142"></i>
+                  <b>Subheading</b><code>#2a3142</code>
+                </figure>
+                <figure class="swatch">
+                  <i style="background:#5a6175"></i>
+                  <b>Body</b><code>#5a6175</code>
+                </figure>
+                <figure class="swatch">
+                  <i style="background:#697083"></i>
+                  <b>Muted</b><code>#697083</code>
+                </figure>
+              </div>
+            </div>
+
+            <div class="swatch-group">
+              <span class="swatch-group__label">Surface &amp; border</span>
+              <div class="swatches">
+                <figure class="swatch">
+                  <i style="background:#fbfbf8"></i>
+                  <b>Page</b><code>#fbfbf8</code>
+                </figure>
+                <figure class="swatch">
+                  <i style="background:#ffffff"></i>
+                  <b>Card</b><code>#ffffff</code>
+                </figure>
+                <figure class="swatch">
+                  <i style="background:#fcfcfa"></i>
+                  <b>Card alt</b><code>#fcfcfa</code>
+                </figure>
+                <figure class="swatch">
+                  <i style="background:#e8e8e2"></i>
+                  <b>Border</b><code>#e8e8e2</code>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ds__row">
+          <div class="ds__label">
+            <b>Status badges</b>
+            <span>A contact is verified, generic, invalid or unknown. Four states, four fixed pairs.</span>
+          </div>
+          <div class="ds__demo">
+            <div class="w-badges">
+              <span class="w-badge w-badge--green" lang="fr">Email v&eacute;rifi&eacute;</span>
+              <span class="w-badge w-badge--orange" lang="fr">Email g&eacute;n&eacute;rique</span>
+              <span class="w-badge w-badge--red" lang="fr">Email invalide</span>
+              <span class="w-badge w-badge--gray" lang="fr">Fixe</span>
             </div>
           </div>
         </div>
@@ -291,18 +345,39 @@
           <div class="ds__demo">
             <div class="typescale">
               <div class="ts-item">
-                <span class="ts-meta">Heading</span>
-                <p class="ts-h" lang="fr">D&eacute;crivez le d&eacute;cideur.</p>
+                <span class="ts-meta">H1 <code>Geist 500 / -2.85px / 0.98</code></span>
+                <p class="ts-h1" lang="fr">D&eacute;crivez le d&eacute;cideur. <em>Obtenez ses coordonn&eacute;es v&eacute;rifi&eacute;es.</em></p>
               </div>
               <div class="ts-item">
-                <span class="ts-meta">Subheading</span>
-                <p class="ts-sub" lang="fr">Obtenez ses coordonn&eacute;es v&eacute;rifi&eacute;es.</p>
+                <span class="ts-meta">H2 <code>Geist 500 / -1.7px / 1.02</code></span>
+                <p class="ts-h2" lang="fr">Trouvez le d&eacute;cideur. <em>Vendez.</em></p>
               </div>
               <div class="ts-item">
-                <span class="ts-meta">Body</span>
-                <p class="ts-body" lang="fr">Une phrase suffit : Worku identifie les d&eacute;cideurs qui correspondent et v&eacute;rifie leurs coordonn&eacute;es avant de vous les transmettre.</p>
+                <span class="ts-meta">Lead <code>Geist 400 / 18px / 1.6</code></span>
+                <p class="ts-lead" lang="fr">Une phrase suffit : Worku identifie les d&eacute;cideurs tunisiens qui correspondent.</p>
+              </div>
+              <div class="ts-item">
+                <span class="ts-meta">Body <code>Geist 400 / 17px / 1.6</code></span>
+                <p class="ts-body" lang="fr">Worku v&eacute;rifie chaque contact avant de vous le fournir.</p>
+              </div>
+              <div class="ts-item">
+                <span class="ts-meta">Source <code>Geist Mono 500 / 12.5px</code></span>
+                <p class="ts-mono">source: linkedin.com</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="ds__row">
+          <div class="ds__label">
+            <b>Kicker</b>
+            <span>Every section opens the same way: a rule, then the label, never a bare heading.</span>
+          </div>
+          <div class="ds__demo">
+            <p class="w-kicker">
+              <span class="w-kicker__line" aria-hidden="true"></span>
+              01 &middot; Section label
+            </p>
           </div>
         </div>
 
@@ -313,26 +388,34 @@
           </div>
           <div class="ds__demo">
             <div class="ds-buttons">
-              <span class="ds-btn ds-btn--primary" lang="fr">Lancer une recherche gratuite</span>
-              <span class="ds-btn" lang="fr">Voir comment &ccedil;a marche</span>
+              <span class="w-btn w-btn--primary" lang="fr">Lancer une recherche gratuite</span>
+              <span class="w-btn w-btn--secondary" lang="fr">Voir comment &ccedil;a marche</span>
             </div>
           </div>
         </div>
 
         <div class="ds__row">
           <div class="ds__label">
-            <b>Radii &amp; spacing</b>
+            <b>Radii &amp; elevation</b>
             <span>Generous whitespace to lower the cognitive load of a B2B page.</span>
           </div>
           <div class="ds__demo">
             <div class="ds-radii">
+              <figure class="ds-radius ds-radius--button">
+                <i></i>
+                <figcaption>Button <code>10px</code></figcaption>
+              </figure>
               <figure class="ds-radius ds-radius--card">
                 <i></i>
-                <figcaption>Card radius &mdash; 16px</figcaption>
+                <figcaption>Card <code>20px</code></figcaption>
+              </figure>
+              <figure class="ds-radius ds-radius--feature">
+                <i></i>
+                <figcaption>Feature visual <code>2rem</code></figcaption>
               </figure>
               <figure class="ds-radius ds-radius--pill">
                 <i></i>
-                <figcaption>Pill radius &mdash; 50px</figcaption>
+                <figcaption>Pill <code>999px</code></figcaption>
               </figure>
             </div>
           </div>
@@ -340,7 +423,9 @@
       </div>
 
       <p class="proof-disclaimer">
-        These are the real tokens, rendered here in the browser rather than exported as an image.
+        Every value above is transcribed from the design system extracted from the Worku source in
+        May&nbsp;2026, and rendered here in the browser rather than exported as an image &mdash;
+        including the three typefaces, Geist, Geist&nbsp;Mono and Instrument&nbsp;Serif.
       </p>
     </div>
   </section>

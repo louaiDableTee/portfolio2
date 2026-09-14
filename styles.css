@@ -354,6 +354,35 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
+/* Worku's three faces, self-hosted on the same terms as Inter. They exist
+   only for the design-system specimen on /ux-ui: a type scale rendered in
+   a substitute font is not evidence of a type scale. No other page uses
+   them, so no other page downloads them. */
+@font-face{
+  font-family:"Geist";
+  font-style:normal;
+  font-weight:100 900;
+  font-display:swap;
+  src:url("/fonts/geist-latin-var.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"Geist Mono";
+  font-style:normal;
+  font-weight:100 900;
+  font-display:swap;
+  src:url("/fonts/geist-mono-latin-var.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"Instrument Serif";
+  font-style:italic;
+  font-weight:400;
+  font-display:swap;
+  src:url("/fonts/instrument-serif-italic-latin.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
 /* #168a55 measured 4.38:1 on white, just under the 4.5 minimum.
    #147d4d measures 5.17:1 and reads the same. */
 :root{
@@ -766,51 +795,157 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 }
 .ds__label b{display:block;font-size:15px;margin-bottom:6px}
 .ds__label span{display:block;font-size:12.5px;line-height:1.5;color:var(--muted)}
-.ds__demo{min-width:0}
+/* inline-size containment so the type specimen can scale to the demo
+   column rather than to the viewport */
+.ds__demo{min-width:0;container-type:inline-size}
 
 @media(max-width:760px){
   .ds__row{grid-template-columns:1fr;gap:20px}
 }
 
-/* colour */
-.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:12px}
+/* ------------------------------------------------------------------
+   Worku's own tokens, declared once here and used by every demo below.
+   Values are transcribed from the design system extracted from the
+   Worku source in May 2026; nothing in this block is approximated.
+   Scoped to .ds so they cannot leak into the portfolio's own palette.
+   ------------------------------------------------------------------ */
+.ds{
+  --w-primary:#2563ff;
+  --w-primary-hover:#1e54e8;
+  --w-primary-global:#2465EC;
+
+  --w-text-heading:#0b0f1c;
+  --w-text-subheading:#2a3142;
+  --w-text-body:#5a6175;
+  --w-text-muted:#697083;
+
+  --w-bg-page:#fbfbf8;
+  --w-bg-card:#ffffff;
+  --w-bg-card-2:#fcfcfa;
+  --w-border:#e8e8e2;
+  --w-border-2:#deded7;
+
+  --w-font:"Geist","Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --w-font-italic:"Instrument Serif","Source Serif Pro",Georgia,serif;
+  --w-font-mono:"Geist Mono","JetBrains Mono",Consolas,"Courier New",monospace;
+
+  --w-shadow-btn-primary:0 18px 42px -16px rgba(37,99,255,.55),0 8px 18px -8px rgba(37,99,255,.38);
+  --w-shadow-btn-secondary:0 1px 2px rgba(11,15,28,.04);
+  --w-shadow-card:0 1px 2px rgba(15,23,42,.03),0 10px 24px rgba(15,23,42,.035);
+  --w-shadow-feature:0 24px 60px rgba(15,23,42,.09);
+}
+
+/* Geist ships these three stylistic sets on by default in the product. */
+.ds__demo{font-feature-settings:"ss01","cv11","cv05"}
+
+/* --- colour ------------------------------------------------------- */
+.swatch-group{margin:0 0 20px}
+.swatch-group:last-child{margin-bottom:0}
+.swatch-group__label{
+  display:block;margin:0 0 10px;
+  font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);
+}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:12px}
 .swatch{margin:0}
-.swatch i{display:block;height:56px;border-radius:12px;border:1px solid rgba(16,19,29,.09)}
+.swatch i{display:block;height:52px;border-radius:10px;border:1px solid rgba(16,19,29,.1)}
 .swatch b{display:block;font-size:12.5px;margin-top:9px;letter-spacing:-.01em}
-.swatch code{display:block;font-size:11.5px;color:var(--muted);margin-top:1px}
+.swatch code{
+  display:block;margin-top:2px;
+  font-family:var(--w-font-mono);font-size:11px;font-weight:500;letter-spacing:.02em;
+  color:var(--muted);text-transform:uppercase;
+}
 
-/* type scale, at the real relative sizes */
-.typescale{display:grid;gap:15px}
-.ts-item{display:grid;gap:3px}
-.ts-meta{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.ts-item p{margin:0;color:var(--ink)}
-.ts-h{font-size:clamp(28px,3.4vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1.04}
-.ts-sub{font-size:20px;font-weight:700;letter-spacing:-.03em;line-height:1.2}
-.ts-body{font-size:15px;font-weight:400;line-height:1.6;color:var(--ink-soft);max-width:48ch}
+/* --- status badges, rendered at their real values ------------------ */
+.w-badges{display:flex;flex-wrap:wrap;gap:9px}
+.w-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  border-radius:20px;padding:2px 10px;
+  font-family:var(--w-font);font-size:12px;font-weight:600;
+}
+.w-badge--green{background:#E8F5E9;color:#2E7D32}
+.w-badge--red{background:#FFEBEE;color:#C62828}
+.w-badge--orange{background:#FFF3E0;color:#E65100}
+.w-badge--gray{background:#F5F5F5;color:#555555}
 
-/* buttons: renderings of the style, not controls, so they are spans */
+/* --- type scale, in the real faces at the real values -------------- */
+.typescale{display:grid;gap:16px}
+.ts-item{display:grid;gap:4px;min-width:0}
+.ts-meta{
+  font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);
+}
+.ts-meta code{
+  font-family:var(--w-font-mono);font-size:10px;font-weight:500;
+  letter-spacing:.02em;text-transform:none;color:#8b93a6;margin-left:7px;
+}
+/* colour is set per specimen below, not here, or this selector would
+   out-rank the single-class rules and paint every line the heading colour */
+.ts-item p{margin:0;font-family:var(--w-font)}
+.ts-item em{
+  font-family:var(--w-font-italic);font-style:italic;font-weight:400;
+  color:var(--w-primary);
+}
+
+/* H1 is clamp(42px, 6vw, 86px) in the product. The demo column is about
+   a third of that viewport, so it is scaled by column width rather than
+   viewport width; the weight, tracking and leading are untouched. */
+.ts-h1{font-size:clamp(34px,5.4cqi,54px);font-weight:500;letter-spacing:-.033em;line-height:.98;color:var(--w-text-heading)}
+.ts-h2{font-size:clamp(26px,3.9cqi,41.5872px);font-weight:500;letter-spacing:-.041em;line-height:1.02;color:var(--w-text-heading)}
+.ts-lead{font-size:18px;font-weight:400;line-height:1.6;color:var(--w-text-body);max-width:46ch}
+.ts-body{font-size:17px;font-weight:400;line-height:1.6;color:var(--w-text-body);max-width:46ch}
+.ts-mono{
+  font-family:var(--w-font-mono);font-size:12.5px;font-weight:500;
+  letter-spacing:.02em;line-height:1.4;color:var(--w-text-muted);
+}
+
+/* --- the kicker, with its rule ------------------------------------- */
+.w-kicker{
+  display:inline-flex;align-items:center;gap:10px;margin:0;
+  color:var(--w-primary);
+  font-family:var(--w-font);font-size:12.5px;font-weight:600;
+  letter-spacing:.09em;line-height:1.5;text-transform:uppercase;
+}
+.w-kicker__line{display:block;width:20px;height:1px;background:var(--w-primary);transform:translateY(1px)}
+
+/* --- buttons: renderings of the style, not controls, so they are spans */
 .ds-buttons{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.ds-btn{
-  display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:13px 21px;
-  font-size:14px;font-weight:750;letter-spacing:-.01em;
-  border:1px solid var(--line);background:#fff;color:var(--ink);
+.w-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 18px;border-radius:10px;
+  font-family:var(--w-font);font-size:14.5px;font-weight:500;
+  letter-spacing:-.0725px;line-height:1.5;
 }
-.ds-btn--primary{background:#2465EC;border-color:#2465EC;color:#fff;box-shadow:0 10px 22px rgba(36,101,236,.24)}
-.ds-btn--primary:after{content:"\2192"}
+.w-btn--primary{
+  border:1px solid transparent;color:#fff;
+  background:var(--w-primary);box-shadow:var(--w-shadow-btn-primary);
+}
+.w-btn--secondary{
+  border:.889px solid var(--w-border-2);color:var(--w-text-heading);
+  background:var(--w-bg-card-2);box-shadow:var(--w-shadow-btn-secondary);
+}
 
-/* radii */
+/* --- radii and shadows --------------------------------------------- */
 .ds-radii{display:flex;flex-wrap:wrap;gap:14px}
-.ds-radius{margin:0}
+.ds-radius{margin:0;flex:0 1 auto}
 .ds-radius i{
-  display:block;width:126px;height:74px;background:var(--blue-soft);border:1.5px solid #cddcff;
+  display:block;width:118px;height:68px;
+  background:var(--w-bg-card);border:1px solid var(--w-border);
 }
-.ds-radius--card i{border-radius:16px}
-.ds-radius--pill i{border-radius:50px}
-.ds-radius figcaption{font-size:11.5px;color:var(--muted);margin-top:8px}
+.ds-radius--button i{border-radius:10px;box-shadow:var(--w-shadow-btn-secondary)}
+.ds-radius--card i{border-radius:20px;box-shadow:var(--w-shadow-card)}
+.ds-radius--feature i{border-radius:2rem;box-shadow:var(--w-shadow-feature)}
+.ds-radius--pill i{border-radius:999px}
+.ds-radius figcaption{
+  margin-top:9px;font-size:11px;color:var(--muted);line-height:1.45;
+}
+.ds-radius figcaption code{
+  display:block;font-family:var(--w-font-mono);font-size:10.5px;letter-spacing:.02em;color:#8b93a6;
+}
 
-@media(max-width:420px){
-  .ds-radius i{width:100%;min-width:0}
-  .ds-radius{flex:1 1 100%}
+@media(max-width:520px){
+  .ds-radius{flex:1 1 calc(50% - 7px)}
+  .ds-radius i{width:100%}
 }
 
 /* ==================================================================
