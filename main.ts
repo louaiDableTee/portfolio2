@@ -164,7 +164,13 @@ customElements.define('tablet-mockup', TabletMockup);
  *   chrome   optional browser-bar label, e.g. "search.google.com/search-console"
  *   frame    optional device chassis; "phone" draws the CSS phone frame
  *   full     optional path to a full-page capture, offered as a zoom link
+ *   tall     full-page capture: cap the slot and scroll the image inside it
  *   pending  present = the file has not been supplied yet
+ *
+ * A full-page capture is ten or more screens tall. Dropped into a normal
+ * slot it either dwarfs the page or shrinks to an unreadable ribbon, so
+ * `tall` gives it a viewport instead: the frame keeps a sane height and
+ * the capture scrolls within it, the way the real page does.
  * ------------------------------------------------------------------ */
 
 class ProofShot extends HTMLElement {
@@ -175,6 +181,7 @@ class ProofShot extends HTMLElement {
     const chrome = this.getAttribute('chrome');
     const frame = this.getAttribute('frame');
     const full = this.getAttribute('full');
+    const tall = this.hasAttribute('tall');
     const pending = this.hasAttribute('pending') || !src;
 
     // Intrinsic size, so the browser reserves the right box before the file
@@ -195,12 +202,21 @@ class ProofShot extends HTMLElement {
         <span>${esc(alt || 'Screenshot pending')}</span>
       </div>`;
 
+    const shot = `<img src="${esc(src)}" alt="${esc(alt)}"${size} loading="lazy" decoding="async" />`;
+
+    // In a tall slot the scroll gesture belongs to the capture, so the zoom
+    // cannot also own the whole surface: it becomes its own corner button.
     const picture = pending
       ? missing
-      : `<button class="proof-zoom" type="button" aria-label="Enlarge: ${esc(alt)}">
-           <img src="${esc(src)}" alt="${esc(alt)}"${size} loading="lazy" decoding="async" />
-           <span class="proof-zoom__hint" aria-hidden="true">Enlarge</span>
-         </button>${missing}`;
+      : tall
+        ? `<div class="proof-scroll" tabindex="0" role="group"
+                aria-label="${esc(alt)} — scroll to see the rest">${shot}</div>
+           <button class="proof-zoom proof-zoom--corner" type="button"
+                   aria-label="Enlarge: ${esc(alt)}">Enlarge</button>${missing}`
+        : `<button class="proof-zoom" type="button" aria-label="Enlarge: ${esc(alt)}">
+             ${shot}
+             <span class="proof-zoom__hint" aria-hidden="true">Enlarge</span>
+           </button>${missing}`;
 
     // A phone chassis is drawn in CSS rather than shipped as an image, so it
     // stays sharp at any size and costs nothing to download. It wraps the
@@ -217,8 +233,13 @@ class ProofShot extends HTMLElement {
         ? ` <a class="proof-full" href="${esc(full)}" target="_blank" rel="noopener">Full page</a>`
         : '';
 
+    const classes = ['proof'];
+    if (pending) classes.push('is-pending');
+    if (frame === 'phone') classes.push('proof--phone');
+    if (tall) classes.push('proof--tall');
+
     this.innerHTML = `
-      <figure class="proof${pending ? ' is-pending' : ''}${frame === 'phone' ? ' proof--phone' : ''}">
+      <figure class="${classes.join(' ')}">
         <div class="proof-frame">${bar}<div class="proof-body">${body}</div></div>
         ${caption ? `<figcaption class="proof-caption">${esc(caption)}${fullLink}</figcaption>` : ''}
       </figure>`;
@@ -229,6 +250,23 @@ class ProofShot extends HTMLElement {
     const img = this.querySelector('img');
     // If the file is absent on disk, fall back to the labelled slot.
     img?.addEventListener('error', () => fig?.classList.add('is-pending'), { once: true });
+
+    // A capture short enough to fit needs no scrolling, and an element that
+    // cannot scroll should not take a tab stop or announce itself as one.
+    const pane = this.querySelector<HTMLElement>('.proof-scroll');
+    if (pane && img) {
+      const settle = () => {
+        const scrolls = pane.scrollHeight - pane.clientHeight > 4;
+        pane.classList.toggle('is-scrollable', scrolls);
+        if (!scrolls) {
+          pane.removeAttribute('tabindex');
+          pane.removeAttribute('role');
+          pane.removeAttribute('aria-label');
+        }
+      };
+      if (img.complete) settle();
+      else img.addEventListener('load', settle, { once: true });
+    }
   }
 }
 
@@ -322,7 +360,8 @@ function initLightbox() {
     const button = (e.target as HTMLElement).closest<HTMLButtonElement>('.proof-zoom');
     if (!button) return;
 
-    const source = button.querySelector('img');
+    // A corner zoom button sits beside the capture rather than around it.
+    const source = button.querySelector('img') ?? button.closest('.proof')?.querySelector('img');
     if (!source) return;
 
     const box = ensure();
@@ -332,6 +371,13 @@ function initLightbox() {
       target.src = source.src;
       target.alt = source.alt;
     }
+
+    // Contain-to-fit turns a full-page capture into an unreadable ribbon.
+    // Past roughly two screens tall it is shown at full width and scrolled.
+    const w = source.naturalWidth || Number(source.getAttribute('width')) || 0;
+    const h = source.naturalHeight || Number(source.getAttribute('height')) || 0;
+    box.classList.toggle('lightbox--tall', w > 0 && h / w > 2);
+    box.scrollTop = 0;
     if (caption) {
       caption.textContent =
         button.closest('.proof')?.querySelector('.proof-caption')?.textContent ?? '';

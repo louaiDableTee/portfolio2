@@ -221,6 +221,61 @@ proof-shot,proof-video{display:block}
 .proof-caption{font-size:12.5px;line-height:1.5;color:var(--muted);margin:12px 0 0;padding-left:13px;border-left:2px solid var(--line)}
 .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
 .proof-grid--single{grid-template-columns:1fr;max-width:840px}
+/* A desktop capture is wide, a phone capture is narrow. Splitting the row
+   50/50 starves the first and pads the second, so the columns follow the
+   shape of what goes in them. */
+.proof-grid--devices{grid-template-columns:minmax(0,1.6fr) minmax(0,.8fr);align-items:start}
+
+/* --- tall captures ------------------------------------------------- *
+   A full-page capture gets a viewport rather than the whole column: the
+   frame keeps a readable height and the capture scrolls inside it. */
+.proof-scroll{
+  max-height:var(--proof-scroll-h,520px);
+  overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+  background:#fff;scrollbar-width:thin;scrollbar-color:#c3cbd9 transparent;
+}
+.proof-scroll img{display:block;width:100%;height:auto}
+.proof-scroll:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.proof-scroll::-webkit-scrollbar{width:10px}
+.proof-scroll::-webkit-scrollbar-track{background:transparent}
+.proof-scroll::-webkit-scrollbar-thumb{background:#c8d0dd;border-radius:10px;border:3px solid #fff}
+.proof-scroll::-webkit-scrollbar-thumb:hover{background:#aab4c6}
+
+/* The scroll gesture belongs to the capture, so the zoom gives up the
+   surface and takes a corner instead. */
+.proof-zoom--corner{
+  position:absolute;right:11px;bottom:11px;z-index:2;
+  display:inline-block;width:auto;
+  background:rgba(16,19,29,.86);color:#fff;border-radius:999px;
+  padding:6px 11px;font-size:11px;font-weight:750;line-height:1;
+  opacity:.6;transition:opacity .18s;
+}
+.proof--tall:hover .proof-zoom--corner,.proof-zoom--corner:focus-visible{opacity:1}
+
+/* Softens the cut edge so it reads as "more below", not "end of image". */
+.proof--tall:not(.proof--phone):has(.is-scrollable) .proof-body:after,
+.proof--tall.proof--phone:has(.is-scrollable) .phone-chassis__screen:after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:46px;z-index:1;
+  background:linear-gradient(to top,#fff 10%,rgba(255,255,255,0));
+  pointer-events:none;
+}
+
+/* Inside the chassis the screen already sets the height, so the pane just
+   fills it rather than capping itself a second time. The top border is the
+   status-bar strip: a real capture has one, a wireframe does not, and
+   without it the notch sits on top of the first section. A border belongs
+   to the box rather than the content, so it stays put while the page moves. */
+.proof--phone.proof--tall .proof-scroll{
+  box-sizing:border-box;max-height:none;height:100%;border-top:21px solid #fff;
+}
+
+/* Above the collapse the phone is pinned at the top of its clamp, so its
+   frame is a constant 516px. The browser viewport is sized to land on the
+   same line (516 less the 32px chrome bar) and the captions share a
+   baseline instead of missing it by a hair. */
+@media(min-width:1001px){
+  .proof-grid--devices .proof--tall:not(.proof--phone){--proof-scroll-h:484px}
+}
 
 /* --- video proof --------------------------------------------------- */
 .video-poster{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;cursor:pointer;background:#10131d;overflow:hidden}
@@ -237,6 +292,12 @@ proof-shot,proof-video{display:block}
 .lightbox img{width:100%;height:auto;max-height:82vh;object-fit:contain;border-radius:14px;background:#fff}
 .lightbox-caption{color:#e7ebf3;font-size:13px;margin:14px 2px 0;max-width:80ch}
 .lightbox-close{position:absolute;top:-46px;right:0;width:36px;height:36px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+/* Contain-to-fit would render a full-page capture as an unreadable ribbon,
+   so past two screens tall the dialog itself scrolls at full width. */
+.lightbox--tall{max-width:min(900px,94vw);max-height:92vh;overflow-y:auto;overscroll-behavior:contain;border-radius:14px}
+.lightbox--tall img{max-height:none;border-radius:14px 14px 0 0}
+.lightbox--tall .lightbox-caption{padding:0 14px 14px;margin-top:10px}
+.lightbox--tall .lightbox-close{position:fixed;top:16px;right:16px;bottom:auto;transform:none;box-shadow:0 8px 22px rgba(0,0,0,.45)}
 
 /* --- honesty / limits block ---------------------------------------- */
 .limits{border:1px solid #f0dcc0;background:#fdf8f1;border-radius:22px;padding:30px 32px;margin-top:44px}
@@ -1002,8 +1063,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 /* contain, not cover: these screenshots are the evidence, and a device
    frame is not a reason to trim a few percent off the edge of one. The
    captures are close enough to 390/844 that the letterboxing is invisible. */
-.phone-chassis .proof-zoom{height:100%;background:#fff}
-.phone-chassis .proof-zoom img{
+/* The corner zoom of a tall slot is a small floating pill, not the screen
+   surface, so it is exempt from both rules. */
+.phone-chassis .proof-zoom:not(.proof-zoom--corner){height:100%;background:#fff}
+.phone-chassis .proof-zoom:not(.proof-zoom--corner) img{
   width:100%;height:100%;object-fit:contain;object-position:top center;
 }
 .phone-chassis .proof-zoom__hint{right:8px;bottom:8px;font-size:10px;padding:5px 9px}
@@ -1039,20 +1102,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 .ba__item--audience .ba__tag{background:var(--blue-soft);color:#2b4c96}
 .ba--pair .ba__item--audience .proof-frame{
   border-color:#cfdcf8;box-shadow:0 14px 30px rgba(40,100,255,.12);
-}
-
-/* A before slot waiting on a file. It takes one column of .ba--pair and the
-   aspect ratio of the crops in it, so dropping the real capture in shifts
-   nothing below it. */
-.slot-before{
-  margin-top:34px;padding-top:28px;border-top:1px solid var(--line);
-  max-width:calc((100% - clamp(20px,2.6vw,30px)) / 2);
-}
-.slot-before .eyebrow{color:var(--amber)}
-.slot-before .proof-missing{aspect-ratio:620/600;min-height:0;align-content:center}
-
-@media(max-width:900px){
-  .slot-before{max-width:none}
 }
 
 /* ==================================================================
