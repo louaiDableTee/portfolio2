@@ -162,6 +162,8 @@ customElements.define('tablet-mockup', TabletMockup);
  *   alt      required, describes what the screenshot shows
  *   caption  short dated caption, e.g. "GSC sitemaps — Success, 14 pages"
  *   chrome   optional browser-bar label, e.g. "search.google.com/search-console"
+ *   frame    optional device chassis; "phone" draws the CSS phone frame
+ *   full     optional path to a full-page capture, offered as a zoom link
  *   pending  present = the file has not been supplied yet
  * ------------------------------------------------------------------ */
 
@@ -171,6 +173,8 @@ class ProofShot extends HTMLElement {
     const alt = this.getAttribute('alt') ?? '';
     const caption = this.getAttribute('caption') ?? '';
     const chrome = this.getAttribute('chrome');
+    const frame = this.getAttribute('frame');
+    const full = this.getAttribute('full');
     const pending = this.hasAttribute('pending') || !src;
 
     // Intrinsic size, so the browser reserves the right box before the file
@@ -198,10 +202,25 @@ class ProofShot extends HTMLElement {
            <span class="proof-zoom__hint" aria-hidden="true">Enlarge</span>
          </button>${missing}`;
 
+    // A phone chassis is drawn in CSS rather than shipped as an image, so it
+    // stays sharp at any size and costs nothing to download. It wraps the
+    // picture, which keeps the caption, the zoom and the pending slot intact.
+    const body =
+      frame === 'phone'
+        ? `<div class="phone-chassis"><div class="phone-chassis__screen">${picture}</div></div>`
+        : picture;
+
+    // The full-page capture is far too tall to render inline, so it is only
+    // ever offered as a link out.
+    const fullLink =
+      full && !pending
+        ? ` <a class="proof-full" href="${esc(full)}" target="_blank" rel="noopener">Full page</a>`
+        : '';
+
     this.innerHTML = `
-      <figure class="proof${pending ? ' is-pending' : ''}">
-        <div class="proof-frame">${bar}<div class="proof-body">${picture}</div></div>
-        ${caption ? `<figcaption class="proof-caption">${esc(caption)}</figcaption>` : ''}
+      <figure class="proof${pending ? ' is-pending' : ''}${frame === 'phone' ? ' proof--phone' : ''}">
+        <div class="proof-frame">${bar}<div class="proof-body">${body}</div></div>
+        ${caption ? `<figcaption class="proof-caption">${esc(caption)}${fullLink}</figcaption>` : ''}
       </figure>`;
 
     if (pending) return;
