@@ -1,0 +1,5 @@
+state,pages,verdict,reading
+Indexed,9,neutral,On Google and eligible to appear.
+Discovered - currently not indexed,10,queue,Known to Google and waiting in the crawl queue. A queue is not a rejection.
+Crawled - currently not indexed,55,decision,"Fetched and read, then not selected. That is Google's judgement on the page, not a fault in the page."
+Not found (404),13,debris,"Old applicant-tracking URLs that stopped existing when the product pivoted. Expected debris, not breakage."

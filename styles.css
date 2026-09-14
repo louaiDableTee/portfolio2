@@ -1054,3 +1054,163 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 @media(max-width:900px){
   .slot-before{max-width:none}
 }
+
+/* ==================================================================
+   v11 - /search-console: reading numbers, not displaying them
+   Charts are inline SVG emitted at build time from the CSV export, so
+   there is no chart library and no client-side data fetch. Everything
+   here is a frame around a read: the number, then what it means.
+   ================================================================== */
+
+/* --- chart frame ---------------------------------------------------- */
+.chart{margin:30px 0 0}
+.chart__plot{
+  border:1px solid var(--line);background:#fff;border-radius:var(--radius);
+  padding:clamp(16px,2.4vw,26px);box-shadow:0 10px 35px rgba(20,31,60,.045);
+  color:var(--ink);
+}
+.chart__plot svg{display:block;width:100%;height:auto;font-family:inherit}
+.chart-caption{
+  margin:14px 0 0;padding-left:13px;border-left:2px solid var(--line);
+  font-size:12.5px;line-height:1.55;color:var(--muted);max-width:78ch;
+}
+.page-hero .chart-caption{margin-top:22px}
+
+/* --- a single number with its reading beside it --------------------- */
+.read{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,3vw,30px);
+  align-items:center;margin-top:30px;
+  border:1px solid var(--line);background:#fff;border-radius:var(--radius);
+  padding:clamp(20px,2.6vw,30px);box-shadow:0 10px 35px rgba(20,31,60,.045);
+}
+.read__num{
+  margin:0;font-family:Georgia,"Times New Roman",serif;font-style:italic;
+  font-size:clamp(46px,7vw,72px);line-height:.85;letter-spacing:-.05em;
+  color:var(--blue);
+}
+.read__body{margin:0;font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
+.read__body b{color:var(--ink)}
+.read--good .read__num{color:var(--green)}
+
+@media(max-width:600px){
+  .read{grid-template-columns:1fr;gap:14px}
+}
+
+/* --- the sentence a section exists to earn --------------------------- */
+.verdict{
+  margin-top:32px;border-left:3px solid var(--blue);
+  background:var(--blue-soft);border-radius:0 18px 18px 0;
+  padding:clamp(20px,2.6vw,28px) clamp(20px,2.6vw,30px);
+}
+.verdict p{
+  margin:0;font-size:clamp(17px,2.1vw,21px);line-height:1.45;
+  letter-spacing:-.02em;color:#22346a;max-width:56ch;
+}
+.verdict b{color:var(--ink);font-weight:750}
+.verdict--close{margin-top:38px}
+
+/* --- a connection I am refusing to make ------------------------------ */
+.trap{
+  margin-top:34px;border:2px dashed #c49a5a;background:#fffdf7;border-radius:22px;
+  padding:clamp(22px,2.8vw,30px);
+}
+.trap__label{
+  margin:0 0 14px;font-size:11.5px;font-weight:800;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--amber);
+}
+.trap__line{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0;
+  font-size:clamp(16px,2vw,20px);letter-spacing:-.02em;color:var(--ink);
+}
+.trap__ne{
+  display:inline-grid;place-items:center;width:30px;height:30px;flex:0 0 30px;
+  border-radius:50%;border:1.5px solid var(--amber);color:var(--amber);
+  font-size:16px;font-weight:700;
+}
+.trap__body{
+  margin:16px 0 0;font-size:14.5px;line-height:1.6;color:#7a6540;max-width:66ch;
+}
+
+/* --- accessible != indexed != ranking -------------------------------- */
+.rule{margin-top:34px;padding-top:28px;border-top:2px solid var(--ink)}
+.rule__label{
+  margin:0 0 16px;font-size:11.5px;font-weight:800;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);
+}
+.rule__chain{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0}
+.rule__chain span{
+  border:1px solid #cfdcf8;background:var(--blue-soft);border-radius:999px;
+  padding:9px 17px;font-size:14px;font-weight:750;color:#2b4c96;letter-spacing:-.01em;
+}
+.rule__chain i{font-style:normal;font-size:17px;font-weight:700;color:var(--muted)}
+.rule__body{margin:16px 0 0;font-size:14.5px;line-height:1.6;color:var(--ink-soft);max-width:64ch}
+
+/* --- worked / didn't / unresolved ------------------------------------ */
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.col{border:1px solid var(--line);background:#fff;border-radius:20px;padding:24px 22px}
+.col__label{
+  margin:0 0 14px;font-size:11.5px;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.col ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.col li{
+  position:relative;padding-left:22px;font-size:14px;line-height:1.55;color:var(--ink-soft);
+}
+.col li:before{
+  content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:50%;
+}
+.col b{color:var(--ink)}
+.col--good{background:#f5faf7;border-color:#cfe8dc}
+.col--good .col__label{color:#186547}
+.col--good li:before{background:#186547}
+.col--bad{background:#fdf8f7;border-color:#f0dcd9}
+.col--bad .col__label{color:#8c463f}
+.col--bad li:before{background:#8c463f}
+.col--open{background:#fffdf7;border-color:#f0dcc0}
+.col--open .col__label{color:var(--amber)}
+.col--open li:before{background:var(--amber)}
+
+@media(max-width:900px){
+  .cols3{grid-template-columns:1fr}
+}
+
+/* --- the leftover job-seeker rankings -------------------------------- */
+.ghost{
+  margin-top:26px;border:1px solid var(--line);background:#fff;border-radius:22px;
+  padding:clamp(20px,2.6vw,28px);
+}
+.ghost__label{
+  margin:0 0 16px;font-size:11.5px;font-weight:800;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);
+}
+.ghost .flow__list{gap:10px}
+.ghost .flow__list li{padding-left:22px}
+.ghost .flow__list li:before{
+  content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border:0;
+  border-radius:50%;background:var(--amber);
+}
+.ghost .chart-caption{margin-top:18px}
+
+/* --- index states, each with its reading ------------------------------ */
+.states{gap:14px}
+.states li{padding-left:24px}
+.states li:before{
+  content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border:0;
+  border-radius:50%;background:var(--blue);
+}
+
+/* --- a total row inside the standard results table -------------------- */
+.results .row-total th,.results .row-total td{
+  border-top:2px solid var(--ink);font-weight:750;color:var(--ink);
+}
+.results code{
+  font-family:"Geist Mono","JetBrains Mono",Consolas,monospace;
+  font-size:13px;letter-spacing:.01em;color:var(--ink);
+}
+
+/* The audience table is four short columns; on a phone the shared
+   .results card layout already stacks each row into labelled lines. */
+@media(max-width:600px){
+  .rule__chain{gap:9px}
+  .rule__chain span{padding:8px 13px;font-size:13px}
+}

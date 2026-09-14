@@ -2,6 +2,8 @@ import { defineConfig, type Plugin } from 'vite';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+// @ts-expect-error - plain ESM module, no types needed for a build script
+import { gscTokens, gscSummary } from './scripts/gsc-data.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 
@@ -82,6 +84,21 @@ function partials(): Plugin {
         out = out.split('%CV_LABEL%').join(hasCv ? 'Download CV' : 'CV on request');
         out = out.split('%CV_LABEL_LONG%').join(hasCv ? 'Download CV (PDF)' : 'CV on request');
 
+        // Search Console figures, computed from the CSV export at build time.
+        // Only /search-console/ uses these, and parsing is cheap, so they are
+        // substituted unconditionally rather than gated on the path.
+        if (out.includes('%GSC_')) {
+          for (const [token, value] of Object.entries(gscTokens() as Record<string, string>)) {
+            out = out.split(token).join(value);
+          }
+          // A token that survives is a typo, and would otherwise ship as
+          // literal "%GSC_FOO%" text on the page.
+          const leftover = out.match(/%GSC_[A-Z0-9_]+%/g);
+          if (leftover) {
+            throw new Error(`Unknown GSC token(s) in ${ctx.path}: ${[...new Set(leftover)].join(', ')}`);
+          }
+        }
+
         return out;
       },
     },
@@ -120,6 +137,7 @@ function seoFiles(): Plugin {
       // the log alone: which domain got baked in, and how many pages were built.
       console.log(`\n[portfolio] SITE_URL = ${SITE_URL}`);
       console.log(`[portfolio] ${urls.length} pages emitted: ${urls.join(' ')}`);
+      console.log(gscSummary());
       if (!process.env.SITE_URL) {
         console.log('[portfolio] (SITE_URL env var not set, using the built-in default above)');
       }
