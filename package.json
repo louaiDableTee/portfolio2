@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "capture": "node scripts/capture-worku.mjs",
-    "check": "npm run build && node scripts/check-build.mjs && node scripts/check-seo.mjs && node scripts/check-case.mjs",
+    "check": "npm run build && node scripts/check-build.mjs && node scripts/check-seo.mjs && node scripts/check-case.mjs && node scripts/check-i18n.mjs",
     "optimise": "node scripts/optimise-assets.mjs"
   },
   "devDependencies": {

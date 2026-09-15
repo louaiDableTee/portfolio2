@@ -12,6 +12,36 @@
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+/**
+ * The few strings the components generate themselves. Everything else on the
+ * page is rendered per language at build time; this is the runtime remainder.
+ * The language is read off <html lang>, never guessed from the browser.
+ */
+const UI = {
+  en: {
+    preview: 'Project interface preview',
+    play: 'Play recording',
+    pending: 'Screenshot pending',
+    scroll: 'scroll to see the rest',
+    enlarge: 'Enlarge',
+    enlargeOf: (alt: string) => `Enlarge: ${alt}`,
+    close: 'Close',
+    proofNeeded: 'Proof needed',
+  },
+  fr: {
+    preview: 'Aperçu de l’interface du projet',
+    play: 'Lire l’enregistrement',
+    pending: 'Capture à venir',
+    scroll: 'faites défiler pour voir la suite',
+    enlarge: 'Agrandir',
+    enlargeOf: (alt: string) => `Agrandir : ${alt}`,
+    close: 'Fermer',
+    proofNeeded: 'Preuve à fournir',
+  },
+} as const;
+
+const t = UI[document.documentElement.lang === 'fr' ? 'fr' : 'en'];
+
 const fileOf = (path: string) => path.split('/').pop() ?? 'media';
 
 /* ------------------------------------------------------------------ *
@@ -30,7 +60,7 @@ class DeviceMockup extends HTMLElement {
     const image = this.getAttribute('image') ?? '';
     const video = this.getAttribute('video') ?? '';
     const poster = this.getAttribute('poster') ?? '';
-    const alt = this.getAttribute('alt') ?? 'Project interface preview';
+    const alt = this.getAttribute('alt') ?? t.preview;
     const filename = fileOf(video || image);
 
     // A recording can be tens of megabytes. With a poster we show a real frame
@@ -41,7 +71,7 @@ class DeviceMockup extends HTMLElement {
         ? `<img class="mockup-poster" src="${esc(poster)}" alt="" loading="lazy" decoding="async" />
            <button class="mockup-play" type="button" data-src="${esc(video)}">
              <span class="video-play" aria-hidden="true"></span>
-             <span class="video-label">Play recording</span>
+             <span class="video-label">${t.play}</span>
            </button>`
         : `<video data-src="${esc(video)}" muted loop playsinline preload="none"></video>`
       : `<img src="${esc(image)}" alt="" loading="lazy" />`;
@@ -66,7 +96,7 @@ class DeviceMockup extends HTMLElement {
           ${videoChrome}
           <div class="mockup-media">${media}</div>
           ${videoDock}
-          <span class="mockup-placeholder">Proof needed<br>${esc(filename)}</span>
+          <span class="mockup-placeholder">${t.proofNeeded}<br>${esc(filename)}</span>
         </div>
       </div>`;
 
@@ -197,9 +227,9 @@ class ProofShot extends HTMLElement {
 
     const missing = `
       <div class="proof-missing">
-        <b>[TODO: proof needed]</b>
+        <b>[TODO: ${t.proofNeeded}]</b>
         <code>${esc(src || 'file name to be decided')}</code>
-        <span>${esc(alt || 'Screenshot pending')}</span>
+        <span>${esc(alt || t.pending)}</span>
       </div>`;
 
     const shot = `<img src="${esc(src)}" alt="${esc(alt)}"${size} loading="lazy" decoding="async" />`;
@@ -210,12 +240,12 @@ class ProofShot extends HTMLElement {
       ? missing
       : tall
         ? `<div class="proof-scroll" tabindex="0" role="group"
-                aria-label="${esc(alt)} — scroll to see the rest">${shot}</div>
+                aria-label="${esc(alt)} — ${t.scroll}">${shot}</div>
            <button class="proof-zoom proof-zoom--corner" type="button"
-                   aria-label="Enlarge: ${esc(alt)}">Enlarge</button>${missing}`
-        : `<button class="proof-zoom" type="button" aria-label="Enlarge: ${esc(alt)}">
+                   aria-label="${esc(t.enlargeOf(alt))}">${t.enlarge}</button>${missing}`
+        : `<button class="proof-zoom" type="button" aria-label="${esc(t.enlargeOf(alt))}">
              ${shot}
-             <span class="proof-zoom__hint" aria-hidden="true">Enlarge</span>
+             <span class="proof-zoom__hint" aria-hidden="true">${t.enlarge}</span>
            </button>${missing}`;
 
     // A phone chassis is drawn in CSS rather than shipped as an image, so it
@@ -282,7 +312,7 @@ class ProofVideo extends HTMLElement {
   connectedCallback() {
     const src = this.getAttribute('src') ?? '';
     const poster = this.getAttribute('poster') ?? '';
-    const label = this.getAttribute('label') ?? 'Play recording';
+    const label = this.getAttribute('label') ?? t.play;
     const caption = this.getAttribute('caption') ?? '';
     const pending = this.hasAttribute('pending') || !src;
 
@@ -291,7 +321,7 @@ class ProofVideo extends HTMLElement {
         <figure class="proof is-pending video-proof">
           <div class="proof-frame"><div class="proof-body">
             <div class="proof-missing">
-              <b>[TODO: proof needed]</b>
+              <b>[TODO: ${t.proofNeeded}]</b>
               <code>${esc(src || 'screen recording')}</code>
               <span>${esc(label)}</span>
             </div>
@@ -345,7 +375,7 @@ function initLightbox() {
     dialog = document.createElement('dialog');
     dialog.className = 'lightbox';
     dialog.innerHTML = `
-      <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+      <button class="lightbox-close" type="button" aria-label="${t.close}">&times;</button>
       <img alt="" />
       <p class="lightbox-caption"></p>`;
     dialog.addEventListener('click', (e) => {

@@ -19,6 +19,94 @@ const DIR = resolve('public/assets/worku/gsc');
 export const PERIOD = '12 Mar &ndash; 11 Sep 2026';
 export const PERIOD_PLAIN = '12 March to 11 September 2026';
 
+/**
+ * The words around the numbers, per language. The CSV exports stay the single
+ * source of every figure; only the labels change, so a French reader sees the
+ * same evidence described in the same terms Google Search Console uses in French.
+ */
+const LABELS = {
+  en: {
+    period: PERIOD,
+    periodPlain: PERIOD_PLAIN,
+    locale: 'en-GB',
+    queries: 'Queries',
+    impressions: 'Impressions',
+    clicks: 'Clicks',
+    avgPosition: 'Avg position',
+    page: 'Page',
+    total: 'Total',
+    position: 'position',
+    nonBrandSuffix: 'non-brand',
+    splitGutter: 74,
+    brandLegend: (n) => `Brand (${n} queries)`,
+    nonBrandLegend: (n) => `Non-brand (${n} queries)`,
+    splitTitle: 'Brand versus non-brand queries',
+    splitDesc: (b, bi, bc, n, ni, nc) =>
+      `${b} brand queries carry ${bi} impressions and ${bc} clicks. ${n} non-brand queries carry ${ni} impressions and ${nc} clicks.`,
+    trendTitle: 'Impressions per day, by month',
+    trendDesc: (f, fm, l, lm, peak, list) =>
+      `Impressions per day rise from ${f} in ${fm} to ${l} in ${lm}, peaking at ${peak}. Monthly values: ${list}.`,
+    partMonths: (a, b) =>
+      `Mar and Sep are part months (${a} and ${b} days), which is why this is per day, not per month.`,
+    audienceCaption: (p) => `The four audience pages built during the restructure. worku.tn, ${p}.`,
+    notSteady: (m, v, tied) =>
+      `It is not a steady climb: ${m} already reached ${v} a day${tied ? ', the same level' : ''}, and the three months after it sat lower. The multiple is an endpoint comparison, not a trend line.`,
+    lastIsHighest: 'The last month is also the highest in the period.',
+    state: (s) => s,
+    reading: (r) => r,
+  },
+  fr: {
+    period: '12 mars &ndash; 11 sept. 2026',
+    periodPlain: '12 mars au 11 septembre 2026',
+    locale: 'fr-FR',
+    queries: 'Requêtes',
+    impressions: 'Impressions',
+    clicks: 'Clics',
+    avgPosition: 'Position moy.',
+    page: 'Page',
+    total: 'Total',
+    position: 'position',
+    nonBrandSuffix: 'hors marque',
+    splitGutter: 112,
+    brandLegend: (n) => `Marque (${n} requêtes)`,
+    nonBrandLegend: (n) => `Hors marque (${n} requêtes)`,
+    splitTitle: 'Requêtes de marque contre hors marque',
+    splitDesc: (b, bi, bc, n, ni, nc) =>
+      `${b} requêtes de marque portent ${bi} impressions et ${bc} clics. ${n} requêtes hors marque portent ${ni} impressions et ${nc} clics.`,
+    trendTitle: 'Impressions par jour, par mois',
+    trendDesc: (f, fm, l, lm, peak, list) =>
+      `Les impressions par jour montent de ${f} en ${fm} à ${l} en ${lm}, avec un pic à ${peak}. Valeurs mensuelles : ${list}.`,
+    partMonths: (a, b) =>
+      `Mars et septembre sont des mois partiels (${a} et ${b} jours), d’où le calcul par jour et non par mois.`,
+    audienceCaption: (p) =>
+      `Les quatre pages par audience construites pendant la restructuration. worku.tn, ${p}.`,
+    notSteady: (m, v, tied) =>
+      `Ce n’est pas une montée régulière : ${m} atteignait déjà ${v} par jour${tied ? ', le même niveau' : ''}, et les trois mois suivants sont restés plus bas. Le multiple compare deux extrémités, ce n’est pas une tendance.`,
+    lastIsHighest: 'Le dernier mois est aussi le plus haut de la période.',
+    // The official French labels of the same Google Search Console report.
+    state: (s) =>
+      ({
+        Indexed: 'Indexée',
+        'Discovered - currently not indexed': 'Détectée, actuellement non indexée',
+        'Crawled - currently not indexed': 'Explorée, actuellement non indexée',
+        'Not found (404)': 'Introuvable (404)',
+      })[s] ?? s,
+    reading: (r) =>
+      ({
+        'On Google and eligible to appear.': 'Sur Google et éligible à l’affichage.',
+        'Known to Google and waiting in the crawl queue. A queue is not a rejection.':
+          'Connue de Google et en attente dans la file de crawl. Une file n’est pas un refus.',
+        "Fetched and read, then not selected. That is Google's judgement on the page, not a fault in the page.":
+          'Chargée et lue, puis non retenue. C’est le jugement de Google sur la page, pas un défaut de la page.',
+        'Old applicant-tracking URLs that stopped existing when the product pivoted. Expected debris, not breakage.':
+          'Anciennes URL de l’ATS qui ont cessé d’exister quand le produit a pivoté. Des restes attendus, pas une casse.',
+      })[r] ?? r,
+  },
+};
+
+/** Set by gscTokens() before any fragment is built. */
+let L = LABELS.en;
+
 /* ------------------------------------------------------------------ *
  * CSV parsing (RFC 4180: quoted fields may contain commas and newlines)
  * ------------------------------------------------------------------ */
@@ -179,7 +267,7 @@ const peakEarlier = peak.month !== last.month;
 const peakTied = num(peak.impressions_per_day) === ipdLast;
 
 const monthLabel = (m) =>
-  new Date(`${m}-01T00:00:00Z`).toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' });
+  new Date(`${m}-01T00:00:00Z`).toLocaleDateString(L.locale, { month: 'short', timeZone: 'UTC' });
 
 /* Devices and countries, for the one-line reads that use them */
 const deviceRows = devices
@@ -243,12 +331,19 @@ function trendChart() {
 
   const note =
     `<text x="${padL}" y="${H - 8}" font-size="10.5" fill="currentColor" fill-opacity=".5">` +
-    `Mar and Sep are part months (${num(first.days)} and ${num(last.days)} days), which is why this is per day, not per month.</text>`;
+    `${L.partMonths(num(first.days), num(last.days), monthLabel(first.month), monthLabel(last.month))}</text>`;
 
   return (
     `<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="trendTitle trendDesc" xmlns="http://www.w3.org/2000/svg">` +
-    `<title id="trendTitle">Impressions per day, by month</title>` +
-    `<desc id="trendDesc">Impressions per day rise from ${ipdFirst} in ${monthLabel(first.month)} to ${ipdLast} in ${monthLabel(last.month)}, peaking at ${Math.max(...months.map((m) => num(m.impressions_per_day)))}. Monthly values: ${months.map((m) => `${monthLabel(m.month)} ${num(m.impressions_per_day)}`).join(', ')}.</desc>` +
+    `<title id="trendTitle">${L.trendTitle}</title>` +
+    `<desc id="trendDesc">${L.trendDesc(
+      ipdFirst,
+      monthLabel(first.month),
+      ipdLast,
+      monthLabel(last.month),
+      Math.max(...months.map((m) => num(m.impressions_per_day))),
+      months.map((m) => `${monthLabel(m.month)} ${num(m.impressions_per_day)}`).join(', '),
+    )}</desc>` +
     ticks +
     bars +
     note +
@@ -264,12 +359,12 @@ function splitChart() {
   const rowH = 34;
   const gap = 28;
   const labelW = 108;
-  const barW = W - labelW - 74;
+  const barW = W - labelW - L.splitGutter;
 
   const measures = [
-    { label: 'Queries', b: brandSplit.queries, n: nonBrandSplit.queries },
-    { label: 'Impressions', b: brandSplit.impressions, n: nonBrandSplit.impressions },
-    { label: 'Clicks', b: brandSplit.clicks, n: nonBrandSplit.clicks },
+    { label: L.queries, b: brandSplit.queries, n: nonBrandSplit.queries },
+    { label: L.impressions, b: brandSplit.impressions, n: nonBrandSplit.impressions },
+    { label: L.clicks, b: brandSplit.clicks, n: nonBrandSplit.clicks },
   ];
 
   const rows = measures
@@ -291,21 +386,21 @@ function splitChart() {
         `<rect x="${(labelW + bw).toFixed(1)}" y="${y}" width="${nw.toFixed(1)}" height="${rowH}" rx="5" fill="#cfdcf8"/>` +
         inBar(bw, m.b, labelW, '#fff') +
         inBar(nw, m.n, labelW + bw, '#22346a') +
-        `<text x="${W - 4}" y="${mid}" text-anchor="end" font-size="11.5" fill="currentColor" fill-opacity=".6">${pct((m.n / total) * 100, 0)} non-brand</text>`
+        `<text x="${W - 4}" y="${mid}" text-anchor="end" font-size="11.5" fill="currentColor" fill-opacity=".6">${pct((m.n / total) * 100, 0)} ${L.nonBrandSuffix}</text>`
       );
     })
     .join('');
 
   const legend =
     `<rect x="${labelW}" y="0" width="10" height="10" rx="2.5" fill="#2864ff"/>` +
-    `<text x="${labelW + 16}" y="9" font-size="11.5" fill="currentColor" fill-opacity=".7">Brand (${brandSplit.queries} queries)</text>` +
+    `<text x="${labelW + 16}" y="9" font-size="11.5" fill="currentColor" fill-opacity=".7">${L.brandLegend(brandSplit.queries)}</text>` +
     `<rect x="${labelW + 132}" y="0" width="10" height="10" rx="2.5" fill="#cfdcf8"/>` +
-    `<text x="${labelW + 148}" y="9" font-size="11.5" fill="currentColor" fill-opacity=".7">Non-brand (${nonBrandSplit.queries} queries)</text>`;
+    `<text x="${labelW + 148}" y="9" font-size="11.5" fill="currentColor" fill-opacity=".7">${L.nonBrandLegend(nonBrandSplit.queries)}</text>`;
 
   return (
     `<svg viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="splitTitle splitDesc" xmlns="http://www.w3.org/2000/svg">` +
-    `<title id="splitTitle">Brand versus non-brand queries</title>` +
-    `<desc id="splitDesc">${brandSplit.queries} brand queries carry ${int(brandSplit.impressions)} impressions and ${brandSplit.clicks} clicks. ${nonBrandSplit.queries} non-brand queries carry ${int(nonBrandSplit.impressions)} impressions and ${nonBrandSplit.clicks} clicks.</desc>` +
+    `<title id="splitTitle">${L.splitTitle}</title>` +
+    `<desc id="splitDesc">${L.splitDesc(brandSplit.queries, int(brandSplit.impressions), brandSplit.clicks, nonBrandSplit.queries, int(nonBrandSplit.impressions), nonBrandSplit.clicks)}</desc>` +
     legend +
     rows +
     `</svg>`
@@ -321,21 +416,21 @@ function audienceTable() {
     .map(
       (p) =>
         `<tr><th scope="row"><code>${esc(p.path)}</code></th>` +
-        `<td data-label="Impressions">${int(p.impressions)}</td>` +
-        `<td data-label="Clicks">${p.clicks}</td>` +
-        `<td data-label="Avg position">${p.position.toFixed(2)}</td></tr>`,
+        `<td data-label="${L.impressions}">${int(p.impressions)}</td>` +
+        `<td data-label="${L.clicks}">${p.clicks}</td>` +
+        `<td data-label="${L.avgPosition}">${p.position.toFixed(2)}</td></tr>`,
     )
     .join('\n            ');
 
   return (
     `<table>\n` +
-    `          <caption>The four audience pages built during the restructure. worku.tn, ${PERIOD}.</caption>\n` +
-    `          <thead><tr><th scope="col">Page</th><th scope="col">Impressions</th><th scope="col">Clicks</th><th scope="col">Avg position</th></tr></thead>\n` +
+    `          <caption>${L.audienceCaption(L.period)}</caption>\n` +
+    `          <thead><tr><th scope="col">${L.page}</th><th scope="col">${L.impressions}</th><th scope="col">${L.clicks}</th><th scope="col">${L.avgPosition}</th></tr></thead>\n` +
     `          <tbody>\n            ${body}\n` +
-    `            <tr class="row-total"><th scope="row">Total</th>` +
-    `<td data-label="Impressions">${int(audienceImpr)}</td>` +
-    `<td data-label="Clicks">${audienceClicks}</td>` +
-    `<td data-label="Avg position">&mdash;</td></tr>\n` +
+    `            <tr class="row-total"><th scope="row">${L.total}</th>` +
+    `<td data-label="${L.impressions}">${int(audienceImpr)}</td>` +
+    `<td data-label="${L.clicks}">${audienceClicks}</td>` +
+    `<td data-label="${L.avgPosition}">&mdash;</td></tr>\n` +
     `          </tbody>\n        </table>`
   );
 }
@@ -344,7 +439,7 @@ function indexStateList() {
   return indexStates
     .map(
       (s) =>
-        `<li><b>${esc(s.state)} &mdash; ${int(num(s.pages))}</b><span>${esc(s.reading)}</span></li>`,
+        `<li><b>${esc(L.state(s.state))} &mdash; ${int(num(s.pages))}</b><span>${esc(L.reading(s.reading))}</span></li>`,
     )
     .join('\n          ');
 }
@@ -354,7 +449,7 @@ function atsList() {
     .slice(0, 6)
     .map(
       (q) =>
-        `<li><b lang="fr">${esc(q.query)}</b><span>position ${num(q.position).toFixed(1)} &middot; ${int(num(q.impressions))} impression${num(q.impressions) === 1 ? '' : 's'} &middot; ${num(q.clicks)} clicks</span></li>`,
+        `<li><b lang="fr">${esc(q.query)}</b><span>${L.position} ${num(q.position).toFixed(1)} &middot; ${int(num(q.impressions))} impression${num(q.impressions) === 1 ? '' : 's'} &middot; ${num(q.clicks)} ${L.clicks.toLowerCase()}</span></li>`,
     )
     .join('\n          ');
 }
@@ -363,10 +458,11 @@ function atsList() {
  * Tokens consumed by search-console/index.html
  * ------------------------------------------------------------------ */
 
-export function gscTokens() {
+export function gscTokens(locale = 'en') {
+  L = LABELS[locale] ?? LABELS.en;
   return {
-    '%GSC_PERIOD%': PERIOD,
-    '%GSC_PERIOD_PLAIN%': PERIOD_PLAIN,
+    '%GSC_PERIOD%': L.period,
+    '%GSC_PERIOD_PLAIN%': L.periodPlain,
 
     /* period totals */
     '%GSC_CLICKS%': int(totalClicks),
@@ -415,10 +511,8 @@ export function gscTokens() {
     '%GSC_MONTH_FIRST%': monthLabel(first.month),
     '%GSC_MONTH_LAST%': monthLabel(last.month),
     '%GSC_TREND_CAVEAT%': peakEarlier
-      ? `It is not a steady climb: ${monthLabel(peak.month)} already reached ` +
-        `${num(peak.impressions_per_day)} a day${peakTied ? ', the same level' : ''}, ` +
-        `and the three months after it sat lower. The multiple is an endpoint comparison, not a trend line.`
-      : 'The last month is also the highest in the period.',
+      ? L.notSteady(monthLabel(peak.month), num(peak.impressions_per_day), peakTied)
+      : L.lastIsHighest,
 
     /* the clearest zero-click example */
     '%GSC_ZERO_QUERY%': esc(widestZeroClick.query),

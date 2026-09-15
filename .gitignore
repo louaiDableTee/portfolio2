@@ -4,3 +4,15 @@ dist/
 .vercel/
 .DS_Store
 *.log
+
+# Generated pages. The sources are templates/ + content/; every path below is
+# written by scripts/i18n.mjs on each build and dev start.
+/index.html
+/worku/index.html
+/seo/index.html
+/ux-ui/index.html
+/search-console/index.html
+/linkedin/index.html
+/about/index.html
+/earlier-work/index.html
+/fr/
