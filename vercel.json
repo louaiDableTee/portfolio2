@@ -12,6 +12,26 @@
       "source": "/analytics",
       "destination": "/search-console/",
       "permanent": true
+    },
+    {
+      "source": "/earlier-work/",
+      "destination": "/wash-and-go/",
+      "permanent": true
+    },
+    {
+      "source": "/earlier-work",
+      "destination": "/wash-and-go/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/earlier-work/",
+      "destination": "/fr/wash-and-go/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/earlier-work",
+      "destination": "/fr/wash-and-go/",
+      "permanent": true
     }
   ],
   "headers": [

@@ -27,7 +27,8 @@ export const PAGES = [
   'search-console',
   'linkedin',
   'about',
-  'earlier-work',
+  'wash-and-go',
+  'frostpeak',
 ];
 
 /** Locale-aware site path for a page: 'worku' + 'fr' -> '/fr/worku/'. */
