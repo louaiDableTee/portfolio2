@@ -3,7 +3,11 @@
 > I improve how a product is found, understood, and measured.
 
 A nine-page, static, visual-first portfolio. One flagship case study (Worku) shown in depth,
-supported by two earlier design internships and the full career path.
+supported by two Tuni'AR app design cases and the full career path.
+
+`ux-ui/` is the hub for all interface work: the Worku redesign in full, then the two app
+cases below it. Anything that links there — the homepage skill card, the footer, the about
+page — must describe all three, not just Worku.
 
 ## Run it
 
@@ -42,7 +46,8 @@ video, and two security headers.
 | `index.html` | Homepage. Teaser sections only, each linking to a detail page |
 | `worku/` | The flagship case study and hub |
 | `seo/` `ux-ui/` `search-console/` `linkedin/` `analytics/` | One skill each |
-| `about/` `earlier-work/` | Career, education, earlier design internships |
+| `about/` | Career and education, including both design internships |
+| `wash-and-go/` `frostpeak/` | The two Tuni'AR app cases, visuals first. Linked from `ux-ui/` |
 | `partials/` | `head.html`, `nav.html`, `footer.html`, injected at build time |
 | `main.ts` | Device mockups, proof slots, lazy video, lightbox, mobile nav |
 | `styles.css` | Single hand-written stylesheet, no framework |
@@ -67,8 +72,9 @@ Add the `pending` attribute while the file does not exist. The slot then renders
 `[TODO: proof needed]` box naming the file it is waiting for. Drop the real file in at that
 exact path, remove `pending`, and the screenshot appears with its caption and lightbox.
 
-`public/assets/worku/README.md` and `public/assets/earlier/README.md` list every file still
-needed, with the exact names.
+`public/assets/worku/README.md` lists every file still needed, with the exact names.
+`public/assets/tuniar/README.md` covers the Tuni'AR set, which is already complete and
+documents where each crop came from.
 
 ## Honesty rules baked into the site
 
