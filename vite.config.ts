@@ -3,8 +3,6 @@ import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 // @ts-expect-error - plain ESM module, no types needed for a build script
-import { gscTokens, gscSummary } from './scripts/gsc-data.mjs';
-// @ts-expect-error - plain ESM module, no types needed for a build script
 import * as i18n from './scripts/i18n.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
@@ -75,7 +73,7 @@ function partials(): Plugin {
     transformIndexHtml: {
       order: 'pre',
       handler(html, ctx) {
-        // Which page is this? "/worku/index.html" -> "/worku/"
+        // Which page is this? "/espace-deals/index.html" -> "/espace-deals/"
         const rel = ctx.path.replace(/^\/+/, '').replace(/index\.html$/, '');
         const current = `/${rel}`;
 
@@ -100,8 +98,8 @@ function partials(): Plugin {
         out = out.split('%PAGE_URL%').join(current === '/' ? `${SITE_URL}/` : `${SITE_URL}${current}`);
 
         // Which language is this page? The path is the only source of truth.
-        const locale = current.startsWith('/fr/') || current === '/fr/' ? 'fr' : 'en';
-        const aboutPath = locale === 'fr' ? '/fr/about/' : '/about/';
+        const locale = current.startsWith('/en/') ? 'en' : 'fr';
+        const aboutPath = locale === 'en' ? '/en/about/' : '/about/';
 
         // The CV button self-heals. While the PDF is absent the link points at the
         // About page and relabels itself, so the site never ships a dead download.
@@ -121,21 +119,6 @@ function partials(): Plugin {
         out = out.split('%CV_DOWNLOAD%').join(hasCv ? 'download' : '');
         out = out.split('%CV_LABEL%').join(hasCv ? cvLabel.short : cvLabel.none);
         out = out.split('%CV_LABEL_LONG%').join(hasCv ? cvLabel.long : cvLabel.none);
-
-        // Search Console figures, computed from the CSV export at build time.
-        // Only /search-console/ uses these, and parsing is cheap, so they are
-        // substituted unconditionally rather than gated on the path.
-        if (out.includes('%GSC_')) {
-          for (const [token, value] of Object.entries(gscTokens(locale) as Record<string, string>)) {
-            out = out.split(token).join(value);
-          }
-          // A token that survives is a typo, and would otherwise ship as
-          // literal "%GSC_FOO%" text on the page.
-          const leftover = out.match(/%GSC_[A-Z0-9_]+%/g);
-          if (leftover) {
-            throw new Error(`Unknown GSC token(s) in ${ctx.path}: ${[...new Set(leftover)].join(', ')}`);
-          }
-        }
 
         return out;
       },
@@ -169,7 +152,7 @@ function seoFiles(): Plugin {
               ),
               `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${i18n.pagePath(page, DEFAULT_LOCALE)}" />`,
             ].join('\n');
-            const priority = page === 'index' ? '1.0' : page === 'worku' ? '0.9' : '0.8';
+            const priority = page === 'index' ? '1.0' : page === 'espace-deals' ? '0.9' : '0.7';
             return (
               `  <url>\n    <loc>${SITE_URL}${loc}</loc>\n    <lastmod>${today}</lastmod>\n` +
               `${alt}\n    <priority>${priority}</priority>\n  </url>`
@@ -192,7 +175,6 @@ function seoFiles(): Plugin {
         const list = urls.filter((u) => u.locale === locale).map((u) => u.loc);
         console.log(`[portfolio] ${locale}: ${list.length} pages — ${list.join(' ')}`);
       }
-      console.log(gscSummary());
       if (!process.env.SITE_URL) {
         console.log('[portfolio] (SITE_URL env var not set, using the built-in default above)');
       }

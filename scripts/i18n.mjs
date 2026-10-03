@@ -4,7 +4,7 @@
  * templates/<page>.html holds the structure with {{key}} slots. content/<loc>.json
  * holds the words. Every page is rendered once per locale, to a real URL:
  *
- *   en -> /worku/          fr -> /fr/worku/
+ *   fr -> /espace-deals/   en -> /en/espace-deals/
  *
  * Nothing about the language is decided in the browser, so both versions are
  * plain static HTML that Google can crawl and index separately.
@@ -16,22 +16,12 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
-export const LOCALES = ['en', 'fr'];
-export const DEFAULT_LOCALE = 'en';
+export const LOCALES = ['fr', 'en'];
+export const DEFAULT_LOCALE = 'fr';
 
-export const PAGES = [
-  'index',
-  'worku',
-  'seo',
-  'ux-ui',
-  'search-console',
-  'linkedin',
-  'about',
-  'wash-and-go',
-  'frostpeak',
-];
+export const PAGES = ['index', 'espace-deals', 'about', 'wash-and-go', 'frostpeak'];
 
-/** Locale-aware site path for a page: 'worku' + 'fr' -> '/fr/worku/'. */
+/** Locale-aware site path for a page: 'espace-deals' + 'en' -> '/en/espace-deals/'. */
 export function pagePath(page, locale) {
   const base = page === 'index' ? '/' : `/${page}/`;
   return locale === DEFAULT_LOCALE ? base : `/${locale}${base}`;
@@ -108,10 +98,10 @@ function localiseLinks(html, locale) {
 
 /** FR / EN, always landing on the same page in the other language. */
 function langSwitch(page, locale) {
-  const label = { en: 'EN', fr: 'FR' };
+  const label = { fr: 'FR', en: 'EN' };
   const title = {
-    en: { en: 'English', fr: 'Français' },
-    fr: { en: 'Anglais', fr: 'Français' },
+    fr: { fr: 'Français', en: 'Anglais' },
+    en: { fr: 'French', en: 'English' },
   };
   const items = LOCALES.map((loc) => {
     const active = loc === locale;

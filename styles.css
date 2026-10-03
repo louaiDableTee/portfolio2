@@ -1306,3 +1306,120 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
   .rule__chain{gap:9px}
   .rule__chain span{padding:8px 13px;font-size:13px}
 }
+
+/* ==================================================================
+   v3 - e-commerce portfolio (Espace Deals)
+   Same tokens, type and radii as above; only the blocks the new pages
+   need that the existing set did not already cover.
+   ================================================================== */
+
+/* A headline that is a job title plus three skills is longer than the old
+   one-liner, so the hero type steps down a size to keep it to four lines. */
+.hero--long h1{font-size:clamp(40px,4.3vw,68px) !important;line-height:1 !important;letter-spacing:-.05em;max-width:15ch !important}
+.hero--long h1 .blue-italics{display:block;margin-top:.08em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.hero-ctas .seemore{margin-top:20px}
+
+/* Home: screenshot beside the six method steps. */
+.case-teaser{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:8px}
+.case-teaser .method-list{margin-top:34px}
+
+.skill-cards--two{grid-template-columns:repeat(2,1fr)}
+
+.toolbox{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+.toolbox__h{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800;margin:0 0 14px}
+.toolbox__note{font-size:14px;color:var(--muted);margin:16px 0 0;max-width:70ch}
+.content-card .toolbox__note{margin-top:18px}
+
+.extras{margin:26px 0 0;padding:0;list-style:none;display:grid;gap:12px;max-width:82ch}
+.extras li{position:relative;padding-left:19px;font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
+.extras li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.extras a{color:var(--blue);font-weight:650;text-decoration:underline;text-underline-offset:3px}
+.extras b{color:var(--ink)}
+.extras--tight{margin-top:4px;gap:9px}
+.extras--tight li{font-size:14.5px}
+
+/* Case study: key facts beside the headline. */
+.case-facts{margin:0;display:grid;gap:0;border-top:2px solid var(--ink);align-self:end}
+.case-facts > div{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.case-facts dt{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800;padding-top:3px}
+.case-facts dd{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink)}
+
+/* The demo-store notice: stated once, calmly, before anything else. */
+.demo-note{margin-top:34px;border:1px solid #dbe4ff;background:var(--blue-soft);border-radius:18px;padding:20px 24px;max-width:860px}
+.demo-note__h{font-size:13px !important;text-transform:uppercase;letter-spacing:.12em;color:#284eaa;font-weight:800;margin:0 0 6px !important;line-height:1.3 !important}
+.demo-note p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft)}
+
+.toc{position:static;z-index:auto;border:0;backdrop-filter:none;background:none;margin-top:30px}
+.toc ol{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px;counter-reset:toc}
+.toc li{counter-increment:toc}
+.toc a{display:inline-block;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:650;color:var(--ink-soft)}
+.toc a:before{content:counter(toc,decimal-leading-zero) " ";color:var(--blue);font-family:Georgia,serif;font-style:italic;font-weight:400}
+.toc a:hover{border-color:#c9d8ff;color:var(--blue)}
+
+/* Section anchors land below the sticky nav, not under it. */
+.teaser[id]{scroll-margin-top:70px}
+
+.case-h3{font-size:22px;letter-spacing:-.03em;margin:40px 0 0}
+.case-h3--tight{margin-top:0}
+.case-note{font-size:14.5px;line-height:1.6;color:var(--muted);margin:22px 0 0;max-width:72ch;padding-left:14px;border-left:2px solid var(--blue)}
+.case-text{font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin:12px 0 0;max-width:72ch}
+.card-h{font-size:19px;letter-spacing:-.025em;margin:0 0 8px}
+.content-card p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin:0}
+.seo-grid .content-card{height:100%}
+.seo-grid{margin-top:22px;gap:28px}
+.seo-item p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+.seo-item b{color:var(--ink)}
+.seo-item .icon{font-size:11px}
+
+/* Category tree. */
+.tree{margin:34px 0 0;border:1px solid var(--line);background:#fff;border-radius:var(--radius);padding:26px 28px;box-shadow:0 10px 35px rgba(20,31,60,.045)}
+.tree__caption{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800;margin-bottom:16px}
+.tree ul{list-style:none;margin:0;padding:0}
+.tree ul ul{margin-left:12px;padding-left:20px;border-left:2px solid #dbe4ff}
+.tree li{position:relative;padding:6px 0}
+.tree ul ul > li:before{content:"";position:absolute;left:-20px;top:20px;width:14px;height:2px;background:#dbe4ff}
+.tree__node{display:inline-block;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:6px 11px;font-size:14px;font-weight:650}
+.tree__node--root{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tree__leaf{font-size:13px;color:var(--muted);margin-left:6px}
+
+/* A two-column spec table reuses .results; the first column is the label. */
+.results--spec tbody th{width:22%}
+.results--spec td{color:var(--ink-soft)}
+
+/* GA4 events as the steps of the buying journey. */
+.funnel{margin:30px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:f}
+.funnel li{counter-increment:f;position:relative;border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px 14px}
+.funnel li:before{content:counter(f,decimal-leading-zero);display:block;font-family:Georgia,serif;font-style:italic;color:var(--blue);font-size:17px;margin-bottom:6px}
+.funnel span{display:block;font-weight:700;font-size:14.5px;letter-spacing:-.01em}
+.funnel code{display:inline-block;margin-top:8px;background:var(--blue-soft);color:#1f3d84;border-radius:7px;padding:3px 7px;font-family:"Geist Mono","JetBrains Mono",Consolas,monospace;font-size:12px;word-break:break-all}
+
+.plan-card{border:1px solid #dbe4ff;background:var(--blue-soft);border-radius:var(--radius);padding:26px}
+.plan-card .method-list{margin-top:16px}
+
+.career--more{margin-top:44px}
+.pagenav--hero{margin-top:30px;padding-top:0;border-top:0}
+
+@media(max-width:1000px){
+  .funnel{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px){
+  .case-teaser{grid-template-columns:1fr;gap:0}
+  .skill-cards--two{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .hero--long h1{font-size:36px !important}
+  .funnel{grid-template-columns:1fr 1fr}
+  .case-facts > div{grid-template-columns:84px 1fr}
+  .tree{padding:20px 16px}
+  .tree ul ul{margin-left:8px;padding-left:14px}
+  .tree ul ul > li:before{left:-14px;width:10px}
+  .demo-note{padding:18px}
+  .plan-card{padding:20px}
+  .results--spec tbody th{width:auto}
+}
+.nowrap{white-space:nowrap}
+@media(max-width:600px){
+  .tree__leaf{display:block;margin:4px 0 0 2px}
+  .results--spec td:before{content:none}
+}

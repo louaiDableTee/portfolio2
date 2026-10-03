@@ -4,13 +4,133 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/fr/worku/",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/fr/worku",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/worku/",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/worku",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/fr/seo/",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/fr/seo",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/seo/",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/seo",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/fr/search-console/",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/fr/search-console",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/search-console/",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/search-console",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/fr/analytics/",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/fr/analytics",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
       "source": "/analytics/",
-      "destination": "/search-console/",
+      "destination": "/#experience",
       "permanent": true
     },
     {
       "source": "/analytics",
-      "destination": "/search-console/",
+      "destination": "/#experience",
+      "permanent": true
+    },
+    {
+      "source": "/fr/linkedin/",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/linkedin",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin/",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/ux-ui/",
+      "destination": "/about/#competences",
+      "permanent": true
+    },
+    {
+      "source": "/fr/ux-ui",
+      "destination": "/about/#competences",
+      "permanent": true
+    },
+    {
+      "source": "/ux-ui/",
+      "destination": "/about/#competences",
+      "permanent": true
+    },
+    {
+      "source": "/ux-ui",
+      "destination": "/about/#competences",
+      "permanent": true
+    },
+    {
+      "source": "/fr/earlier-work/",
+      "destination": "/wash-and-go/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/earlier-work",
+      "destination": "/wash-and-go/",
       "permanent": true
     },
     {
@@ -24,13 +144,18 @@
       "permanent": true
     },
     {
-      "source": "/fr/earlier-work/",
-      "destination": "/fr/wash-and-go/",
+      "source": "/fr/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/fr/earlier-work",
-      "destination": "/fr/wash-and-go/",
+      "source": "/fr",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/:path*",
+      "destination": "/:path*",
       "permanent": true
     }
   ],
@@ -38,18 +163,37 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Robots-Tag", "value": "index, follow" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
       ]
     },
     {
       "source": "/videos/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/images/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

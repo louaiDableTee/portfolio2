@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <!--@include partials/head.html-->
+  <title>{{meta-title}}</title>
+  <meta name="description" content="{{meta-description}}" />
+  <meta property="og:title" content="{{og-title}}" />
+  <meta property="og:description" content="{{og-description}}" />
+</head>
+<body id="top">
+
+<!--@include partials/nav.html-->
+
+<main id="main">
+
+  <header class="page-hero grid-bg">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="{{breadcrumb-label}}">
+        <ol>
+          <li>{{breadcrumb-home}}</li>
+          <li aria-current="page">{{breadcrumb-current}}</li>
+        </ol>
+      </nav>
+
+      <div class="hero-split">
+        <div class="hero-split__text">
+          <p class="eyebrow">{{hero-eyebrow}}</p>
+          <h1>{{hero-h1}}</h1>
+          <p class="lead">{{hero-lead}}</p>
+        </div>
+
+        <dl class="case-facts">
+          <div><dt>{{fact-period-dt}}</dt><dd>{{fact-period-dd}}</dd></div>
+          <div><dt>{{fact-role-dt}}</dt><dd>{{fact-role-dd}}</dd></div>
+          <div><dt>{{fact-stack-dt}}</dt><dd>{{fact-stack-dd}}</dd></div>
+          <div><dt>{{fact-market-dt}}</dt><dd>{{fact-market-dd}}</dd></div>
+          <div><dt>{{fact-store-dt}}</dt><dd>{{fact-store-dd}}</dd></div>
+        </dl>
+      </div>
+
+      <aside class="demo-note" aria-labelledby="demo-h">
+        <h2 id="demo-h" class="demo-note__h">{{demo-h}}</h2>
+        <p>{{demo-p}}</p>
+      </aside>
+
+      <nav class="toc" aria-label="{{toc-label}}">
+        <ol>
+          <li><a href="#contexte">{{toc-1}}</a></li>
+          <li><a href="#mots-cles">{{toc-2}}</a></li>
+          <li><a href="#arborescence">{{toc-3}}</a></li>
+          <li><a href="#catalogue">{{toc-4}}</a></li>
+          <li><a href="#fiches">{{toc-5}}</a></li>
+          <li><a href="#boutique">{{toc-6}}</a></li>
+          <li><a href="#suivi">{{toc-7}}</a></li>
+          <li><a href="#images">{{toc-8}}</a></li>
+          <li><a href="#ensuite">{{toc-9}}</a></li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 1 — Context -->
+  <section id="contexte" class="teaser" aria-labelledby="contexte-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s1-eyebrow}}</p>
+      <h2 id="contexte-h">{{s1-h2}}</h2>
+      <p class="teaser__line">{{s1-line}}</p>
+
+      <div class="beats">
+        <div class="beat">
+          <b>{{s1-beat-1-b}}</b>
+          <p>{{s1-beat-1-p}}</p>
+        </div>
+        <div class="beat">
+          <b>{{s1-beat-2-b}}</b>
+          <p>{{s1-beat-2-p}}</p>
+        </div>
+        <div class="beat beat--proof">
+          <b>{{s1-beat-3-b}}</b>
+          <p>{{s1-beat-3-p}}</p>
+        </div>
+      </div>
+
+      <h3 class="case-h3">{{s1-build-h3}}</h3>
+      <ol class="method-list">
+        <li>{{s1-build-1}}</li>
+        <li>{{s1-build-2}}</li>
+        <li>{{s1-build-3}}</li>
+      </ol>
+      <p class="case-note">{{s1-ai}}</p>
+    </div>
+  </section>
+
+  <!-- 2 — Keyword research -->
+  <section id="mots-cles" class="teaser grid-bg" aria-labelledby="mots-cles-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s2-eyebrow}}</p>
+      <h2 id="mots-cles-h">{{s2-h2}}</h2>
+      <p class="teaser__line">{{s2-line}}</p>
+
+      <div class="figures">
+        <p class="figure">{{s2-fig-seeds}}</p>
+        <p class="figure">{{s2-fig-mapped}}</p>
+        <p class="figure">{{s2-fig-excluded}}</p>
+      </div>
+
+      <h3 class="case-h3">{{s2-rules-h3}}</h3>
+      <ol class="method-list">
+        <li>{{s2-rule-1}}</li>
+        <li>{{s2-rule-2}}</li>
+        <li>{{s2-rule-3}}</li>
+        <li>{{s2-rule-4}}</li>
+      </ol>
+
+      <h3 class="case-h3">{{s2-changed-h3}}</h3>
+      <div class="seo-grid">
+        <div class="content-card">
+          <h4 class="card-h">{{s2-changed-1-h}}</h4>
+          <p>{{s2-changed-1-p}}</p>
+        </div>
+        <div class="content-card">
+          <h4 class="card-h">{{s2-changed-2-h}}</h4>
+          <p>{{s2-changed-2-p}}</p>
+        </div>
+      </div>
+
+      <div class="proof-grid proof-grid--single">
+        <proof-shot
+          src="/espacedeals/04-sheet-mots-cles.webp" width="1600" height="1000"
+          chrome="docs.google.com/spreadsheets"
+          alt="{{s2-shot-alt}}"
+          caption="{{s2-shot-caption}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 — Site structure -->
+  <section id="arborescence" class="teaser" aria-labelledby="arborescence-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s3-eyebrow}}</p>
+      <h2 id="arborescence-h">{{s3-h2}}</h2>
+      <p class="teaser__line">{{s3-line}}</p>
+
+      <div class="figures">
+        <p class="figure">{{s3-fig-categories}}</p>
+        <p class="figure">{{s3-fig-products}}</p>
+        <p class="figure">{{s3-fig-guide}}</p>
+        <p class="figure">{{s3-fig-clicks}}</p>
+      </div>
+
+      <figure class="tree">
+        <figcaption class="tree__caption">{{s3-tree-caption}}</figcaption>
+        <ul>
+          <li><span class="tree__node tree__node--root">{{s3-tree-home}}</span>
+            <ul>
+              <li><span class="tree__node">{{s3-tree-cuisine}}</span>
+                <ul>
+                  <li><span class="tree__node">{{s3-tree-cat-1}}</span> <span class="tree__leaf">{{s3-tree-products}}</span></li>
+                  <li><span class="tree__node">{{s3-tree-cat-2}}</span> <span class="tree__leaf">{{s3-tree-products}}</span></li>
+                  <li><span class="tree__node">{{s3-tree-cat-3}}</span> <span class="tree__leaf">{{s3-tree-products}}</span></li>
+                  <li><span class="tree__node">{{s3-tree-cat-4}}</span> <span class="tree__leaf">{{s3-tree-products}}</span></li>
+                </ul>
+              </li>
+              <li><span class="tree__node">{{s3-tree-guide}}</span></li>
+            </ul>
+          </li>
+        </ul>
+      </figure>
+
+      <p class="case-note">{{s3-permalinks}}</p>
+    </div>
+  </section>
+
+  <!-- 4 — Catalogue -->
+  <section id="catalogue" class="teaser grid-bg" aria-labelledby="catalogue-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s4-eyebrow}}</p>
+      <h2 id="catalogue-h">{{s4-h2}}</h2>
+      <p class="teaser__line">{{s4-line}}</p>
+
+      <div class="results results--spec">
+        <table>
+          <caption>{{s4-table-caption}}</caption>
+          <thead>
+            <tr><th scope="col">{{s4-th-field}}</th><th scope="col">{{s4-th-what}}</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">{{s4-row-sku}}</th><td data-label="{{s4-th-what}}">{{s4-row-sku-td}}</td></tr>
+            <tr><th scope="row">{{s4-row-cat}}</th><td data-label="{{s4-th-what}}">{{s4-row-cat-td}}</td></tr>
+            <tr><th scope="row">{{s4-row-attr}}</th><td data-label="{{s4-th-what}}">{{s4-row-attr-td}}</td></tr>
+            <tr><th scope="row">{{s4-row-desc}}</th><td data-label="{{s4-th-what}}">{{s4-row-desc-td}}</td></tr>
+            <tr><th scope="row">{{s4-row-price}}</th><td data-label="{{s4-th-what}}">{{s4-row-price-td}}</td></tr>
+            <tr><th scope="row">{{s4-row-stock}}</th><td data-label="{{s4-th-what}}">{{s4-row-stock-td}}</td></tr>
+            <tr><th scope="row">{{s4-row-promo}}</th><td data-label="{{s4-th-what}}">{{s4-row-promo-td}}</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="case-h3">{{s4-quality-h3}}</h3>
+      <p class="case-text">{{s4-quality-p}}</p>
+
+      <div class="proof-grid proof-grid--single">
+        <proof-shot
+          src="/espacedeals/05-import-csv.webp" width="1600" height="1000"
+          chrome="espacedeals.com/wp-admin"
+          alt="{{s4-shot-alt}}"
+          caption="{{s4-shot-caption}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 — Product pages and on-page SEO -->
+  <section id="fiches" class="teaser" aria-labelledby="fiches-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s5-eyebrow}}</p>
+      <h2 id="fiches-h">{{s5-h2}}</h2>
+      <p class="teaser__line">{{s5-line}}</p>
+
+      <div class="seo-grid">
+        <div>
+          <h3 class="case-h3 case-h3--tight">{{s5-pages-h3}}</h3>
+          <div class="seo-list">
+            <div class="seo-item"><span class="icon" aria-hidden="true">01</span><p>{{s5-pages-1}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">02</span><p>{{s5-pages-2}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">03</span><p>{{s5-pages-3}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">04</span><p>{{s5-pages-4}}</p></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="case-h3 case-h3--tight">{{s5-seo-h3}}</h3>
+          <div class="seo-list">
+            <div class="seo-item"><span class="icon" aria-hidden="true">01</span><p>{{s5-seo-1}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">02</span><p>{{s5-seo-2}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">03</span><p>{{s5-seo-3}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">04</span><p>{{s5-seo-4}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">05</span><p>{{s5-seo-5}}</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-grid">
+        <proof-shot
+          src="/espacedeals/07-rank-math.webp" width="1600" height="1000"
+          chrome="espacedeals.com/wp-admin"
+          alt="{{s5-shot-rankmath-alt}}"
+          caption="{{s5-shot-rankmath-caption}}"></proof-shot>
+        <proof-shot
+          src="/espacedeals/08-rich-results.webp" width="1600" height="1000"
+          chrome="search.google.com/test/rich-results"
+          alt="{{s5-shot-rich-alt}}"
+          caption="{{s5-shot-rich-caption}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 — Store settings -->
+  <section id="boutique" class="teaser grid-bg" aria-labelledby="boutique-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s6-eyebrow}}</p>
+      <h2 id="boutique-h">{{s6-h2}}</h2>
+      <p class="teaser__line">{{s6-line}}</p>
+
+      <div class="seo-grid">
+        <div>
+          <h3 class="case-h3 case-h3--tight">{{s6-pay-h3}}</h3>
+          <div class="seo-list">
+            <div class="seo-item"><span class="icon" aria-hidden="true">01</span><p>{{s6-pay-1}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">02</span><p>{{s6-pay-2}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">03</span><p>{{s6-pay-3}}</p></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="case-h3 case-h3--tight">{{s6-site-h3}}</h3>
+          <div class="seo-list">
+            <div class="seo-item"><span class="icon" aria-hidden="true">01</span><p>{{s6-site-1}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">02</span><p>{{s6-site-2}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">03</span><p>{{s6-site-3}}</p></div>
+            <div class="seo-item"><span class="icon" aria-hidden="true">04</span><p>{{s6-site-4}}</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-grid">
+        <proof-shot
+          src="/espacedeals/06-livraison-paiement.webp" width="1600" height="1000"
+          chrome="espacedeals.com/wp-admin"
+          alt="{{s6-shot-shipping-alt}}"
+          caption="{{s6-shot-shipping-caption}}"></proof-shot>
+        <proof-shot
+          src="/espacedeals/11-commande-test.webp" width="1600" height="1000"
+          chrome="espacedeals.com"
+          alt="{{s6-shot-order-alt}}"
+          caption="{{s6-shot-order-caption}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 — Tracking -->
+  <section id="suivi" class="teaser" aria-labelledby="suivi-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s7-eyebrow}}</p>
+      <h2 id="suivi-h">{{s7-h2}}</h2>
+      <p class="teaser__line">{{s7-line}}</p>
+
+      <ol class="funnel" aria-label="{{s7-funnel-label}}">
+        <li><span>{{s7-step-1}}</span><code>view_item_list</code></li>
+        <li><span>{{s7-step-2}}</span><code>view_item</code></li>
+        <li><span>{{s7-step-3}}</span><code>add_to_cart</code></li>
+        <li><span>{{s7-step-4}}</span><code>begin_checkout</code></li>
+        <li><span>{{s7-step-5}}</span><code>purchase</code></li>
+      </ol>
+      <p class="case-note">{{s7-checked}}</p>
+
+      <div class="seo-grid">
+        <div class="content-card">
+          <h3 class="card-h">{{s7-gsc-h3}}</h3>
+          <p>{{s7-gsc-p}}</p>
+        </div>
+        <div class="content-card">
+          <h3 class="card-h">{{s7-meta-h3}}</h3>
+          <p>{{s7-meta-p}}</p>
+        </div>
+      </div>
+
+      <div class="proof-grid">
+        <proof-shot
+          src="/espacedeals/09-ga4-debugview.webp" width="1600" height="1000"
+          chrome="analytics.google.com"
+          alt="{{s7-shot-ga4-alt}}"
+          caption="{{s7-shot-ga4-caption}}"></proof-shot>
+        <proof-shot
+          src="/espacedeals/10-search-console.webp" width="1600" height="1000"
+          chrome="search.google.com/search-console"
+          alt="{{s7-shot-gsc-alt}}"
+          caption="{{s7-shot-gsc-caption}}"></proof-shot>
+      </div>
+      <div class="proof-grid proof-grid--single">
+        <proof-shot
+          src="/espacedeals/12-catalogue-meta.webp" width="1600" height="1000"
+          chrome="business.facebook.com/commerce"
+          alt="{{s7-shot-meta-alt}}"
+          caption="{{s7-shot-meta-caption}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 — The result, storefront side -->
+  <section id="images" class="teaser grid-bg" aria-labelledby="images-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s8-eyebrow}}</p>
+      <h2 id="images-h">{{s8-h2}}</h2>
+      <p class="teaser__line">{{s8-line}}</p>
+
+      <div class="proof-grid proof-grid--single">
+        <proof-shot
+          src="/espacedeals/01-accueil.webp" width="1600" height="1000"
+          chrome="espacedeals.com"
+          alt="{{s8-shot-home-alt}}"
+          caption="{{s8-shot-home-caption}}"></proof-shot>
+      </div>
+      <div class="proof-grid">
+        <proof-shot
+          src="/espacedeals/02-categorie.webp" width="1600" height="1000"
+          chrome="espacedeals.com"
+          alt="{{s8-shot-cat-alt}}"
+          caption="{{s8-shot-cat-caption}}"></proof-shot>
+        <proof-shot
+          src="/espacedeals/03-fiche-produit.webp" width="1600" height="1000"
+          chrome="espacedeals.com"
+          alt="{{s8-shot-product-alt}}"
+          caption="{{s8-shot-product-caption}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 — Lessons and next steps -->
+  <section id="ensuite" class="teaser" aria-labelledby="ensuite-h">
+    <div class="wrap">
+      <p class="eyebrow">{{s9-eyebrow}}</p>
+      <h2 id="ensuite-h">{{s9-h2}}</h2>
+
+      <div class="seo-grid">
+        <div>
+          <h3 class="case-h3 case-h3--tight">{{s9-learned-h3}}</h3>
+          <ol class="method-list">
+            <li>{{s9-learned-1}}</li>
+            <li>{{s9-learned-2}}</li>
+            <li>{{s9-learned-3}}</li>
+            <li>{{s9-learned-4}}</li>
+          </ol>
+        </div>
+        <div class="plan-card">
+          <h3 class="case-h3 case-h3--tight">{{s9-next-h3}}</h3>
+          <p class="case-text">{{s9-next-intro}}</p>
+          <ol class="method-list">
+            <li>{{s9-next-1}}</li>
+            <li>{{s9-next-2}}</li>
+            <li>{{s9-next-3}}</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="pagenav">
+        {{s9-pagenav}}
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!--@include partials/footer.html-->
+
+<script type="module" src="/main.ts"></script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 # Mohamed Louai Bouraoui — portfolio
 
-> I improve how a product is found, understood, and measured.
+> Chargé e-commerce junior : catalogue, fiches produits & SEO e-commerce.
 
-A nine-page, static, visual-first portfolio. One flagship case study (Worku) shown in depth,
-supported by two Tuni'AR app design cases and the full career path.
+A static, bilingual e-commerce portfolio. French is the main language (`/`), English lives
+under `/en/`. The heart of the site is the Espace Deals case study, a complete WooCommerce
+demo store. Worku is a short "Expérience" block, and the two Tuni'AR app cases stay online as
+complementary design work.
 
-`ux-ui/` is the hub for all interface work: the Worku redesign in full, then the two app
-cases below it. Anything that links there — the homepage skill card, the footer, the about
-page — must describe all three, not just Worku.
+**Before merging to `main`:** every box in `CHECKLIST_AVANT_PUBLICATION.md` must be ticked.
 
 ## Run it
 
@@ -43,18 +43,33 @@ video, and two security headers.
 
 | Path | What it is |
 |---|---|
-| `index.html` | Homepage. Teaser sections only, each linking to a detail page |
-| `worku/` | The flagship case study and hub |
-| `seo/` `ux-ui/` `search-console/` `linkedin/` `analytics/` | One skill each |
-| `about/` | Career and education, including both design internships |
-| `wash-and-go/` `frostpeak/` | The two Tuni'AR app cases, visuals first. Linked from `ux-ui/` |
+| `templates/<page>.html` | Page structure with `{{key}}` slots |
+| `content/fr.json` `content/en.json` | Every word on the site, per language |
+| `index` → `/` | Home: headline, Espace Deals teaser, skills, Worku experience, contact |
+| `espace-deals` → `/espace-deals/` | The main case study, nine sections |
+| `about` → `/about/` | Career, education, skills, Worku details |
+| `wash-and-go` `frostpeak` | The two Tuni'AR app design cases |
+| `public/espacedeals/` | The 12 Espace Deals screenshots (placeholders until replaced) |
 | `partials/` | `head.html`, `nav.html`, `footer.html`, injected at build time |
 | `main.ts` | Device mockups, proof slots, lazy video, lightbox, mobile nav |
 | `styles.css` | Single hand-written stylesheet, no framework |
+| `scripts/i18n.mjs` | Page list, locales, rendering of every page in every language |
 | `vite.config.ts` | Multi-page inputs, partial includes, sitemap and robots generation |
 
-Adding a page means creating `slug/index.html` and adding `'slug'` to `PAGES` in
-`vite.config.ts`. It is then in the build, the sitemap and the checker automatically.
+Adding a page means creating `templates/slug.html`, adding its strings to both content files
+and adding `'slug'` to `PAGES` in `scripts/i18n.mjs`. It is then in the build, the sitemap
+and the checker automatically. The retired pages (`/worku/`, `/seo/`, `/ux-ui/`,
+`/search-console/`, `/linkedin/`, `/analytics/`) and the old `/fr/` URLs are 301-redirected in
+`vercel.json`.
+
+## Espace Deals screenshots
+
+`public/espacedeals/` holds 12 WebP files with fixed names (`01-accueil.webp` …
+`12-catalogue-meta.webp`). Today they are placeholders that say "Capture à venir". Drop a real
+screenshot in under the same name and it replaces the placeholder, no code change. The pages
+declare 1600×1000; if a real capture has another shape, update its `width`/`height` in
+`templates/espace-deals.html` to avoid layout shift. `npm run placeholders` recreates any
+missing placeholder and never overwrites a real file.
 
 ## Proof slots
 
@@ -80,20 +95,19 @@ documents where each crop came from.
 
 These are load-bearing. Do not let a future edit quietly break them.
 
-- No claim that Worku's traffic or rankings increased. The changes shipped in April and the
-  window was too short.
-- The Googlebot 403 was a **manual test**. It showed a risk, never a proven permanent block.
-- Average position 7.1 came from 673 impressions, mostly branded. It is shown as a starting
-  baseline, never as a win.
-- The LinkedIn growth from about 120 to 537 followers has several causes, not just posts.
-- **No GA4 dashboard and no GA4 numbers.** GA4 was basic checks only. `/analytics/` says
-  this in the first block on the page and offers a measurement plan instead.
-
-Every page that carries a number also carries the limits of that number.
+- Espace Deals is a **demo store**, said once in the case study intro: complete store built to
+  show the method, realistic products and prices, orders not processed, AI-generated images.
+- Actions and method only. **No sales, traffic or revenue figures** for Espace Deals.
+- Anything not confirmed is written `[À COMPLÉTER : …]`, never guessed.
+- AI tools named: Claude Code, Claude Design, Cowork, always "vérifiés et adaptés par moi".
+- Never claimed: ad campaigns (Meta, Google, TikTok), marketplace accounts, ERP, logistics,
+  affiliation, community management, photo or video shooting.
+- Worku: no claim that traffic or rankings increased. The Googlebot block was found in a
+  **manual test**.
 
 ## Quality
 
-All nine pages score 100 for performance, accessibility, best practices and SEO in
+The previous nine-page version scored 100 for performance, accessibility, best practices and SEO in
 Lighthouse, measured against the production build on 10 September 2026.
 
 Inter is self-hosted from `public/fonts/` as a single 48KB variable woff2, so first paint
