@@ -65,11 +65,11 @@ and the checker automatically. The retired pages (`/worku/`, `/seo/`, `/ux-ui/`,
 ## Espace Deals screenshots
 
 `public/espacedeals/` holds 12 WebP files with fixed names (`01-accueil.webp` …
-`12-catalogue-meta.webp`). Today they are placeholders that say "Capture à venir". Drop a real
-screenshot in under the same name and it replaces the placeholder, no code change. The pages
-declare 1600×1000; if a real capture has another shape, update its `width`/`height` in
-`templates/espace-deals.html` to avoid layout shift. `npm run placeholders` recreates any
-missing placeholder and never overwrites a real file.
+`12-catalogue-meta.webp`). 01 to 06 are real screenshots; 07 to 12 are still placeholders that
+say "Capture à venir". Drop a real screenshot in under the same name and it replaces the
+placeholder, no code change. The pages declare 1600×1000; if a real capture has another
+shape, update its `width`/`height` in `templates/espace-deals.html` to avoid layout shift.
+`npm run placeholders` recreates any missing placeholder and never overwrites a real file.
 
 ## Proof slots
 
@@ -96,7 +96,8 @@ documents where each crop came from.
 These are load-bearing. Do not let a future edit quietly break them.
 
 - Espace Deals is a **demo store**, said once in the case study intro: complete store built to
-  show the method, realistic products and prices, orders not processed, AI-generated images.
+  show the method, realistic products and prices, orders not processed, product images are
+  free-licence photos (Unsplash, Pexels).
 - Actions and method only. **No sales, traffic or revenue figures** for Espace Deals.
 - Anything not confirmed is written `[À COMPLÉTER : …]`, never guessed.
 - AI tools named: Claude Code, Claude Design, Cowork, always "vérifiés et adaptés par moi".
