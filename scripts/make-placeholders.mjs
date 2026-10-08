@@ -82,7 +82,7 @@ if (!existsSync(og)) {
   <rect width="100%" height="100%" fill="url(#grid)"/>
   <rect x="80" y="118" width="40" height="5" fill="#2864ff"/>
   <g font-family="Inter, Helvetica, Arial, sans-serif">
-    <text x="136" y="128" font-size="24" font-weight="800" letter-spacing="5" fill="#2864ff">MOHAMED LOUAI BOURAOUI · TUNIS</text>
+    <text x="136" y="128" font-size="24" font-weight="800" letter-spacing="5" fill="#2864ff">MOHAMED LOUAI BOURAOUI</text>
     <text x="80" y="250" font-size="78" font-weight="700" letter-spacing="-3" fill="#10131d">Chargé e-commerce junior</text>
   </g>
   <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" fill="#2864ff">

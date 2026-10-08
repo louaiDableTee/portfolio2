@@ -103,12 +103,12 @@ function partials(): Plugin {
 
         // The CV button self-heals. While the PDF is absent the link points at the
         // About page and relabels itself, so the site never ships a dead download.
-        // French pages get the French CV; if that file is ever missing they fall
-        // back to the English one rather than to no download at all.
+        // Both languages link the French CV until an English CV PDF is added to
+        // public/cv/; then put its path first in the English list.
         const cvCandidates =
           locale === 'fr'
             ? ['/cv/Mohamed-Louai-Bouraoui-CV-FR.pdf', '/cv/Mohamed-Louai-Bouraoui-CV.pdf']
-            : ['/cv/Mohamed-Louai-Bouraoui-CV.pdf'];
+            : ['/cv/Mohamed-Louai-Bouraoui-CV-FR.pdf', '/cv/Mohamed-Louai-Bouraoui-CV.pdf'];
         const cvPath = cvCandidates.find((p) => existsSync(resolve(root, 'public', p.slice(1)))) ?? '';
         const hasCv = cvPath !== '';
         const cvLabel = {

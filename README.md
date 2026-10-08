@@ -65,8 +65,8 @@ and the checker automatically. The retired pages (`/worku/`, `/seo/`, `/ux-ui/`,
 ## Espace Deals screenshots
 
 `public/espacedeals/` holds 12 WebP files with fixed names (`01-accueil.webp` …
-`12-catalogue-meta.webp`). 01 to 06 are real screenshots; 07 to 12 are still placeholders that
-say "Capture à venir". Drop a real screenshot in under the same name and it replaces the
+`12-catalogue-meta.webp`). 01 to 09 and 11 are real screenshots. 10 and 12 are still
+"Capture à venir" placeholders and are not shown on any page until the store is online. Drop a real screenshot in under the same name and it replaces the
 placeholder, no code change. The pages declare 1600×1000; if a real capture has another
 shape, update its `width`/`height` in `templates/espace-deals.html` to avoid layout shift.
 `npm run placeholders` recreates any missing placeholder and never overwrites a real file.

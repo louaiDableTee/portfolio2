@@ -143,7 +143,7 @@ export function renderPage(page, locale) {
   html = localiseLinks(html, locale);
   html = html.replace('%LANG_SWITCH%', langSwitch(page, locale));
   html = html.replace('</head>', `${alternates(page)}\n</head>`);
-  html = html.split('%OG_LOCALE%').join(locale === 'fr' ? 'fr_TN' : 'en');
+  html = html.split('%OG_LOCALE%').join(locale === 'fr' ? 'fr_FR' : 'en_US');
 
   return html;
 }
