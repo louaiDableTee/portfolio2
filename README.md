@@ -47,6 +47,8 @@ video, and two security headers.
 | `content/fr.json` `content/en.json` | Every word on the site, per language |
 | `index` → `/` | Home: headline, Espace Deals teaser, skills, Worku experience, contact |
 | `espace-deals` → `/espace-deals/` | The main case study, nine sections |
+| `worku` → `/worku/` | Worku experience: pivot, scope, prospecting, research, message, LinkedIn |
+| `ux-ui` → `/ux-ui/` | Customer-journey UX/UI on Worku, then the two Tuni'AR apps |
 | `about` → `/about/` | Career, education, skills, Worku details |
 | `wash-and-go` `frostpeak` | The two Tuni'AR app design cases |
 | `public/espacedeals/` | The 12 Espace Deals screenshots (placeholders until replaced) |
@@ -58,8 +60,8 @@ video, and two security headers.
 
 Adding a page means creating `templates/slug.html`, adding its strings to both content files
 and adding `'slug'` to `PAGES` in `scripts/i18n.mjs`. It is then in the build, the sitemap
-and the checker automatically. The retired pages (`/worku/`, `/seo/`, `/ux-ui/`,
-`/search-console/`, `/linkedin/`, `/analytics/`) and the old `/fr/` URLs are 301-redirected in
+and the checker automatically. The retired pages (`/seo/`, `/search-console/`,
+`/linkedin/`, `/analytics/`) and the old `/fr/` URLs are 301-redirected in
 `vercel.json`.
 
 ## Espace Deals screenshots

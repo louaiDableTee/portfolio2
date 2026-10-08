@@ -19,7 +19,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const LOCALES = ['fr', 'en'];
 export const DEFAULT_LOCALE = 'fr';
 
-export const PAGES = ['index', 'espace-deals', 'about', 'wash-and-go', 'frostpeak'];
+export const PAGES = ['index', 'espace-deals', 'worku', 'ux-ui', 'about', 'wash-and-go', 'frostpeak'];
 
 /** Locale-aware site path for a page: 'espace-deals' + 'en' -> '/en/espace-deals/'. */
 export function pagePath(page, locale) {

@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <!--@include partials/head.html-->
+  <title>{{meta-title}}</title>
+  <meta name="description" content="{{meta-description}}" />
+  <meta property="og:title" content="{{og-title}}" />
+  <meta property="og:description" content="{{og-description}}" />
+</head>
+<body id="top">
+
+<!--@include partials/nav.html-->
+
+<main id="main">
+
+  <header class="page-hero grid-bg">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="{{breadcrumb-label}}">
+        <ol>
+          <li>{{breadcrumb-home}}</li>
+          <li aria-current="page">{{breadcrumb-current}}</li>
+        </ol>
+      </nav>
+      <div class="hero-split">
+        <div class="hero-split__text">
+          <p class="eyebrow">{{hero-eyebrow}}</p>
+          <h1>{{hero-h1}}</h1>
+          <p class="lead">{{hero-lead}}</p>
+        </div>
+
+        <figure class="hero-mark">
+          <img src="/images/worku-logo.png" width="475" height="138" alt="{{alt-worku}}" />
+          <figcaption>{{figcaption-worku-tn}}</figcaption>
+        </figure>
+      </div>
+
+      <div class="beats">
+        <div class="beat">
+          <b>{{beat-1-b}}</b>
+          <p>{{beat-1-p}}</p>
+        </div>
+        <div class="beat">
+          <b>{{beat-2-b}}</b>
+          <p>{{beat-2-p}}</p>
+        </div>
+        <div class="beat beat--proof">
+          <b>{{beat-3-b}}</b>
+          <p>{{beat-3-p}}</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!--@include partials/icons.html-->
+
+  <!-- 2 — The pivot -->
+  <section id="pivot" class="teaser" aria-labelledby="story-h">
+    <div class="wrap">
+      <p class="eyebrow">{{pivot-eyebrow}}</p>
+      <h2 id="story-h">{{h2-we-built-the-wrong-product}}</h2>
+      <p class="teaser__line">{{p-worku-has-existed-in-two}}</p>
+
+      <ol class="journey">
+        <li class="journey__item">
+          <span class="journey__step">01</span>
+          <span class="journey__icon"><svg aria-hidden="true"><use href="#icon-post" /></svg></span>
+          <h3>{{h3-an-applicant-tracker}}</h3>
+          <p>{{p-recruiters-posted-a-job-an}}</p>
+          <span class="journey__when">{{span-the-first-version}}</span>
+        </li>
+        <li class="journey__item journey__item--fail">
+          <span class="journey__step">02</span>
+          <span class="journey__icon"><svg aria-hidden="true"><use href="#icon-stop" /></svg></span>
+          <h3>{{h3-it-did-not-work}}</h3>
+          <p>{{p-it-stayed-live-for-more}}</p>
+          <span class="journey__when">{{span-after-launch}}</span>
+        </li>
+        <li class="journey__item">
+          <span class="journey__step">03</span>
+          <span class="journey__icon"><svg aria-hidden="true"><use href="#icon-ask" /></svg></span>
+          <h3>{{h3-so-we-asked}}</h3>
+          <p>{{p-we-went-to-recruiters-and}}</p>
+          <span class="journey__when">{{span-before-the-rebuild}}</span>
+        </li>
+        <li class="journey__item journey__item--win">
+          <span class="journey__step">04</span>
+          <span class="journey__icon"><svg aria-hidden="true"><use href="#icon-database" /></svg></span>
+          <h3>{{h3-sourcing-instead}}</h3>
+          <p>{{p-millions-of-profiles-searchable-returned}}</p>
+          <span class="journey__when">{{span-january-2026}}</span>
+        </li>
+      </ol>
+
+      <div class="flows">
+        <figure class="flow flow--old">
+          <figcaption>
+            <span class="flow__tag">{{span-version-1}}</span>
+            <h3 class="flow__title">{{h3-the-applicant-tracker}}</h3>
+            <p class="flow__sub">{{p-live-for-more-than-six}}</p>
+          </figcaption>
+          <ol class="flow__steps">
+            <li>
+              <span class="flow__ico"><svg aria-hidden="true"><use href="#icon-post" /></svg></span>
+              <span>{{span-a-recruiter-posts-a-job}}</span>
+            </li>
+            <li>
+              <span class="flow__ico"><svg aria-hidden="true"><use href="#icon-account" /></svg></span>
+              <span>{{span-a-candidate-creates-an-account}}</span>
+            </li>
+            <li>
+              <span class="flow__ico"><svg aria-hidden="true"><use href="#icon-cv" /></svg></span>
+              <span>{{span-and-fills-it-in-cv}}</span>
+            </li>
+            <li>
+              <span class="flow__ico"><svg aria-hidden="true"><use href="#icon-ai" /></svg></span>
+              <span>{{span-an-ai-filters-and-scores}}</span>
+            </li>
+            <li>
+              <span class="flow__ico"><svg aria-hidden="true"><use href="#icon-rank" /></svg></span>
+              <span>{{span-the-recruiter-sees-the-score}}</span>
+            </li>
+          </ol>
+          <p class="flow__verdict">{{p-every-step-waited-on-the}}</p>
+        </figure>
+
+        <figure class="flow flow--new">
+          <figcaption>
+            <span class="flow__tag">{{span-version-2}}</span>
+            <h3 class="flow__title">{{h3-the-sourcing-platform}}</h3>
+            <p class="flow__sub">{{p-live-since-january-2026}}</p>
+          </figcaption>
+          <ol class="flow__steps">
+            <li>
+              <span class="flow__ico"><svg aria-hidden="true"><use href="#icon-search" /></svg></span>
+              <span>{{span-a-recruiter-describes-who-they}}</span>
+            </li>
+            <li>
+              <span class="flow__ico"><svg aria-hidden="true"><use href="#icon-database" /></svg></span>
+              <span>{{span-the-search-runs-across-millions}}</span>
+            </li>
+            <li>
+              <span class="flow__ico"><svg aria-hidden="true"><use href="#icon-contact" /></svg></span>
+              <span>{{span-verified-email-and-phone-come}}</span>
+            </li>
+          </ol>
+          <p class="flow__verdict">{{p-the-recruiter-goes-to-the}}</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 — Scope -->
+  <section id="perimetre" class="teaser grid-bg" aria-labelledby="scope-h">
+    <div class="wrap">
+      <p class="eyebrow">{{scope-eyebrow}}</p>
+      <h2 id="scope-h">{{scope-h2}}</h2>
+
+      <div class="cols2">
+        <div class="col col--team">
+          <p class="col__label">{{scope-team-label}}</p>
+          <ul>
+            <li>{{scope-team-1}}</li>
+            <li>{{scope-team-2}}</li>
+            <li>{{scope-team-3}}</li>
+            <li>{{scope-team-4}}</li>
+          </ul>
+        </div>
+        <div class="col col--mine">
+          <p class="col__label">{{scope-me-label}}</p>
+          <ul>
+            <li>{{scope-me-1}}</li>
+            <li>{{scope-me-2}}</li>
+            <li>{{scope-me-3}}</li>
+            <li>{{scope-me-4}}</li>
+            <li>{{scope-me-5}}</li>
+            <li>{{scope-me-6}}</li>
+            <li>{{scope-me-7}}</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="case-note">{{scope-ai}}</p>
+    </div>
+  </section>
+
+  <!-- 4 — Prospecting -->
+  <section id="prospection" class="teaser" aria-labelledby="prospect-h">
+    <div class="wrap">
+      <p class="eyebrow">{{prospect-eyebrow}}</p>
+      <h2 id="prospect-h">{{prospect-h2}}</h2>
+
+      <ol class="method-list">
+        <li>{{prospect-1}}</li>
+        <li>{{prospect-2}}</li>
+        <li>{{prospect-3}}</li>
+      </ol>
+
+      <figure class="mock-sheet">
+        <figcaption class="mock-sheet__caption">{{prospect-mock-caption}}</figcaption>
+        <div class="mock-sheet__scroll" tabindex="0" role="group" aria-label="{{prospect-mock-caption}}">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">{{col-prospect}}</th>
+                <th scope="col">{{col-type}}</th>
+                <th scope="col">{{col-speciality}}</th>
+                <th scope="col">{{col-linkedin}}</th>
+                <th scope="col">{{col-score}}</th>
+                <th scope="col">{{col-status}}</th>
+                <th scope="col">{{col-next}}</th>
+                <th scope="col">{{col-notes}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Prospect A</th><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+              <tr><th scope="row">Prospect B</th><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+              <tr><th scope="row">Prospect C</th><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5 — Research and product tests -->
+  <section id="recherche" class="teaser grid-bg" aria-labelledby="research-h">
+    <div class="wrap">
+      <p class="eyebrow">{{research-eyebrow}}</p>
+      <h2 id="research-h">{{research-h2}}</h2>
+      <p class="teaser__line">{{research-line}}</p>
+
+      <ol class="method-list">
+        <li>{{research-1}}</li>
+        <li>{{research-2}}</li>
+        <li>{{research-3}}</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6 — Message before / after -->
+  <section id="message" class="teaser" aria-labelledby="message-h">
+    <div class="wrap">
+      <p class="eyebrow">{{message-eyebrow}}</p>
+      <h2 id="message-h">{{message-h2}}</h2>
+
+      <div class="results">
+        <table>
+          <caption>{{caption-homepage-message-before-and-after}}</caption>
+          <thead>
+            <tr><th scope="col">{{th-element}}</th><th scope="col">{{th-before}}</th><th scope="col">{{th-after}}</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">{{th-angle}}</th>
+              <td class="was" data-label="{{th-before}}">{{td-technology-focused}}</td>
+              <td class="now" data-label="{{th-after}}">{{td-action-and-result-focused}}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{th-headline}}</th>
+              <td class="was" data-label="{{th-before}}">{{td-described-the-platform}}</td>
+              <td class="now" data-label="{{th-after}}" lang="fr">{{td-d-crivez-le-d-cideur}}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{th-call-to-action}}</th>
+              <td class="was" data-label="{{th-before}}">{{td-vague}}</td>
+              <td class="now" data-label="{{th-after}}" lang="fr">{{td-lancer-une-recherche-gratuite}}</td>
+            </tr>
+            <tr>
+              <th scope="row">{{th-audience-pages}}</th>
+              <td class="was" data-label="{{th-before}}">{{td-1-general-page}}</td>
+              <td class="now" data-label="{{th-after}}">{{td-4-dedicated-pages}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="teaser__visual">
+        <laptop-mockup
+          video="/videos/worku-homepage-restructure.mp4"
+          poster="/images/worku-homepage-poster.jpg"
+          alt="{{alt-screen-recording-of-the-restructured}}"></laptop-mockup>
+        <p class="mockup-caption">{{p-worku-tn-after-the-restructure}}</p>
+      </div>
+
+      <div class="proof-grid proof-grid--single">
+        <proof-shot src="/assets/worku/live/homepage-desktop-fold.png" width="1440" height="900"
+          chrome="worku.tn"
+          full="/assets/worku/live/homepage-desktop-full.png"
+          alt="{{alt-the-worku-homepage-as-it}}"
+          caption="{{caption-live-worku-tn-at-1440}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 — LinkedIn content -->
+  <section id="linkedin" class="teaser grid-bg" aria-labelledby="linkedin-h">
+    <div class="wrap">
+      <p class="eyebrow">{{linkedin-eyebrow}}</p>
+      <h2 id="linkedin-h">{{linkedin-h2}}</h2>
+      <p class="teaser__line">{{linkedin-line}}</p>
+
+      <ol class="method-list">
+        <li>{{li-start-from-a-real-problem}}</li>
+        <li>{{li-show-the-product-in-use}}</li>
+        <li>{{li-speak-to-one-audience-a}}</li>
+        <li>{{li-explain-the-product-s-evolution}}</li>
+      </ol>
+
+      <div class="figures">
+        <p class="figure">{{p-9-posts-published-february-to}}</p>
+        <p class="figure">{{p-4-content-pillars}}</p>
+        <p class="figure">{{p-0-paid-promotion-organic-only}}</p>
+      </div>
+
+      <div class="proof-grid proof-grid--three">
+        <proof-shot src="/assets/worku/linkedin-post-1.png" width="713" height="673"
+          chrome="linkedin.com/company/worku"
+          alt="{{alt-a-five-page-carousel-post-published}}"
+          caption="{{caption-linkedin-worku-company-page-june}}"></proof-shot>
+        <proof-shot src="/assets/worku/linkedin-post-2.png" width="581" height="642"
+          chrome="linkedin.com/company/worku"
+          alt="{{alt-a-linkedin-post-on-the}}"
+          caption="{{caption-linkedin-worku-company-page-six}}"></proof-shot>
+        <proof-shot src="/assets/worku/linkedin-post-3.png" width="530" height="698"
+          chrome="linkedin.com/company/worku"
+          alt="{{alt-a-linkedin-post-on-the--2}}"
+          caption="{{caption-linkedin-worku-company-page-trouvez}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 — What it taught me for e-commerce -->
+  <section id="ecommerce" class="teaser" aria-labelledby="lessons-h">
+    <div class="wrap">
+      <p class="eyebrow">{{lessons-eyebrow}}</p>
+      <h2 id="lessons-h">{{lessons-h2}}</h2>
+      <ol class="method-list">
+        <li>{{lessons-1}}</li>
+        <li>{{lessons-2}}</li>
+        <li>{{lessons-3}}</li>
+        <li>{{lessons-4}}</li>
+      </ol>
+
+      <!-- 9 — Limits -->
+      <div class="limits">
+        <p class="eyebrow">{{limits-eyebrow}}</p>
+        <h3>{{limits-h3}}</h3>
+        <ul>
+          <li>{{limits-1}}</li>
+          <li>{{limits-2}}</li>
+        </ul>
+      </div>
+
+      <div class="pagenav">
+        {{pagenav}}
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!--@include partials/footer.html-->
+
+<script type="module" src="/main.ts"></script>
+</body>
+</html>

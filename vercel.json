@@ -5,122 +5,102 @@
   "redirects": [
     {
       "source": "/fr/worku/",
-      "destination": "/#experience",
+      "destination": "/worku/",
       "permanent": true
     },
     {
       "source": "/fr/worku",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/worku/",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/worku",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/fr/seo/",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/fr/seo",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/seo/",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/seo",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/fr/search-console/",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/fr/search-console",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/search-console/",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/search-console",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/fr/analytics/",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/fr/analytics",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/analytics/",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/analytics",
-      "destination": "/#experience",
-      "permanent": true
-    },
-    {
-      "source": "/fr/linkedin/",
-      "destination": "/about/",
-      "permanent": true
-    },
-    {
-      "source": "/fr/linkedin",
-      "destination": "/about/",
-      "permanent": true
-    },
-    {
-      "source": "/linkedin/",
-      "destination": "/about/",
-      "permanent": true
-    },
-    {
-      "source": "/linkedin",
-      "destination": "/about/",
+      "destination": "/worku/",
       "permanent": true
     },
     {
       "source": "/fr/ux-ui/",
-      "destination": "/about/#competences",
+      "destination": "/ux-ui/",
       "permanent": true
     },
     {
       "source": "/fr/ux-ui",
-      "destination": "/about/#competences",
+      "destination": "/ux-ui/",
       "permanent": true
     },
     {
-      "source": "/ux-ui/",
-      "destination": "/about/#competences",
+      "source": "/fr/seo/",
+      "destination": "/worku/",
       "permanent": true
     },
     {
-      "source": "/ux-ui",
-      "destination": "/about/#competences",
+      "source": "/fr/seo",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/seo/",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/seo",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/search-console/",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/search-console",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/search-console/",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/search-console",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/analytics/",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/analytics",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/analytics/",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/analytics",
+      "destination": "/worku/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/linkedin/",
+      "destination": "/worku/#linkedin",
+      "permanent": true
+    },
+    {
+      "source": "/fr/linkedin",
+      "destination": "/worku/#linkedin",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin/",
+      "destination": "/worku/#linkedin",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin",
+      "destination": "/worku/#linkedin",
       "permanent": true
     },
     {

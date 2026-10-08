@@ -1423,3 +1423,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
   .tree__leaf{display:block;margin:4px 0 0 2px}
   .results--spec td:before{content:none}
 }
+
+/* --- Worku page: three LinkedIn captures, drawn prospect sheet --------- */
+.proof-grid--three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.mock-sheet{margin:34px 0 0;border:1px solid var(--line);background:#fff;border-radius:var(--radius);padding:18px 18px 8px;box-shadow:0 10px 35px rgba(20,31,60,.045)}
+.mock-sheet__caption{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:800;margin-bottom:12px}
+.mock-sheet__scroll{overflow-x:auto;padding-bottom:10px}
+.mock-sheet__scroll:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.mock-sheet table{border-collapse:collapse;width:100%;min-width:760px;font-size:13px}
+.mock-sheet th,.mock-sheet td{border:1px solid #e3e7ee;padding:9px 11px;text-align:left;white-space:nowrap}
+.mock-sheet thead th{background:#eef7f0;color:#1d5b37;font-weight:750;font-size:12px}
+.mock-sheet tbody th{font-weight:650;color:var(--ink)}
+.mock-sheet td{color:#9aa3b2}
+@media(max-width:900px){.proof-grid--three{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.proof-grid--three{grid-template-columns:1fr}}

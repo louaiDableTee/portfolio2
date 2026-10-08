@@ -227,7 +227,7 @@ class ProofShot extends HTMLElement {
 
     const missing = `
       <div class="proof-missing">
-        <b>[TODO: ${t.proofNeeded}]</b>
+        <b>${t.pending}</b>
         <code>${esc(src || 'file name to be decided')}</code>
         <span>${esc(alt || t.pending)}</span>
       </div>`;
@@ -321,7 +321,7 @@ class ProofVideo extends HTMLElement {
         <figure class="proof is-pending video-proof">
           <div class="proof-frame"><div class="proof-body">
             <div class="proof-missing">
-              <b>[TODO: ${t.proofNeeded}]</b>
+              <b>${t.pending}</b>
               <code>${esc(src || 'screen recording')}</code>
               <span>${esc(label)}</span>
             </div>
