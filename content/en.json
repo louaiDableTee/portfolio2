@@ -292,7 +292,7 @@
     "breadcrumb-current": "Worku",
     "hero-eyebrow": "Experience · B2B SaaS · Aug 2025 – Sep 2026",
     "hero-h1": "Worku: <span class=\"blue-italics\">launching and repositioning a B2B product.</span>",
-    "hero-lead": "Worku is a B2B SaaS platform that finds professional profiles and returns verified contact details for recruiters and sales teams. I’m one of its three co-founders (with two partners) and I was its digital marketing officer, working directly with the CTO, from August 2025 to September 2026.",
+    "hero-lead": "Worku is a B2B SaaS platform that finds professional profiles and returns verified contact details for recruiters and sales teams. I’m a co-founder, with two partners, and I was its digital marketing officer, working directly with the CTO, from August 2025 to September 2026.",
     "alt-worku": "Worku",
     "figcaption-worku-tn": "worku.tn",
     "beat-1-b": "The product",
@@ -502,7 +502,8 @@
     "span-branding": "Branding",
     "a-see-the-wash-and-go": "See the Wash and Go case",
     "alt-a-grid-of-wash-and": "A grid of Wash and Go app screens shown on angled phone mockups",
-    "pagenav": "<a class=\"seemore\" href=\"/espace-deals/\">See the Espace Deals case study</a>\n        <a class=\"seemore seemore--ghost\" href=\"/worku/\">See the Worku experience</a>"
+    "pagenav": "<a class=\"seemore\" href=\"/espace-deals/\">See the Espace Deals case study</a>\n        <a class=\"seemore seemore--ghost\" href=\"/worku/\">See the Worku experience</a>",
+    "s02-wireframe-chrome": "worku.tn — homepage wireframe, 1440"
   },
   "about": {
     "meta-title": "About: career, education and CV | Louai Bouraoui",

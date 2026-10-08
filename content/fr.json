@@ -292,7 +292,7 @@
     "breadcrumb-current": "Worku",
     "hero-eyebrow": "Expérience · SaaS B2B · août 2025 – sept. 2026",
     "hero-h1": "Worku : <span class=\"blue-italics\">lancer et repositionner un produit B2B.</span>",
-    "hero-lead": "Worku est une plateforme SaaS B2B qui trouve des profils professionnels et rend leurs coordonnées vérifiées, pour les recruteurs et les équipes commerciales. Je suis l’un de ses trois cofondateurs (avec deux associés) et j’y étais chargé de marketing digital, en lien direct avec le CTO, d’août 2025 à septembre 2026.",
+    "hero-lead": "Worku est une plateforme SaaS B2B qui trouve des profils professionnels et rend leurs coordonnées vérifiées, pour les recruteurs et les équipes commerciales. Je suis cofondateur, avec deux associés, et j’y étais chargé de marketing digital, en lien direct avec le CTO, d’août 2025 à septembre 2026.",
     "alt-worku": "Worku",
     "figcaption-worku-tn": "worku.tn",
     "beat-1-b": "Le produit",
@@ -502,7 +502,8 @@
     "span-branding": "Identité",
     "a-see-the-wash-and-go": "Voir le cas Wash and Go",
     "alt-a-grid-of-wash-and": "Une grille d&rsquo;écrans de l&rsquo;application Wash and Go présentés sur des mockups de téléphone inclinés",
-    "pagenav": "<a class=\"seemore\" href=\"/espace-deals/\">Voir l’étude de cas Espace Deals</a>\n        <a class=\"seemore seemore--ghost\" href=\"/worku/\">Voir l’expérience Worku</a>"
+    "pagenav": "<a class=\"seemore\" href=\"/espace-deals/\">Voir l’étude de cas Espace Deals</a>\n        <a class=\"seemore seemore--ghost\" href=\"/worku/\">Voir l’expérience Worku</a>",
+    "s02-wireframe-chrome": "worku.tn — wireframe de l’accueil, 1440"
   },
   "about": {
     "meta-title": "À propos : parcours, formation et CV | Louai Bouraoui",

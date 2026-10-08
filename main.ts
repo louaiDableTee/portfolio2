@@ -27,6 +27,8 @@ const UI = {
     enlargeOf: (alt: string) => `Enlarge: ${alt}`,
     close: 'Close',
     proofNeeded: 'Proof needed',
+    fullPage: 'Full page',
+    recording: 'Screen recording',
   },
   fr: {
     preview: 'Aperçu de l’interface du projet',
@@ -37,6 +39,8 @@ const UI = {
     enlargeOf: (alt: string) => `Agrandir : ${alt}`,
     close: 'Fermer',
     proofNeeded: 'Preuve à fournir',
+    fullPage: 'Page entière',
+    recording: 'Enregistrement',
   },
 } as const;
 
@@ -228,7 +232,7 @@ class ProofShot extends HTMLElement {
     const missing = `
       <div class="proof-missing">
         <b>${t.pending}</b>
-        <code>${esc(src || 'file name to be decided')}</code>
+        <code>${esc(src || t.pending)}</code>
         <span>${esc(alt || t.pending)}</span>
       </div>`;
 
@@ -260,7 +264,7 @@ class ProofShot extends HTMLElement {
     // ever offered as a link out.
     const fullLink =
       full && !pending
-        ? ` <a class="proof-full" href="${esc(full)}" target="_blank" rel="noopener">Full page</a>`
+        ? ` <a class="proof-full" href="${esc(full)}" target="_blank" rel="noopener">${t.fullPage}</a>`
         : '';
 
     const classes = ['proof'];
@@ -322,7 +326,7 @@ class ProofVideo extends HTMLElement {
           <div class="proof-frame"><div class="proof-body">
             <div class="proof-missing">
               <b>${t.pending}</b>
-              <code>${esc(src || 'screen recording')}</code>
+              <code>${esc(src || t.recording)}</code>
               <span>${esc(label)}</span>
             </div>
           </div></div>
