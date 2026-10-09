@@ -50,9 +50,11 @@
           <li><a href="#catalogue">{{toc-4}}</a></li>
           <li><a href="#fiches">{{toc-5}}</a></li>
           <li><a href="#boutique">{{toc-6}}</a></li>
+          <li><a href="#commandes">{{toc-orders}}</a></li>
           <li><a href="#suivi">{{toc-7}}</a></li>
           <li><a href="#images">{{toc-8}}</a></li>
           <li><a href="#ensuite">{{toc-9}}</a></li>
+          <li><a href="#exercices">{{toc-ex}}</a></li>
         </ol>
       </nav>
     </div>
@@ -248,6 +250,13 @@
           alt="{{s5-shot-rich-alt}}"
           caption="{{s5-shot-rich-caption}}"></proof-shot>
       </div>
+      <div class="proof-grid proof-grid--single">
+        <proof-shot
+          src="/espacedeals/13-guide.webp" width="1600" height="1000"
+          chrome="espacedeals.com"
+          alt="{{s5-shot-guide-alt}}"
+          caption="{{s5-shot-guide-caption}}"></proof-shot>
+      </div>
     </div>
   </section>
 
@@ -293,8 +302,31 @@
     </div>
   </section>
 
-  <!-- 7 — Tracking -->
-  <section id="suivi" class="teaser" aria-labelledby="suivi-h">
+  <!-- 7 — Orders and returns -->
+  <section id="commandes" class="teaser" aria-labelledby="commandes-h">
+    <div class="wrap">
+      <p class="eyebrow">{{orders-eyebrow}}</p>
+      <h2 id="commandes-h">{{orders-h2}}</h2>
+      <p class="teaser__line">{{orders-line}}</p>
+
+      <ol class="method-list">
+        <li>{{orders-1}}</li>
+        <li>{{orders-2}}</li>
+        <li>{{orders-3}}</li>
+      </ol>
+
+      <div class="proof-grid proof-grid--single">
+        <proof-shot
+          src="/espacedeals/14-commande-retour.webp" width="1600" height="1000"
+          chrome="espacedeals.com/wp-admin"
+          alt="{{orders-shot-alt}}"
+          caption="{{orders-shot-caption}}"></proof-shot>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 — Tracking -->
+  <section id="suivi" class="teaser grid-bg" aria-labelledby="suivi-h">
     <div class="wrap">
       <p class="eyebrow">{{s7-eyebrow}}</p>
       <h2 id="suivi-h">{{s7-h2}}</h2>
@@ -319,8 +351,8 @@
     </div>
   </section>
 
-  <!-- 8 — The result, storefront side -->
-  <section id="images" class="teaser grid-bg" aria-labelledby="images-h">
+  <!-- 9 — The result, storefront side -->
+  <section id="images" class="teaser" aria-labelledby="images-h">
     <div class="wrap">
       <p class="eyebrow">{{s8-eyebrow}}</p>
       <h2 id="images-h">{{s8-h2}}</h2>
@@ -348,8 +380,8 @@
     </div>
   </section>
 
-  <!-- 9 — Lessons and next steps -->
-  <section id="ensuite" class="teaser" aria-labelledby="ensuite-h">
+  <!-- 10 — Lessons and next steps -->
+  <section id="ensuite" class="teaser grid-bg" aria-labelledby="ensuite-h">
     <div class="wrap">
       <p class="eyebrow">{{s9-eyebrow}}</p>
       <h2 id="ensuite-h">{{s9-h2}}</h2>
@@ -376,6 +408,46 @@
           </ol>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 11 — Side exercises (not the store) -->
+  <section id="exercices" class="teaser" aria-labelledby="exercices-h">
+    <div class="wrap">
+      <p class="eyebrow">{{ex-eyebrow}}</p>
+      <h2 id="exercices-h">{{ex-h2}}</h2>
+      <p class="teaser__line">{{ex-line}}</p>
+
+      <article class="content-card exercise">
+        <h3 class="card-h">{{ex-amazon-h3}}</h3>
+        <p>{{ex-amazon-p}}</p>
+        <div class="tags">{{ex-amazon-tags}}</div>
+        <div class="proof-grid proof-grid--single">
+          <proof-shot
+            src="/espacedeals/15-fiches-amazon.webp" width="1600" height="638"
+            chrome="docs.google.com/spreadsheets"
+            alt="{{ex-amazon-shot-alt}}"
+            caption="{{ex-amazon-shot-caption}}"></proof-shot>
+        </div>
+      </article>
+
+      <article class="content-card exercise">
+        <h3 class="card-h">{{ex-kpi-h3}}</h3>
+        <p>{{ex-kpi-p}}</p>
+        <div class="tags">{{ex-kpi-tags}}</div>
+        <div class="proof-grid">
+          <proof-shot
+            src="/espacedeals/16-rapport-kpi.webp" width="1600" height="688"
+            chrome="docs.google.com/spreadsheets"
+            alt="{{ex-kpi-shot-1-alt}}"
+            caption="{{ex-kpi-shot-1-caption}}"></proof-shot>
+          <proof-shot
+            src="/espacedeals/17-rapport-kpi-actions.webp" width="1600" height="729"
+            chrome="docs.google.com/spreadsheets"
+            alt="{{ex-kpi-shot-2-alt}}"
+            caption="{{ex-kpi-shot-2-caption}}"></proof-shot>
+        </div>
+      </article>
 
       <div class="pagenav">
         {{s9-pagenav}}

@@ -1273,3 +1273,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 .mock-sheet td{color:#9aa3b2}
 @media(max-width:900px){.proof-grid--three{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.proof-grid--three{grid-template-columns:1fr}}
+
+/* --- case study: side exercises ------------------------------------- */
+.exercise{margin-top:24px;padding:28px}
+.exercise .card-h{font-size:22px}
+.exercise > p{max-width:76ch}
+.exercise .tags{margin-top:14px}
+.exercise .proof-grid{margin-top:22px}
+@media(max-width:600px){.exercise{padding:20px}}
