@@ -42,6 +42,17 @@
         <p>{{demo-p}}</p>
       </aside>
 
+      <aside class="summary-box" aria-labelledby="summary-h">
+        <h2 id="summary-h" class="summary-box__h">{{summary-h}}</h2>
+        <ul>
+          <li><a href="#catalogue">{{summary-1}}</a></li>
+          <li><a href="#mots-cles">{{summary-2}}</a></li>
+          <li><a href="#boutique">{{summary-3}}</a></li>
+          <li><a href="#commandes">{{summary-4}}</a></li>
+          <li><a href="#suivi">{{summary-5}}</a></li>
+        </ul>
+      </aside>
+
       <nav class="toc" aria-label="{{toc-label}}">
         <ol>
           <li><a href="#contexte">{{toc-1}}</a></li>
@@ -314,6 +325,27 @@
         <li>{{orders-2}}</li>
         <li>{{orders-3}}</li>
       </ol>
+
+      <h3 class="case-h3">{{msg-h3}}</h3>
+      <p class="case-text">{{msg-intro}}</p>
+      <div class="msg-grid">
+        <figure class="msg-card">
+          <figcaption class="msg-card__h">{{msg-1-h}}</figcaption>
+          <blockquote>{{msg-1}}</blockquote>
+        </figure>
+        <figure class="msg-card">
+          <figcaption class="msg-card__h">{{msg-2-h}}</figcaption>
+          <blockquote>{{msg-2}}</blockquote>
+        </figure>
+        <figure class="msg-card">
+          <figcaption class="msg-card__h">{{msg-3-h}}</figcaption>
+          <blockquote>{{msg-3}}</blockquote>
+        </figure>
+        <figure class="msg-card">
+          <figcaption class="msg-card__h">{{msg-4-h}}</figcaption>
+          <blockquote>{{msg-4}}</blockquote>
+        </figure>
+      </div>
 
       <div class="proof-grid proof-grid--single">
         <proof-shot

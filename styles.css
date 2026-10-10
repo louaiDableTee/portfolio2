@@ -1194,7 +1194,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 .toc a:hover{border-color:#c9d8ff;color:var(--blue)}
 
 /* Section anchors land below the sticky nav, not under it. */
-.teaser[id]{scroll-margin-top:70px}
+.teaser[id]{scroll-margin-top:80px}
 
 .case-h3{font-size:22px;letter-spacing:-.03em;margin:40px 0 0}
 .case-h3--tight{margin-top:0}
@@ -1281,3 +1281,26 @@ footer{border-top:1px solid var(--line);padding:56px 0 26px;color:var(--muted);f
 .exercise .tags{margin-top:14px}
 .exercise .proof-grid{margin-top:22px}
 @media(max-width:600px){.exercise{padding:20px}}
+
+/* --- case study: 30-second summary ---------------------------------- *
+   Sits under the demo notice. White card with a blue rule so the two
+   boxes read as different things: one is a caveat, this one a digest. */
+.summary-box{margin-top:16px;border:1px solid var(--line);border-left:4px solid var(--blue);background:#fff;border-radius:18px;padding:20px 24px;max-width:860px;box-shadow:0 10px 30px rgba(20,31,60,.05)}
+.summary-box__h{font-size:13px !important;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:800;margin:0 0 10px !important;line-height:1.3 !important}
+.summary-box ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.summary-box li{position:relative;padding-left:24px;font-size:15px;line-height:1.55}
+.summary-box li:before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg)}
+.summary-box a{color:var(--ink);text-decoration:underline;text-decoration-color:#c9d8ff;text-underline-offset:3px}
+.summary-box a:hover{color:var(--blue);text-decoration-color:var(--blue)}
+
+/* --- case study: customer message templates -------------------------- */
+.msg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+.msg-card{margin:0;border:1px solid var(--line);background:#fff;border-radius:18px;padding:20px}
+.msg-card__h{font-size:15px;font-weight:750;letter-spacing:-.01em;margin-bottom:10px}
+.msg-card blockquote{margin:0;padding:12px 14px;border-left:3px solid var(--blue);background:var(--blue-soft);border-radius:0 12px 12px 0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+.msg-card mark.ph{background:#fff3c4;color:#6b4e00;border-radius:3px;padding:0 1px;font-weight:650}
+@media(max-width:700px){.msg-grid{grid-template-columns:1fr}}
+
+/* --- contact block: visible email ------------------------------------ */
+.cta .contact-email{margin-top:6px}
+.cta .contact-email a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:650;word-break:break-all}

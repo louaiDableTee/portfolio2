@@ -9,74 +9,74 @@ Les numéros de ligne correspondent à la version de ce commit ; si les fichiers
 ## Images produits
 
 - [x] Photos libres de droits (Unsplash, Pexels) pour les 20 produits
-  - `/espace-deals/` (`s5-pages-2`) → [fr.json:221](content/fr.json#L221) · [en.json:221](content/en.json#L221)
+  - `/espace-deals/` (`s5-pages-2`) → [fr.json:227](content/fr.json#L227) · [en.json:227](content/en.json#L227)
   - `/espace-deals/` (`demo-p`) → [fr.json:132](content/fr.json#L132) · [en.json:132](content/en.json#L132)
 - [x] Texte alternatif écrit pour chaque image
-  - `/espace-deals/` (`s5-pages-3`) → [fr.json:222](content/fr.json#L222) · [en.json:222](content/en.json#L222)
+  - `/espace-deals/` (`s5-pages-3`) → [fr.json:228](content/fr.json#L228) · [en.json:228](content/en.json#L228)
 
 ## Accueil et en-tête de la boutique en français
 
 - [x] Hero, catégories et produits mis en avant
-  - `/espace-deals/` (`s6-site-1`) → [fr.json:241](content/fr.json#L241) · [en.json:241](content/en.json#L241)
+  - `/espace-deals/` (`s6-site-1`) → [fr.json:247](content/fr.json#L247) · [en.json:247](content/en.json#L247)
   - `/` (`case-shot-caption`) → [fr.json:54](content/fr.json#L54) · [en.json:54](content/en.json#L54)
-  - `/espace-deals/` (`s8-shot-home-caption`) → [fr.json:265](content/fr.json#L265) · [en.json:265](content/en.json#L265)
+  - `/espace-deals/` (`s8-shot-home-caption`) → [fr.json:271](content/fr.json#L271) · [en.json:271](content/en.json#L271)
 - [x] Barre de réassurance : paiement à la livraison, livraison 7 DT / gratuite dès 150 DT, retours
-  - `/espace-deals/` (`s6-site-1`) → [fr.json:241](content/fr.json#L241) · [en.json:241](content/en.json#L241)
+  - `/espace-deals/` (`s6-site-1`) → [fr.json:247](content/fr.json#L247) · [en.json:247](content/en.json#L247)
   - `/` (`case-shot-caption`) → [fr.json:54](content/fr.json#L54) · [en.json:54](content/en.json#L54)
-  - `/espace-deals/` (`s8-shot-home-caption`) → [fr.json:265](content/fr.json#L265) · [en.json:265](content/en.json#L265)
+  - `/espace-deals/` (`s8-shot-home-caption`) → [fr.json:271](content/fr.json#L271) · [en.json:271](content/en.json#L271)
 - [x] Mon propre logo (lien Facebook retiré du site)
-  - `/espace-deals/` (`s6-site-1`) → [fr.json:241](content/fr.json#L241) · [en.json:241](content/en.json#L241)
+  - `/espace-deals/` (`s6-site-1`) → [fr.json:247](content/fr.json#L247) · [en.json:247](content/en.json#L247)
 
 ## SEO on-page avec Rank Math
 
 - [x] Title et meta description pour l’accueil, les 5 catégories et les 20 fiches produits, écrits depuis la sheet
-  - `/espace-deals/` (`s5-seo-1`) → [fr.json:224](content/fr.json#L224) · [en.json:224](content/en.json#L224)
-  - `/espace-deals/` (`s5-line`) → [fr.json:218](content/fr.json#L218) · [en.json:218](content/en.json#L218)
+  - `/espace-deals/` (`s5-seo-1`) → [fr.json:230](content/fr.json#L230) · [en.json:230](content/en.json#L230)
+  - `/espace-deals/` (`s5-line`) → [fr.json:224](content/fr.json#L224) · [en.json:224](content/en.json#L224)
   - `/` (`case-step-4`) → [fr.json:58](content/fr.json#L58) · [en.json:58](content/en.json#L58)
-  - `/espace-deals/` (`s5-shot-rankmath-caption`) → [fr.json:230](content/fr.json#L230) · [en.json:230](content/en.json#L230)
+  - `/espace-deals/` (`s5-shot-rankmath-caption`) → [fr.json:236](content/fr.json#L236) · [en.json:236](content/en.json#L236)
 - [x] Un texte d’introduction pour chaque catégorie
-  - `/espace-deals/` (`s5-seo-2`) → [fr.json:225](content/fr.json#L225) · [en.json:225](content/en.json#L225)
-  - `/espace-deals/` (`s8-shot-cat-caption`) → [fr.json:267](content/fr.json#L267) · [en.json:267](content/en.json#L267)
+  - `/espace-deals/` (`s5-seo-2`) → [fr.json:231](content/fr.json#L231) · [en.json:231](content/en.json#L231)
+  - `/espace-deals/` (`s8-shot-cat-caption`) → [fr.json:273](content/fr.json#L273) · [en.json:273](content/en.json#L273)
 - [x] H1 et H2 propres sur chaque page
-  - `/espace-deals/` (`s5-seo-3`) → [fr.json:226](content/fr.json#L226) · [en.json:226](content/en.json#L226)
+  - `/espace-deals/` (`s5-seo-3`) → [fr.json:232](content/fr.json#L232) · [en.json:232](content/en.json#L232)
 - [x] Maillage interne catégories ↔ produits ↔ guide
-  - `/espace-deals/` (`s5-seo-4`) → [fr.json:227](content/fr.json#L227) · [en.json:227](content/en.json#L227)
-  - `/espace-deals/` (`s5-line`) → [fr.json:218](content/fr.json#L218) · [en.json:218](content/en.json#L218)
+  - `/espace-deals/` (`s5-seo-4`) → [fr.json:233](content/fr.json#L233) · [en.json:233](content/en.json#L233)
+  - `/espace-deals/` (`s5-line`) → [fr.json:224](content/fr.json#L224) · [en.json:224](content/en.json#L224)
 - [x] Fil d’Ariane et sitemap XML
-  - `/espace-deals/` (`s5-seo-4`) → [fr.json:227](content/fr.json#L227) · [en.json:227](content/en.json#L227)
+  - `/espace-deals/` (`s5-seo-4`) → [fr.json:233](content/fr.json#L233) · [en.json:233](content/en.json#L233)
 - [x] Rank Math cité dans la liste d’outils
   - `/` (`tools-tags`) → [fr.json:82](content/fr.json#L82) · [en.json:82](content/en.json#L82)
-  - `/about/` (`skills-tools-tags`) → [fr.json:598](content/fr.json#L598) · [en.json:598](content/en.json#L598)
+  - `/about/` (`skills-tools-tags`) → [fr.json:614](content/fr.json#L614) · [en.json:614](content/en.json#L614)
   - `/espace-deals/` (`fact-stack-dd`) → [fr.json:128](content/fr.json#L128) · [en.json:128](content/en.json#L128)
 
 ## Données structurées
 
 - [x] Schéma Product / Offer (JSON-LD) sur les fiches produits, validé dans le test des résultats enrichis
-  - `/espace-deals/` (`s5-seo-5`) → [fr.json:228](content/fr.json#L228) · [en.json:228](content/en.json#L228)
-  - `/espace-deals/` (`s5-shot-rich-caption`) → [fr.json:232](content/fr.json#L232) · [en.json:232](content/en.json#L232)
+  - `/espace-deals/` (`s5-seo-5`) → [fr.json:234](content/fr.json#L234) · [en.json:234](content/en.json#L234)
+  - `/espace-deals/` (`s5-shot-rich-caption`) → [fr.json:238](content/fr.json#L238) · [en.json:238](content/en.json#L238)
   - `/` (`case-step-4`) → [fr.json:58](content/fr.json#L58) · [en.json:58](content/en.json#L58)
   - `/` (`skill-3-p`) → [fr.json:75](content/fr.json#L75) · [en.json:75](content/en.json#L75)
 
 ## Suivi GA4 + Google Tag Manager (GTM4WP)
 
 - [x] Événements view_item_list, view_item, add_to_cart, begin_checkout, purchase (aussi en dur dans `templates/espace-deals.html`, bloc `.funnel`)
-  - `/espace-deals/` (`s7-line`) → [fr.json:251](content/fr.json#L251) · [en.json:251](content/en.json#L251)
-  - `/espace-deals/` (`s7-shot-ga4-caption`) → [fr.json:260](content/fr.json#L260) · [en.json:260](content/en.json#L260)
+  - `/espace-deals/` (`s7-line`) → [fr.json:257](content/fr.json#L257) · [en.json:257](content/en.json#L257)
+  - `/espace-deals/` (`s7-shot-ga4-caption`) → [fr.json:266](content/fr.json#L266) · [en.json:266](content/en.json#L266)
   - `/` (`case-step-6`) → [fr.json:60](content/fr.json#L60) · [en.json:60](content/en.json#L60)
   - `/` (`skill-4-p`) → [fr.json:79](content/fr.json#L79) · [en.json:79](content/en.json#L79)
-  - `/about/` (`skills-ecom-6`) → [fr.json:596](content/fr.json#L596) · [en.json:596](content/en.json#L596)
+  - `/about/` (`skills-ecom-6`) → [fr.json:612](content/fr.json#L612) · [en.json:612](content/en.json#L612)
 - [x] Vérifiés dans l’Aperçu GTM et GA4 DebugView
-  - `/espace-deals/` (`s7-checked`) → [fr.json:258](content/fr.json#L258) · [en.json:258](content/en.json#L258)
+  - `/espace-deals/` (`s7-checked`) → [fr.json:264](content/fr.json#L264) · [en.json:264](content/en.json#L264)
 - [x] GTM4WP / GA4 cités dans les outils
   - `/` (`tools-tags`) → [fr.json:82](content/fr.json#L82) · [en.json:82](content/en.json#L82)
-  - `/about/` (`skills-tools-tags`) → [fr.json:598](content/fr.json#L598) · [en.json:598](content/en.json#L598)
+  - `/about/` (`skills-tools-tags`) → [fr.json:614](content/fr.json#L614) · [en.json:614](content/en.json#L614)
   - `/` (`hero-pills`) → [fr.json:42](content/fr.json#L42) · [en.json:42](content/en.json#L42)
 
 ## Test
 
 - [x] Commande test complète avec paiement à la livraison, de la fiche produit à la confirmation
-  - `/espace-deals/` (`s6-site-4`) → [fr.json:244](content/fr.json#L244) · [en.json:244](content/en.json#L244)
-  - `/espace-deals/` (`s6-shot-order-caption`) → [fr.json:248](content/fr.json#L248) · [en.json:248](content/en.json#L248)
+  - `/espace-deals/` (`s6-site-4`) → [fr.json:250](content/fr.json#L250) · [en.json:250](content/en.json#L250)
+  - `/espace-deals/` (`s6-shot-order-caption`) → [fr.json:254](content/fr.json#L254) · [en.json:254](content/en.json#L254)
   - `/` (`case-step-5`) → [fr.json:59](content/fr.json#L59) · [en.json:59](content/en.json#L59)
 
 ## Démo locale : affirmations alignées (fait le 8 oct. 2026)
@@ -84,29 +84,29 @@ Les numéros de ligne correspondent à la version de ce commit ; si les fichiers
 - [x] Ligne « Boutique / espacedeals.com [À COMPLÉTER : lien] » retirée de la fiche d’infos
   - `/espace-deals/` (`fact-period-dd`) → [fr.json:124](content/fr.json#L124) · [en.json:124](content/en.json#L124)
 - [x] « Mise en ligne prévue » au lieu de « puis mise en ligne »
-  - `/espace-deals/` (`s1-build-1`) → [fr.json:153](content/fr.json#L153) · [en.json:153](content/en.json#L153)
+  - `/espace-deals/` (`s1-build-1`) → [fr.json:159](content/fr.json#L159) · [en.json:159](content/en.json#L159)
 - [x] « 26 pages au plan » (le guide n’est plus marqué « prévu » depuis le 9 oct.)
   - `/` (`case-fig-pages`) → [fr.json:51](content/fr.json#L51) · [en.json:51](content/en.json#L51)
   - `/` (`case-step-2`) → [fr.json:56](content/fr.json#L56) · [en.json:56](content/en.json#L56)
-  - `/espace-deals/` (`s3-h2`) → [fr.json:176](content/fr.json#L176) · [en.json:176](content/en.json#L176)
-  - `/espace-deals/` (`s3-line`) → [fr.json:177](content/fr.json#L177) · [en.json:177](content/en.json#L177)
-  - `/espace-deals/` (`s3-fig-guide`) → [fr.json:180](content/fr.json#L180) · [en.json:180](content/en.json#L180)
-  - `/espace-deals/` (`s3-tree-guide`) → [fr.json:190](content/fr.json#L190) · [en.json:190](content/en.json#L190)
+  - `/espace-deals/` (`s3-h2`) → [fr.json:182](content/fr.json#L182) · [en.json:182](content/en.json#L182)
+  - `/espace-deals/` (`s3-line`) → [fr.json:183](content/fr.json#L183) · [en.json:183](content/en.json#L183)
+  - `/espace-deals/` (`s3-fig-guide`) → [fr.json:186](content/fr.json#L186) · [en.json:186](content/en.json#L186)
+  - `/espace-deals/` (`s3-tree-guide`) → [fr.json:196](content/fr.json#L196) · [en.json:196](content/en.json#L196)
 - [x] Politique de confidentialité et lien Facebook retirés de la section 06
-  - `/espace-deals/` (`s6-site-1`) → [fr.json:241](content/fr.json#L241) · [en.json:241](content/en.json#L241)
-  - `/espace-deals/` (`s6-site-2`) → [fr.json:242](content/fr.json#L242) · [en.json:242](content/en.json#L242)
+  - `/espace-deals/` (`s6-site-1`) → [fr.json:247](content/fr.json#L247) · [en.json:247](content/en.json#L247)
+  - `/espace-deals/` (`s6-site-2`) → [fr.json:248](content/fr.json#L248) · [en.json:248](content/en.json#L248)
 - [x] Paragraphes Search Console et Meta retirés de la section 07, captures 10 et 12 retirées de la page
-  - `/espace-deals/` (`s7-checked`) → [fr.json:258](content/fr.json#L258) · [en.json:258](content/en.json#L258)
-  - `/espace-deals/` (`toc-7`) → [fr.json:140](content/fr.json#L140) · [en.json:140](content/en.json#L140)
+  - `/espace-deals/` (`s7-checked`) → [fr.json:264](content/fr.json#L264) · [en.json:264](content/en.json#L264)
+  - `/espace-deals/` (`toc-7`) → [fr.json:146](content/fr.json#L146) · [en.json:146](content/en.json#L146)
 - [x] Search Console et Meta for WooCommerce présentés comme étapes suivantes
-  - `/espace-deals/` (`s9-next-1`) → [fr.json:279](content/fr.json#L279) · [en.json:279](content/en.json#L279)
-  - `/espace-deals/` (`s9-next-2`) → [fr.json:280](content/fr.json#L280) · [en.json:280](content/en.json#L280)
+  - `/espace-deals/` (`s9-next-1`) → [fr.json:285](content/fr.json#L285) · [en.json:285](content/en.json#L285)
+  - `/espace-deals/` (`s9-next-2`) → [fr.json:286](content/fr.json#L286) · [en.json:286](content/en.json#L286)
 - [x] Suivi sur l’accueil : GA4 via GTM, vérifié dans DebugView ; Search Console rattaché à Worku
   - `/` (`case-step-6`) → [fr.json:60](content/fr.json#L60) · [en.json:60](content/en.json#L60)
   - `/` (`skill-4-p`) → [fr.json:79](content/fr.json#L79) · [en.json:79](content/en.json#L79)
 - [x] Outils : Search Console et Meta for WooCommerce retirés des outils Espace Deals
   - `/` (`tools-tags`) → [fr.json:82](content/fr.json#L82) · [en.json:82](content/en.json#L82)
-  - `/about/` (`skills-tools-tags`) → [fr.json:598](content/fr.json#L598) · [en.json:598](content/en.json#L598)
+  - `/about/` (`skills-tools-tags`) → [fr.json:614](content/fr.json#L614) · [en.json:614](content/en.json#L614)
 
 ## Captures d’écran
 
@@ -136,6 +136,14 @@ Les numéros de ligne correspondent à la version de ce commit ; si les fichiers
 - [x] Exercice Amazon : 3 produits réécrits au format Amazon.fr, longueurs contrôlées par formule, pas de compte vendeur. Capture `15-fiches-amazon`.
 - [x] Rapport KPI sur le compte de démonstration public GA4 (Google Merchandise Store, pas Espace Deals), 4 actions proposées. Captures `16-rapport-kpi` et `17-rapport-kpi-actions`.
 - [x] Ligne « Lecture des KPI e-commerce » ajoutée à la carte Suivi de l’accueil.
+
+## Ajouts du 10 oct. 2026
+
+- [x] Accueil : nouvelle intro (« J’ai construit et configuré une boutique WooCommerce complète… ») et 8 étiquettes du hero ; « SEO on-page », « Données structurées » et « Google Search Console » retirés du hero seulement.
+- [x] À propos : « faire tourner une boutique » remplacé par « une boutique WooCommerce complète, construite et configurée de A à Z ». Plus aucune occurrence de « faire tourner » / « run a store ».
+- [x] Étude de cas : encadré « En 30 secondes » sous l’avis « Boutique de démonstration », 5 liens vers les sections.
+- [ ] Section 07 : 4 modèles de messages clients (confirmation, retard, client injoignable, retour) — à confirmer : rédigés par moi pour la boutique de démonstration.
+- [x] Contact : adresse e-mail visible dans le bloc bleu (lien mailto) ; déjà visible dans le pied de page de toutes les pages.
 
 ## À faire
 
